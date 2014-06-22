@@ -1,0 +1,45 @@
+{
+	"name": "color-matrix",
+	"description": "Apply filters to colors to simulate things like color blindness and night vision.",
+	"version": "0.0.0",
+	"homepage": "https://github.com/skratchdot/color-matrix",
+	"author": {
+		"name": "skratchdot",
+		"email": "git@skratchdot.com"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git://github.com/skratchdot/color-matrix.git"
+	},
+	"bugs": {
+		"url": "https://github.com/skratchdot/color-matrix/issues"
+	},
+	"licenses": [
+		{
+			"type": "MIT",
+			"url": "https://github.com/skratchdot/color-matrix/blob/master/LICENSE-MIT"
+		}
+	],
+	"main": "lib/color-matrix",
+	"engines": {
+		"node": ">= 0.8.0"
+	},
+	"scripts": {
+		"test": "gulp test"
+	},
+	"dependencies": {
+		"onecolor": "^2.4.0"
+	},
+	"devDependencies": {
+	    "gulp": "^3.8.1",
+	    "gulp-jshint": "^1.6.3",
+	    "gulp-nodeunit": "0.0.5"
+	},
+	"keywords": [
+		"color",
+		"blindness",
+		"filters",
+		"matrix",
+		"feColorMatrix"
+	]
+}
