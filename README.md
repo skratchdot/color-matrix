@@ -3,7 +3,6 @@
 [![NPM version](https://badge.fury.io/js/color-matrix.svg)](http://badge.fury.io/js/color-matrix)
 [![Build Status](https://travis-ci.org/skratchdot/color-matrix.png?branch=master)](https://travis-ci.org/skratchdot/color-matrix)
 [![Code Climate](https://codeclimate.com/github/skratchdot/color-matrix.png)](https://codeclimate.com/github/skratchdot/color-matrix)
-[![Coverage Status](https://coveralls.io/repos/skratchdot/color-matrix/badge.png)](https://coveralls.io/r/skratchdot/color-matrix)
 [![Dependency Status](https://david-dm.org/skratchdot/color-matrix.svg)](https://david-dm.org/skratchdot/color-matrix)
 [![devDependency Status](https://david-dm.org/skratchdot/color-matrix/dev-status.svg)](https://david-dm.org/skratchdot/color-matrix#info=devDependencies)
 
@@ -16,8 +15,13 @@ Apply filters to colors to simulate things like color blindness and night vision
 library tries to simulate the behavior of the svg filter effect 
 [feColorMatrix](https://developer.mozilla.org/en-US/docs/Web/SVG/Element/feColorMatrix).
 
+It comes in 2 formats: [a node.js library](#Getting-Started) and a
+[command line tool](#Command-Line-Tool).
 
-## Getting Started
+
+## Node.js Library
+
+### Getting Started
 
 Install the module with: `npm install color-matrix`
 
@@ -25,7 +29,7 @@ Install the module with: `npm install color-matrix`
 var ColorMatrix = require('color-matrix').ColorMatrix;
 var matrix = new ColorMatrix();
 // simulate color-blindness
-matrix.transform('#de00ad', 'Deuteranopia'); // returns '#cccccc'
+matrix.transform('#de00ad', 'deuteranopia'); // returns [139, 155, 121, 1]
 ```
 
 ***NOTE:*** For a better "color blindness" library, see:
@@ -34,34 +38,38 @@ of the old "color matrix" code for use in node.  It does allow you to pass in cu
 filters (which is why I published it, instead of throwing it away).
 
 
-## Documentation
+### API Documentation
+
+Read the [API Docs](https://github.com/skratchdot/color-matrix/blob/master/docs/api.md)
+by using this link:
+
+- https://github.com/skratchdot/color-matrix/blob/master/docs/api.md
+
+
+## Command Line Tool
+
+
+### Installation
+
+The `color-matrix` tool can be installed globally by running:
+```bash
+npm install -g color-matrix
+```
+
+### Usage
 
 
 
 
-## Examples
 
-_(Coming soon)_
-
-see also? http://hirntier.blogspot.com/2008/09/fun-with-colormatrix.html
-
-https://developer.mozilla.org/en-US/docs/Web/SVG/Element/feColorMatrix
-
-    For type="matrix", values is a list of 20 matrix values (a00 a01 a02 a03 a04 a10 a11 ... a34), separated by whitespace and/or a comma.
-    For type="saturate", values is a single real number value (0 to 1).
-    For type="hueRotate", values is a single one real number value (degrees).
-    For type="luminanceToAlpha", values is not applicable.
-
-If the attribute is not specified, then the default behavior depends on the value of attribute type.
-
-    If type="matrix", then this attribute defaults to the identity matrix.
-    If type="saturate", then this attribute defaults to the value 1, which results in the identity matrix.
-    If type="hueRotate", then this attribute defaults to the value 0, which results in the identity matrix.
-
-
-## Links
+## See Also
 
 - [MDN: feColorMatrix](https://developer.mozilla.org/en-US/docs/Web/SVG/Element/feColorMatrix)
+- [w3c spec: feColorMatrix](http://www.w3.org/TR/SVG/filters.html#feColorMatrixElement)
+- [color-js source code](https://color-js.googlecode.com/svn/trunk/src/Color.matrix.js)
+- [Original Color Matrix Library](http://web.archive.org/web/20081014161121/http://www.colorjack.com/labs/colormatrix/)
+- [StackOverflow: RGB filters for different forms of color blindness](http://stackoverflow.com/questions/87146/rgb-filters-for-different-forms-of-color-blindness)
+- [Fun with the colormatrix](http://hirntier.blogspot.com/2008/09/fun-with-colormatrix.html)
 
 
 ## License

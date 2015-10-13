@@ -29,14 +29,32 @@ exports['color-matrix'] = {
 		matrix = new ColorMatrix();
 		done();
 	},
+	'toMatrix()': function (test) {
+		test.expect(1);
+		test.equal((matrix.toMatrix(' 2   5   sdfdfd  1')).toArray().toString(), [
+   			2,5,1,0,0,
+   			0,1,0,0,0,
+   			0,0,1,0,0,
+   			0,0,0,1,0,
+   			0,0,0,0,1
+   		].toString());
+		test.done();
+	},
 	'no args': function (test) {
 		test.expect(0);
-		console.log('\n',
-				matrix.transform('#c80000', 'invert'),
-				matrix.transform('#000000', 'invert'),
-				matrix.transform('#ffffff', 'invert'),
-				matrix.transform('#777777', 'invert'),
-				matrix.transform('#de00ad', 'deuteranopia')
+		console.log([
+			matrix.transform('#c80000', 'invert'),
+			matrix.transform('#000000', 'invert'),
+			matrix.transform('#ffffff', 'invert'),
+			matrix.transform('#777777', 'invert'),
+			matrix.transform('red', 'luminanceToAlpha'),
+			matrix.luminanceToAlpha('red'),
+			matrix.saturate('red', 0.5),
+			matrix.hueRotate('red', 180),
+			matrix.hueRotate([255,0,0,1], 180),
+			matrix.transform('#de00ad', 'Deuteranopia'),
+			matrix.transform('#de00ad', 'deuteranopia')
+		].join('\n')
 		);
 		test.done();
 	},
