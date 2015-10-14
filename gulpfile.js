@@ -20,6 +20,71 @@ gulp.task('api-docs', function () {
 	fs.writeFileSync(__dirname + '/docs/api.md', apiDocs, 'utf-8');
 });
 
+gulp.task('example-images', function () {
+	var ColorMatrix = require('./lib/color-matrix.js').ColorMatrix;
+	var matrix = new ColorMatrix();
+	Object.keys(matrix.getPresets()).forEach(function (presetName) {
+		var start = Date.now();
+		console.log('writing: "' + presetName + '" at ' + start);
+		var output = child_process.execSync(
+			__dirname + '/lib/cli.js -i ' +
+			__dirname + '/docs/images/lenna.png -o ' +
+			__dirname + '/docs/images/lenna-' + presetName + '.png -p ' +
+			presetName
+		);
+		var end = Date.now();
+		console.log('finished in ' + (end - start) + 'ms at ' + end);
+	});
+});
+
+gulp.task('examples', function () {
+	var content = ['# Color Matrix Examples\n'];
+	var ColorMatrix = require('./lib/color-matrix.js').ColorMatrix;
+	var matrix = new ColorMatrix();
+	var presets = matrix.getPresets();
+	var presetNames = Object.keys(presets);
+	var getImage = function (alt, name) {
+		return '![' + alt +
+			'](https://github.com/skratchdot/color-matrix/raw/master/docs/images/' +
+			name + '.png)';
+	};
+	// build header links
+	presetNames.forEach(function (presetName) {
+		content.push('[' + presetName + '](#' + presetName + ')');
+	});
+	presetNames.forEach(function (presetName) {
+		content.push('\n\n## ' + presetName);
+		content.push('\n### Node Usage:\n');
+		content.push('```javascript');
+		content.push('var ColorMatrix = require("color-matrix");');
+		content.push('var matrix = new ColorMatrix();');
+		content.push('matrix.transform("#FF00FF", "' + presetName + '");');
+		content.push('```');
+		content.push('\n### CLI Usage:\n');
+		content.push('```bash');
+		content.push('color-matrix --preset "' + presetName + '" "#FF00FF"');
+		content.push('# or process an image:');
+		content.push('color-matrix --preset "' + presetName + '" --input ./image.png --output ./image-' + presetName + '.png');
+		content.push('```');
+		content.push('\n### Example Results\n');
+		content.push('| Original | Color Matrix | SVG |');
+		content.push('|:--------:|:------------:|:---:|');
+		content.push(
+			'| ' + getImage(presetName, 'lenna') +
+			' | ' + getImage(presetName, 'lenna-' + presetName) +
+			' | <svg width="512" height="512" viewBox="0 0 512 512">' +
+			'<filter id="fx-' + presetName + '">' +
+			'<feColorMatrix in="SourceGraphic" type="matrix" values="' +
+			presets[presetName].toArray().toString().split(',').slice(0, 20).join(' ') + '" />' +
+			'</filter>' +
+			'<image x="0" y="0" width="512" height="512" filter="url(#fx-' + presetName + ')" xlink:href="' +
+			'https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna.png" />' +
+			'</svg> |'
+		);
+	});
+	fs.writeFileSync('./docs/examples.md', content.join('\n'), 'utf-8');
+});
+
 gulp.task('test', function () {
 	gulp.src('test/**/*.js')
 		.pipe(nodeunit());

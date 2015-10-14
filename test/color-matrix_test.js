@@ -40,6 +40,28 @@ exports['color-matrix'] = {
    		].toString());
 		test.done();
 	},
+	'toMatrixRGBA()': function (test) {
+		var color = [29, 118, 130, 1];
+		test.expect(1);
+		test.equal(
+			matrix.toMatrixRGBA(color).toString(),
+			matrix.toMatrixRGBA('rgba(' + color.join(',') + ')').toString()
+		);
+		test.done();
+	},
+	'invert test': function (test) {
+		var expected = [29, 118, 130, 1].toString();
+		test.expect(2);
+		test.equal(
+			matrix.transform('rgba(226,137,125,1)', 'invert').toString(),
+			expected
+		);
+		test.equal(
+			matrix.transform([226, 137 , 125 , 1], 'invert').toString(),
+			expected
+		);
+		test.done();
+	},
 	'no args': function (test) {
 		test.expect(0);
 		console.log([
