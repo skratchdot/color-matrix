@@ -1,0 +1,120 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>color-matrix by skratchdot</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/github-light.css">
+    <script src="javascripts/scale.fix.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1 class="header">color-matrix</h1>
+        <p class="header">Apply filters to colors to simulate things like color blindness and night vision.</p>
+
+        <ul>
+          <li class="download"><a class="buttons" href="https://github.com/skratchdot/color-matrix/zipball/master">Download ZIP</a></li>
+          <li class="download"><a class="buttons" href="https://github.com/skratchdot/color-matrix/tarball/master">Download TAR</a></li>
+          <li><a class="buttons github" href="https://github.com/skratchdot/color-matrix">View On GitHub</a></li>
+        </ul>
+
+        <p class="header">This project is maintained by <a class="header name" href="https://github.com/skratchdot">skratchdot</a></p>
+
+
+      </header>
+      <section>
+        <h1>
+<a id="color-matrix" class="anchor" href="#color-matrix" aria-hidden="true"><span class="octicon octicon-link"></span></a>color-matrix</h1>
+
+<p><a href="http://badge.fury.io/js/color-matrix"><img src="https://badge.fury.io/js/color-matrix.svg" alt="NPM version"></a>
+<a href="https://travis-ci.org/skratchdot/color-matrix"><img src="https://travis-ci.org/skratchdot/color-matrix.png?branch=master" alt="Build Status"></a>
+<a href="https://codeclimate.com/github/skratchdot/color-matrix"><img src="https://codeclimate.com/github/skratchdot/color-matrix.png" alt="Code Climate"></a>
+<a href="https://david-dm.org/skratchdot/color-matrix"><img src="https://david-dm.org/skratchdot/color-matrix.svg" alt="Dependency Status"></a>
+<a href="https://david-dm.org/skratchdot/color-matrix#info=devDependencies"><img src="https://david-dm.org/skratchdot/color-matrix/dev-status.svg" alt="devDependency Status"></a></p>
+
+<p><a href="https://npmjs.org/package/color-matrix"><img src="https://nodei.co/npm/color-matrix.png" alt="NPM"></a></p>
+
+<h2>
+<a id="description" class="anchor" href="#description" aria-hidden="true"><span class="octicon octicon-link"></span></a>Description</h2>
+
+<p>Apply filters to colors to simulate things like color blindness and night vision. This
+library tries to simulate the behavior of the svg filter effect 
+<a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Element/feColorMatrix">feColorMatrix</a>.</p>
+
+<p>It comes in 2 formats: <a href="#Getting-Started">a node.js library</a> and a
+<a href="#Command-Line-Tool">command line tool</a>.</p>
+
+<h2>
+<a id="nodejs-library" class="anchor" href="#nodejs-library" aria-hidden="true"><span class="octicon octicon-link"></span></a>Node.js Library</h2>
+
+<h3>
+<a id="getting-started" class="anchor" href="#getting-started" aria-hidden="true"><span class="octicon octicon-link"></span></a>Getting Started</h3>
+
+<p>Install the module with: <code>npm install color-matrix</code></p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-k">var</span> ColorMatrix <span class="pl-k">=</span> <span class="pl-c1">require</span>(<span class="pl-s"><span class="pl-pds">'</span>color-matrix<span class="pl-pds">'</span></span>).ColorMatrix;
+<span class="pl-k">var</span> matrix <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">ColorMatrix</span>();
+<span class="pl-c">// simulate color-blindness</span>
+matrix.transform(<span class="pl-s"><span class="pl-pds">'</span>#de00ad<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>deuteranopia<span class="pl-pds">'</span></span>); <span class="pl-c">// returns [139, 155, 121, 1]</span></pre></div>
+
+<p><strong><em>NOTE:</em></strong> For a better "color blindness" library, see:
+<a href="http://github.com/skratchdot/color-blind">color-blind</a>. This library is just a port
+of the old "color matrix" code for use in node.  It does allow you to pass in custom
+filters (which is why I published it, instead of throwing it away).</p>
+
+<h3>
+<a id="api-documentation" class="anchor" href="#api-documentation" aria-hidden="true"><span class="octicon octicon-link"></span></a>API Documentation</h3>
+
+<p>Read the <a href="https://github.com/skratchdot/color-matrix/blob/master/docs/api.md">API Docs</a>
+by using this link:</p>
+
+<ul>
+<li><a href="https://github.com/skratchdot/color-matrix/blob/master/docs/api.md">https://github.com/skratchdot/color-matrix/blob/master/docs/api.md</a></li>
+</ul>
+
+<h2>
+<a id="command-line-tool" class="anchor" href="#command-line-tool" aria-hidden="true"><span class="octicon octicon-link"></span></a>Command Line Tool</h2>
+
+<h3>
+<a id="installation" class="anchor" href="#installation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Installation</h3>
+
+<p>The <code>color-matrix</code> tool can be installed globally by running:</p>
+
+<div class="highlight highlight-source-shell"><pre>npm install -g color-matrix</pre></div>
+
+<h3>
+<a id="usage" class="anchor" href="#usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Usage</h3>
+
+<h2>
+<a id="see-also" class="anchor" href="#see-also" aria-hidden="true"><span class="octicon octicon-link"></span></a>See Also</h2>
+
+<ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Element/feColorMatrix">MDN: feColorMatrix</a></li>
+<li><a href="http://www.w3.org/TR/SVG/filters.html#feColorMatrixElement">w3c spec: feColorMatrix</a></li>
+<li><a href="https://color-js.googlecode.com/svn/trunk/src/Color.matrix.js">color-js source code</a></li>
+<li><a href="http://web.archive.org/web/20081014161121/http://www.colorjack.com/labs/colormatrix/">Original Color Matrix Library</a></li>
+<li><a href="http://stackoverflow.com/questions/87146/rgb-filters-for-different-forms-of-color-blindness">StackOverflow: RGB filters for different forms of color blindness</a></li>
+<li><a href="http://hirntier.blogspot.com/2008/09/fun-with-colormatrix.html">Fun with the colormatrix</a></li>
+</ul>
+
+<h2>
+<a id="license" class="anchor" href="#license" aria-hidden="true"><span class="octicon octicon-link"></span></a>License</h2>
+
+<p>Copyright (c) 2014 skratchdot<br>
+Licensed under the MIT license.</p>
+      </section>
+      <footer>
+        <p><small>Hosted on <a href="https://pages.github.com">GitHub Pages</a> using the Dinky theme</small></p>
+      </footer>
+    </div>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+		
+  </body>
+</html>
