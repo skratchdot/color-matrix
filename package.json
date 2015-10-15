@@ -1,7 +1,7 @@
 {
   "name": "color-matrix",
   "description": "Apply filters to colors to simulate things like color blindness and night vision.",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "homepage": "https://github.com/skratchdot/color-matrix",
   "author": {
     "name": "skratchdot",
@@ -24,7 +24,6 @@
   },
   "dependencies": {
     "caman": "^4.1.2",
-    "matrixjs": "^1.0.2",
     "onecolor": "^2.4.0"
   },
   "devDependencies": {

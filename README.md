@@ -15,8 +15,8 @@ Apply filters to colors to simulate things like color blindness and night vision
 library tries to simulate the behavior of the svg filter effect 
 [feColorMatrix](https://developer.mozilla.org/en-US/docs/Web/SVG/Element/feColorMatrix).
 
-It comes in 2 formats: [a node.js library](#Getting-Started) and a
-[command line tool](#Command-Line-Tool).
+It comes in 2 formats: [a node.js library](#getting-started) and a
+[command line tool](#command-line-tool).
 
 
 ## Node.js Library
@@ -29,7 +29,7 @@ Install the module with: `npm install color-matrix`
 var ColorMatrix = require('color-matrix').ColorMatrix;
 var matrix = new ColorMatrix();
 // simulate color-blindness
-matrix.transform('#de00ad', 'deuteranopia'); // returns [139, 155, 121, 1]
+matrix.transform([222, 0, 173, 255], 'deuteranopia'); // returns [139, 155, 121, 1]
 ```
 
 ***NOTE:*** For a better "color blindness" library, see:
@@ -58,8 +58,19 @@ npm install -g color-matrix
 
 ### Usage
 
+```bash
+  Usage: color-matrix [options] <inputColor>
 
+  Options:
 
+    -h, --help                 output usage information
+    -V, --version              output the version number
+    -i, --input <imageFile>    input image file
+    -o, --output <imageFile>   output image file
+    -f, --filter <filterName>  filter name to use
+    -v, --value <value>        value for the selected operation type
+    -l, --list                 list all the filter names
+```
 
 
 ## See Also

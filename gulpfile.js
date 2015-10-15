@@ -20,67 +20,98 @@ gulp.task('api-docs', function () {
 	fs.writeFileSync(__dirname + '/docs/api.md', apiDocs, 'utf-8');
 });
 
-gulp.task('example-images', function () {
-	var ColorMatrix = require('./lib/color-matrix.js').ColorMatrix;
-	var matrix = new ColorMatrix();
-	Object.keys(matrix.getPresets()).forEach(function (presetName) {
-		var start = Date.now();
-		console.log('writing: "' + presetName + '" at ' + start);
-		var output = child_process.execSync(
-			__dirname + '/lib/cli.js -i ' +
-			__dirname + '/docs/images/lenna.png -o ' +
-			__dirname + '/docs/images/lenna-' + presetName + '.png -p ' +
-			presetName
-		);
-		var end = Date.now();
-		console.log('finished in ' + (end - start) + 'ms at ' + end);
-	});
-});
-
 gulp.task('examples', function () {
 	var content = ['# Color Matrix Examples\n'];
 	var ColorMatrix = require('./lib/color-matrix.js').ColorMatrix;
 	var matrix = new ColorMatrix();
-	var presets = matrix.getPresets();
-	var presetNames = Object.keys(presets);
+	var filters = matrix.getFilters();
+	var filterNames = Object.keys(filters);
+	var valueMap = {
+		"brightness": [-100, -50, -25, 0, 25, 50, 100],
+		"exposure": [-0.5, 1, 2, 4],
+		"contrast": [0, 0.5, 1],
+		"temperature": [0, 0.5, 1],
+		"tint": [0, 0.5, 1],
+		"threshold": [0, 1, 2],
+		"matrix": [[1,0,0,0,0,0,0.2,0,0,0,0,0,0.2,0,0,0,0,0,1,0]],
+		"saturate": [0, 0.3, 0.5, 0.7, 1],
+		"hueRotate": [0, 45, 90, 135, 180, 225, 270, 315]
+	};
 	var getImage = function (alt, name) {
-		return '![' + alt +
-			'](https://github.com/skratchdot/color-matrix/raw/master/docs/images/' +
-			name + '.png)';
+		return '<img width="256" height="256"' +
+			' alt="' + alt + '"' +
+			' src="https://github.com/skratchdot/color-matrix/raw/master/docs/images/' +
+			name + '.png" />';
 	};
 	// build header links
-	presetNames.forEach(function (presetName) {
-		content.push('[' + presetName + '](#' + presetName + ')');
+	filterNames.forEach(function (filterName) {
+		content.push('[' + filterName + '](#' + filterName + ')');
 	});
-	presetNames.forEach(function (presetName) {
-		content.push('\n\n## ' + presetName);
-		content.push('\n### Node Usage:\n');
-		content.push('```javascript');
-		content.push('var ColorMatrix = require("color-matrix");');
-		content.push('var matrix = new ColorMatrix();');
-		content.push('matrix.transform("#FF00FF", "' + presetName + '");');
-		content.push('```');
-		content.push('\n### CLI Usage:\n');
-		content.push('```bash');
-		content.push('color-matrix --preset "' + presetName + '" "#FF00FF"');
-		content.push('# or process an image:');
-		content.push('color-matrix --preset "' + presetName + '" --input ./image.png --output ./image-' + presetName + '.png');
-		content.push('```');
-		content.push('\n### Example Results\n');
-		content.push('| Original | Color Matrix | SVG |');
-		content.push('|:--------:|:------------:|:---:|');
-		content.push(
-			'| ' + getImage(presetName, 'lenna') +
-			' | ' + getImage(presetName, 'lenna-' + presetName) +
-			' | <svg width="512" height="512" viewBox="0 0 512 512">' +
-			'<filter id="fx-' + presetName + '">' +
-			'<feColorMatrix in="SourceGraphic" type="matrix" values="' +
-			presets[presetName].toArray().toString().split(',').slice(0, 20).join(' ') + '" />' +
-			'</filter>' +
-			'<image x="0" y="0" width="512" height="512" filter="url(#fx-' + presetName + ')" xlink:href="' +
-			'https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna.png" />' +
-			'</svg> |'
-		);
+	filterNames.forEach(function (filterName) {
+		content.push('\n\n## ' + filterName);
+		var values = valueMap[filterName] || [undefined];
+		values.forEach(function (value) {
+			var start = Date.now();
+			var writeImages = false;
+			if (writeImages) {
+				console.log('writing: "' + filterName +
+						'" with value "' +
+						value +
+						'" at ' + start);
+				child_process.execSync(
+						__dirname + '/lib/cli.js -i ' +
+						__dirname + '/docs/images/lenna.png -o ' +
+						__dirname + '/docs/images/lenna-' + filterName +
+						(value !== undefined ? '-' + value : '') +
+						'.png -f ' +
+						filterName +
+						(value !== undefined ? ' -v ' + value + ' ' : '')
+					);
+				var end = Date.now();
+				console.log('finished in ' + (end - start) + 'ms at ' + end);
+			}
+			if (value !== undefined) {
+				content.push('\n**with value: ' + value + '**');
+			}
+			content.push('\n### Node Usage:\n');
+			content.push('```javascript');
+			content.push('var ColorMatrix = require("color-matrix");');
+			content.push('var matrix = new ColorMatrix();');
+			content.push('matrix.transform([255, 0, 128, 255], "' + filterName + '"' +
+				(value !== undefined ? ', ' + value : '') +
+				');');
+			content.push('// or');
+			content.push('matrix.' + filterName + '([255, 0, 128, 255]' +
+				(value !== undefined ? ', ' + value : '') +
+				');');
+			content.push('```');
+			content.push('\n### CLI Usage:\n');
+			content.push('```bash');
+			content.push('color-matrix --filter "' + filterName + '" "#FF0080" ' +
+				(value !== undefined ? '--value ' + value : '')
+			);
+			content.push('# or process an image:');
+			content.push('color-matrix --filter "' + filterName + '" --input ./image.png --output ./image-' +
+				filterName +
+				(value !== undefined ? '-' + value + '.png --value ' + value : '.png')
+			);
+			content.push('```');
+			content.push('\n### Example Results\n');
+			content.push('| Original | Color Matrix | SVG |');
+			content.push('|:--------:|:------------:|:---:|');
+			content.push(
+				'| ' + getImage(filterName, 'lenna') +
+				' | ' + getImage(filterName, 'lenna-' + filterName) +
+				' | <svg width="256" height="256" viewBox="0 0 512 512">' +
+				'<filter id="fx-' + filterName + '">' +
+				'<feColorMatrix in="SourceGraphic" type="matrix" values="' +
+				(filters[filterName]() || '').toString().split(',').slice(0, 20).join(' ') + '" />' +
+				'</filter>' +
+				'<image x="0" y="0" width="512" height="512" filter="url(#fx-' + filterName + ')" xlink:href="' +
+				'https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna.png" />' +
+				'</svg> |'
+			);
+		});
 	});
 	fs.writeFileSync('./docs/examples.md', content.join('\n'), 'utf-8');
 });

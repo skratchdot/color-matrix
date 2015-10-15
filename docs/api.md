@@ -21,101 +21,62 @@ This library uses modified logic from the following 3 resources:
 ```js
 var ColorMatrix = require('color-matrix').ColorMatrix;
 var matrix = new ColorMatrix();
-matrix.transform('#de00ad', 'deuteranopia'); // returns [139, 155, 121, 1]
+matrix.transform([222, 0, 173, 255], 'deuteranopia'); // returns [139, 155, 121, 1]
 ```
 
 * [ColorMatrix](#module_ColorMatrix)
-  * [~addPreset](#module_ColorMatrix..addPreset)
-  * [~getPreset](#module_ColorMatrix..getPreset) ⇒ <code>array</code>
-  * [~getPresets](#module_ColorMatrix..getPresets) ⇒ <code>object</code>
-  * [~toMatrix](#module_ColorMatrix..toMatrix)
-  * [~toMatrixRGBA](#module_ColorMatrix..toMatrixRGBA) ⇒ <code>Matrix</code>
+  * [~addFilter](#module_ColorMatrix..addFilter)
+  * [~getFilter](#module_ColorMatrix..getFilter) ⇒ <code>function</code>
+  * [~getFilters](#module_ColorMatrix..getFilters) ⇒ <code>object</code>
   * [~transform](#module_ColorMatrix..transform)
-  * [~matrix](#module_ColorMatrix..matrix)
-  * [~saturate](#module_ColorMatrix..saturate)
-  * [~hueRotate](#module_ColorMatrix..hueRotate)
-  * [~luminanceToAlpha](#module_ColorMatrix..luminanceToAlpha)
 
-<a name="module_ColorMatrix..addPreset"></a>
-### ColorMatrix~addPreset
-Stores a matrix in the list of available presets
+<a name="module_ColorMatrix..addFilter"></a>
+### ColorMatrix~addFilter
+Stores a matrix in the list of available filters
 
 **Kind**: inner property of <code>[ColorMatrix](#module_ColorMatrix)</code>  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| name | <code>string</code> | the name of the preset |
-| matrix | <code>array</code> &#124; <code>string</code> | the 5x5 color matrix |
+| name | <code>string</code> | the name of the filter |
+| filter | <code>function</code> | a function that returns a 20 item array representing a matrix with 4 rows and 5 columns |
 
 **Example**  
 ```js
-colorMatrix.addPreset('myIndentityMatrix', [
-  [1, 0, 0, 0, 0],
-  [0, 1, 0, 0, 0],
-  [0, 0, 1, 0, 0],
-  [0, 0, 0, 1, 0],
-  [0, 0, 0, 0, 1]
-]); // now you can call: colorMatrix.transform('myIndentityMatrix');
+colorMatrix.addFilter('myIndentityMatrix', function () {
+  return [
+    1, 0, 0, 0, 0,
+    0, 1, 0, 0, 0,
+    0, 0, 1, 0, 0,
+    0, 0, 0, 1, 0
+  ];
+}); // now you can call: colorMatrix.transform('myIndentityMatrix');
 ```
-<a name="module_ColorMatrix..getPreset"></a>
-### ColorMatrix~getPreset ⇒ <code>array</code>
-Gets the preset with the given name. Returns an identity matrix
+<a name="module_ColorMatrix..getFilter"></a>
+### ColorMatrix~getFilter ⇒ <code>function</code>
+Gets the filter with the given name. Returns an identity matrix
 when not found.
 
 **Kind**: inner property of <code>[ColorMatrix](#module_ColorMatrix)</code>  
-**Returns**: <code>array</code> - The 5x5 matrix if found, a 5x5 identity matrix if not found  
+**Returns**: <code>function</code> - A function that returns a 5x4 matrix  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| name | <code>string</code> | the name of the preset |
+| name | <code>string</code> | the name of the filter |
 
 **Example**  
 ```js
-colorMatrix.getPreset('deuteranopia'); // returns [
-                                       //   [0.625, 0.375, 0, 0, 0],
-                                       //   [0.7, 0.3, 0, 0, 0],
-                                       //   [0, 0.3, 0.7, 0, 0],
-                                       //   [0, 0, 0, 1, 0],
-                                       //   [0, 0, 0, 0, 1]
-                                       // ];
+var fn = colorMatrix.getFilter('deuteranopia');
+var result = fn([255, 0, 0, 255]); // result contains an rgba array
 ```
-<a name="module_ColorMatrix..getPresets"></a>
-### ColorMatrix~getPresets ⇒ <code>object</code>
+<a name="module_ColorMatrix..getFilters"></a>
+### ColorMatrix~getFilters ⇒ <code>object</code>
 **Kind**: inner property of <code>[ColorMatrix](#module_ColorMatrix)</code>  
-**Returns**: <code>object</code> - A hash of all the preset matrices.  
-<a name="module_ColorMatrix..toMatrix"></a>
-### ColorMatrix~toMatrix
-**Kind**: inner property of <code>[ColorMatrix](#module_ColorMatrix)</code>  
-
-| Param | Type | Description |
-| --- | --- | --- |
-| values | <code>array</code> &#124; <code>string</code> | Convert a string or partial array to a `new Matrix(5, 5)`; |
-
+**Returns**: <code>object</code> - A hash of all the filter functions.  
 **Example**  
 ```js
-colorMatrix.toMatrix('0 5 5'); // returns: new Matrix([
-                               //   [0, 5, 5, 0, 0],
-                               //   [0, 1, 0, 0, 0],
-                               //   [0, 0, 1, 0, 0],
-                               //   [0, 0, 0, 1, 0],
-                               //   [0, 0, 0, 0, 1],
-                               // ]);
-```
-<a name="module_ColorMatrix..toMatrixRGBA"></a>
-### ColorMatrix~toMatrixRGBA ⇒ <code>Matrix</code>
-Convert an RGBA array or a CSS color string to a 5x1 matrix
-
-**Kind**: inner property of <code>[ColorMatrix](#module_ColorMatrix)</code>  
-**Returns**: <code>Matrix</code> - A 5x1 Matrix  
-
-| Param | Type | Description |
-| --- | --- | --- |
-| inputColor | <code>array</code> &#124; <code>string</code> | An RGBA array or CSS color string |
-
-**Example**  
-```js
-colorMatrix.toMatrixRGBA('red'); // returns [[255],[0],[0],[1],[1]]
-colorMatrix.toMatrixRGBA([0,255,0,0.7]); // returns [[0],[255],[0],[0.7],[1]]
+var filterFunctions = colorMatrix.getFilters();
+var result = filterFunctions.cold([255, 0, 0, 255]);
 ```
 <a name="module_ColorMatrix..transform"></a>
 ### ColorMatrix~transform
@@ -123,57 +84,12 @@ colorMatrix.toMatrixRGBA([0,255,0,0.7]); // returns [[0],[255],[0],[0.7],[1]]
 
 | Param | Type | Description |
 | --- | --- | --- |
-| inputColor | <code>array</code> &#124; <code>string</code> | An RGBA array or CSS color string |
-| name | <code>string</code> | the name of a preset, a matrix, or a matrix string |
+| rgba | <code>array</code> | An RGBA array |
+| filter | <code>string</code> | The name of the filter function |
+| value | <code>number</code> &#124; <code>array</code> | The value to pass to the filter function |
 
-<a name="module_ColorMatrix..matrix"></a>
-### ColorMatrix~matrix
-**Kind**: inner property of <code>[ColorMatrix](#module_ColorMatrix)</code>  
-
-| Param | Type | Description |
-| --- | --- | --- |
-| inputColor | <code>array</code> &#124; <code>string</code> | An RGBA array or CSS color string |
-| values | <code>array</code> &#124; <code>string</code> | A list of 20 matrix values (a00 a01 a02 a03 a04 a10 a11 ... a34), separated by whitespace and/or a comma. |
-
-<a name="module_ColorMatrix..saturate"></a>
-### ColorMatrix~saturate
-**Kind**: inner property of <code>[ColorMatrix](#module_ColorMatrix)</code>  
-**See**
-
-- http://www.w3.org/TR/SVG/filters.html#feColorMatrixElement
-- https://github.com/jcupitt/gegl-vips/blob/master/operations/common/svg-saturate.c
-
-
-| Param | Type | Description |
-| --- | --- | --- |
-| inputColor | <code>array</code> &#124; <code>string</code> | An RGBA array or CSS color string |
-| value | <code>number</code> | a single real number value (0 to 1) |
-
-<a name="module_ColorMatrix..hueRotate"></a>
-### ColorMatrix~hueRotate
-**Kind**: inner property of <code>[ColorMatrix](#module_ColorMatrix)</code>  
-**See**
-
-- http://www.w3.org/TR/SVG/filters.html#feColorMatrixElement
-- https://github.com/jcupitt/gegl-vips/blob/master/operations/common/svg-huerotate.c
-- https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/values
-
-
-| Param | Type | Description |
-| --- | --- | --- |
-| inputColor | <code>array</code> &#124; <code>string</code> | An RGBA array or CSS color string |
-| value | <code>number</code> | a single real number value (in degrees) |
-
-<a name="module_ColorMatrix..luminanceToAlpha"></a>
-### ColorMatrix~luminanceToAlpha
-**Kind**: inner property of <code>[ColorMatrix](#module_ColorMatrix)</code>  
-**See**
-
-- http://www.w3.org/TR/SVG/filters.html#feColorMatrixElement
-- https://github.com/jcupitt/gegl-vips/blob/master/operations/common/svg-luminancetoalpha.c
-
-
-| Param | Type | Description |
-| --- | --- | --- |
-| inputColor | <code>array</code> &#124; <code>string</code> | An RGBA array or CSS color string |
-
+**Example**  
+```js
+var result1 = colorMatrix.transform([255, 0, 0, 255], 'invert');
+var result2 = colorMatrix.transform([255, 0, 0, 255], 'hueRotate', 180);
+```

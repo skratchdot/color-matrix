@@ -29,55 +29,79 @@ exports['color-matrix'] = {
 		matrix = new ColorMatrix();
 		done();
 	},
-	'toMatrix()': function (test) {
-		test.expect(1);
-		test.equal((matrix.toMatrix(' 2   5   sdfdfd  1')).toArray().toString(), [
-   			2,5,1,0,0,
-   			0,1,0,0,0,
-   			0,0,1,0,0,
-   			0,0,0,1,0,
-   			0,0,0,0,1
-   		].toString());
-		test.done();
-	},
-	'toMatrixRGBA()': function (test) {
-		var color = [29, 118, 130, 1];
-		test.expect(1);
-		test.equal(
-			matrix.toMatrixRGBA(color).toString(),
-			matrix.toMatrixRGBA('rgba(' + color.join(',') + ')').toString()
-		);
+	'normal test': function (test) {
+		var values = [
+  			[255, 0, 0, 255],
+			[255, 0, 0, 0],
+			[22, 33, 44, 55],
+			[255, 255, 255, 255],
+			[0, 0, 0, 0],
+			[128, 128, 0, 128]
+		];
+		test.expect(values.length);
+		values.forEach(function (rgba) {
+			test.equal(
+				matrix.normal(rgba).toString(),
+				rgba.toString()
+			);
+		});
 		test.done();
 	},
 	'invert test': function (test) {
-		var expected = [29, 118, 130, 1].toString();
 		test.expect(2);
+		var expected = [29, 118, 130, 255].toString();
 		test.equal(
-			matrix.transform('rgba(226,137,125,1)', 'invert').toString(),
+			matrix.transform([226, 137, 125, 255], 'invert').toString(),
 			expected
 		);
 		test.equal(
-			matrix.transform([226, 137 , 125 , 1], 'invert').toString(),
+			matrix.invert([226, 137, 125, 255]).toString(),
 			expected
 		);
 		test.done();
 	},
-	'no args': function (test) {
-		test.expect(0);
-		console.log([
-			matrix.transform('#c80000', 'invert'),
-			matrix.transform('#000000', 'invert'),
-			matrix.transform('#ffffff', 'invert'),
-			matrix.transform('#777777', 'invert'),
-			matrix.transform('red', 'luminanceToAlpha'),
-			matrix.luminanceToAlpha('red'),
-			matrix.saturate('red', 0.5),
-			matrix.hueRotate('red', 180),
-			matrix.hueRotate([255,0,0,1], 180),
-			matrix.transform('#de00ad', 'Deuteranopia'),
-			matrix.transform('#de00ad', 'deuteranopia')
-		].join('\n')
+	'saturate test': function (test) {
+		test.expect(4);
+		test.equal(
+			matrix.saturate([255, 0, 0, 255], 0.5).toString(),
+			matrix.transform([255, 0, 0, 255], 'saturate', 0.5).toString()
 		);
+		// not sure if valid
+		test.equal(
+			matrix.saturate([255, 0, 0, 255], 0).toString(),
+			[54, 54, 54, 255].toString()
+		);
+		test.equal(
+			matrix.saturate([255, 0, 0, 255], 1).toString(),
+			[255, 0, 0, 255].toString()
+		);
+		// not sure if valid
+		test.equal(
+			matrix.saturate([255, 0, 0, 255], 0.5).toString(),
+			[155, 27, 27, 255].toString()
+		);
+		test.done();
+	},
+	'hueRotate test': function (test) {
+		test.expect(1);
+		// not sure if 111 or 161
+		test.equal(
+			matrix.hueRotate([255, 0, 0, 255], 90).toString(),
+			[0, 111, 0, 255].toString()
+		);
+		test.done();
+	},
+	'no args throws': function (test) {
+		test.expect(3);
+		test.throws(function () {
+			matrix.transform();
+		});
+		test.throws(function () {
+			matrix.invert();
+		});
+		test.throws(function () {
+			matrix.hueRotate();
+		});
 		test.done();
 	},
 };
