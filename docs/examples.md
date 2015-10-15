@@ -458,7 +458,7 @@ color-matrix --filter "brightness" --input ./image.png --output ./image-brightne
 
 | Original | Color Matrix | SVG |
 |:--------:|:------------:|:---:|
-| <img width="256" height="256" alt="brightness" src="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna.png" /> | <img width="256" height="256" alt="brightness" src="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna-brightness.png" /> | <svg width="256" height="256" viewBox="0 0 512 512"><filter id="fx-brightness"><feColorMatrix in="SourceGraphic" type="matrix" values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0" /></filter><image x="0" y="0" width="512" height="512" filter="url(#fx-brightness)" xlink:href="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna.png" /></svg> |
+| <img width="256" height="256" alt="brightness" src="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna.png" /> | <img width="256" height="256" alt="brightness" src="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna-brightness--100.png" /> | <svg width="256" height="256" viewBox="0 0 512 512"><filter id="fx-brightness"><feColorMatrix in="SourceGraphic" type="matrix" values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0" /></filter><image x="0" y="0" width="512" height="512" filter="url(#fx-brightness)" xlink:href="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna.png" /></svg> |
 
 **with value: -50**
 
@@ -484,7 +484,7 @@ color-matrix --filter "brightness" --input ./image.png --output ./image-brightne
 
 | Original | Color Matrix | SVG |
 |:--------:|:------------:|:---:|
-| <img width="256" height="256" alt="brightness" src="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna.png" /> | <img width="256" height="256" alt="brightness" src="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna-brightness.png" /> | <svg width="256" height="256" viewBox="0 0 512 512"><filter id="fx-brightness"><feColorMatrix in="SourceGraphic" type="matrix" values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0" /></filter><image x="0" y="0" width="512" height="512" filter="url(#fx-brightness)" xlink:href="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna.png" /></svg> |
+| <img width="256" height="256" alt="brightness" src="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna.png" /> | <img width="256" height="256" alt="brightness" src="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna-brightness--50.png" /> | <svg width="256" height="256" viewBox="0 0 512 512"><filter id="fx-brightness"><feColorMatrix in="SourceGraphic" type="matrix" values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0" /></filter><image x="0" y="0" width="512" height="512" filter="url(#fx-brightness)" xlink:href="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna.png" /></svg> |
 
 **with value: -25**
 
@@ -510,7 +510,7 @@ color-matrix --filter "brightness" --input ./image.png --output ./image-brightne
 
 | Original | Color Matrix | SVG |
 |:--------:|:------------:|:---:|
-| <img width="256" height="256" alt="brightness" src="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna.png" /> | <img width="256" height="256" alt="brightness" src="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna-brightness.png" /> | <svg width="256" height="256" viewBox="0 0 512 512"><filter id="fx-brightness"><feColorMatrix in="SourceGraphic" type="matrix" values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0" /></filter><image x="0" y="0" width="512" height="512" filter="url(#fx-brightness)" xlink:href="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna.png" /></svg> |
+| <img width="256" height="256" alt="brightness" src="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna.png" /> | <img width="256" height="256" alt="brightness" src="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna-brightness--25.png" /> | <svg width="256" height="256" viewBox="0 0 512 512"><filter id="fx-brightness"><feColorMatrix in="SourceGraphic" type="matrix" values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0" /></filter><image x="0" y="0" width="512" height="512" filter="url(#fx-brightness)" xlink:href="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna.png" /></svg> |
 
 **with value: 0**
 
@@ -536,7 +536,7 @@ color-matrix --filter "brightness" --input ./image.png --output ./image-brightne
 
 | Original | Color Matrix | SVG |
 |:--------:|:------------:|:---:|
-| <img width="256" height="256" alt="brightness" src="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna.png" /> | <img width="256" height="256" alt="brightness" src="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna-brightness.png" /> | <svg width="256" height="256" viewBox="0 0 512 512"><filter id="fx-brightness"><feColorMatrix in="SourceGraphic" type="matrix" values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0" /></filter><image x="0" y="0" width="512" height="512" filter="url(#fx-brightness)" xlink:href="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna.png" /></svg> |
+| <img width="256" height="256" alt="brightness" src="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna.png" /> | <img width="256" height="256" alt="brightness" src="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna-brightness-0.png" /> | <svg width="256" height="256" viewBox="0 0 512 512"><filter id="fx-brightness"><feColorMatrix in="SourceGraphic" type="matrix" values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0" /></filter><image x="0" y="0" width="512" height="512" filter="url(#fx-brightness)" xlink:href="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna.png" /></svg> |
 
 **with value: 25**
 
@@ -562,7 +562,7 @@ color-matrix --filter "brightness" --input ./image.png --output ./image-brightne
 
 | Original | Color Matrix | SVG |
 |:--------:|:------------:|:---:|
-| <img width="256" height="256" alt="brightness" src="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna.png" /> | <img width="256" height="256" alt="brightness" src="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna-brightness.png" /> | <svg width="256" height="256" viewBox="0 0 512 512"><filter id="fx-brightness"><feColorMatrix in="SourceGraphic" type="matrix" values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0" /></filter><image x="0" y="0" width="512" height="512" filter="url(#fx-brightness)" xlink:href="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna.png" /></svg> |
+| <img width="256" height="256" alt="brightness" src="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna.png" /> | <img width="256" height="256" alt="brightness" src="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna-brightness-25.png" /> | <svg width="256" height="256" viewBox="0 0 512 512"><filter id="fx-brightness"><feColorMatrix in="SourceGraphic" type="matrix" values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0" /></filter><image x="0" y="0" width="512" height="512" filter="url(#fx-brightness)" xlink:href="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna.png" /></svg> |
 
 **with value: 50**
 
@@ -588,7 +588,7 @@ color-matrix --filter "brightness" --input ./image.png --output ./image-brightne
 
 | Original | Color Matrix | SVG |
 |:--------:|:------------:|:---:|
-| <img width="256" height="256" alt="brightness" src="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna.png" /> | <img width="256" height="256" alt="brightness" src="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna-brightness.png" /> | <svg width="256" height="256" viewBox="0 0 512 512"><filter id="fx-brightness"><feColorMatrix in="SourceGraphic" type="matrix" values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0" /></filter><image x="0" y="0" width="512" height="512" filter="url(#fx-brightness)" xlink:href="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna.png" /></svg> |
+| <img width="256" height="256" alt="brightness" src="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna.png" /> | <img width="256" height="256" alt="brightness" src="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna-brightness-50.png" /> | <svg width="256" height="256" viewBox="0 0 512 512"><filter id="fx-brightness"><feColorMatrix in="SourceGraphic" type="matrix" values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0" /></filter><image x="0" y="0" width="512" height="512" filter="url(#fx-brightness)" xlink:href="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna.png" /></svg> |
 
 **with value: 100**
 
@@ -614,7 +614,7 @@ color-matrix --filter "brightness" --input ./image.png --output ./image-brightne
 
 | Original | Color Matrix | SVG |
 |:--------:|:------------:|:---:|
-| <img width="256" height="256" alt="brightness" src="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna.png" /> | <img width="256" height="256" alt="brightness" src="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna-brightness.png" /> | <svg width="256" height="256" viewBox="0 0 512 512"><filter id="fx-brightness"><feColorMatrix in="SourceGraphic" type="matrix" values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0" /></filter><image x="0" y="0" width="512" height="512" filter="url(#fx-brightness)" xlink:href="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna.png" /></svg> |
+| <img width="256" height="256" alt="brightness" src="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna.png" /> | <img width="256" height="256" alt="brightness" src="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna-brightness-100.png" /> | <svg width="256" height="256" viewBox="0 0 512 512"><filter id="fx-brightness"><feColorMatrix in="SourceGraphic" type="matrix" values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0" /></filter><image x="0" y="0" width="512" height="512" filter="url(#fx-brightness)" xlink:href="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna.png" /></svg> |
 
 
 ## exposure
@@ -643,7 +643,7 @@ color-matrix --filter "exposure" --input ./image.png --output ./image-exposure--
 
 | Original | Color Matrix | SVG |
 |:--------:|:------------:|:---:|
-| <img width="256" height="256" alt="exposure" src="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna.png" /> | <img width="256" height="256" alt="exposure" src="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna-exposure.png" /> | <svg width="256" height="256" viewBox="0 0 512 512"><filter id="fx-exposure"><feColorMatrix in="SourceGraphic" type="matrix" values="NaN 0 0 0 0 0 NaN 0 0 0 0 0 NaN 0 0 0 0 0 1 0" /></filter><image x="0" y="0" width="512" height="512" filter="url(#fx-exposure)" xlink:href="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna.png" /></svg> |
+| <img width="256" height="256" alt="exposure" src="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna.png" /> | <img width="256" height="256" alt="exposure" src="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna-exposure--0.5.png" /> | <svg width="256" height="256" viewBox="0 0 512 512"><filter id="fx-exposure"><feColorMatrix in="SourceGraphic" type="matrix" values="NaN 0 0 0 0 0 NaN 0 0 0 0 0 NaN 0 0 0 0 0 1 0" /></filter><image x="0" y="0" width="512" height="512" filter="url(#fx-exposure)" xlink:href="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna.png" /></svg> |
 
 **with value: 1**
 
@@ -669,7 +669,7 @@ color-matrix --filter "exposure" --input ./image.png --output ./image-exposure-1
 
 | Original | Color Matrix | SVG |
 |:--------:|:------------:|:---:|
-| <img width="256" height="256" alt="exposure" src="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna.png" /> | <img width="256" height="256" alt="exposure" src="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna-exposure.png" /> | <svg width="256" height="256" viewBox="0 0 512 512"><filter id="fx-exposure"><feColorMatrix in="SourceGraphic" type="matrix" values="NaN 0 0 0 0 0 NaN 0 0 0 0 0 NaN 0 0 0 0 0 1 0" /></filter><image x="0" y="0" width="512" height="512" filter="url(#fx-exposure)" xlink:href="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna.png" /></svg> |
+| <img width="256" height="256" alt="exposure" src="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna.png" /> | <img width="256" height="256" alt="exposure" src="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna-exposure-1.png" /> | <svg width="256" height="256" viewBox="0 0 512 512"><filter id="fx-exposure"><feColorMatrix in="SourceGraphic" type="matrix" values="NaN 0 0 0 0 0 NaN 0 0 0 0 0 NaN 0 0 0 0 0 1 0" /></filter><image x="0" y="0" width="512" height="512" filter="url(#fx-exposure)" xlink:href="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna.png" /></svg> |
 
 **with value: 2**
 
@@ -695,7 +695,7 @@ color-matrix --filter "exposure" --input ./image.png --output ./image-exposure-2
 
 | Original | Color Matrix | SVG |
 |:--------:|:------------:|:---:|
-| <img width="256" height="256" alt="exposure" src="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna.png" /> | <img width="256" height="256" alt="exposure" src="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna-exposure.png" /> | <svg width="256" height="256" viewBox="0 0 512 512"><filter id="fx-exposure"><feColorMatrix in="SourceGraphic" type="matrix" values="NaN 0 0 0 0 0 NaN 0 0 0 0 0 NaN 0 0 0 0 0 1 0" /></filter><image x="0" y="0" width="512" height="512" filter="url(#fx-exposure)" xlink:href="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna.png" /></svg> |
+| <img width="256" height="256" alt="exposure" src="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna.png" /> | <img width="256" height="256" alt="exposure" src="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna-exposure-2.png" /> | <svg width="256" height="256" viewBox="0 0 512 512"><filter id="fx-exposure"><feColorMatrix in="SourceGraphic" type="matrix" values="NaN 0 0 0 0 0 NaN 0 0 0 0 0 NaN 0 0 0 0 0 1 0" /></filter><image x="0" y="0" width="512" height="512" filter="url(#fx-exposure)" xlink:href="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna.png" /></svg> |
 
 **with value: 4**
 
@@ -721,7 +721,7 @@ color-matrix --filter "exposure" --input ./image.png --output ./image-exposure-4
 
 | Original | Color Matrix | SVG |
 |:--------:|:------------:|:---:|
-| <img width="256" height="256" alt="exposure" src="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna.png" /> | <img width="256" height="256" alt="exposure" src="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna-exposure.png" /> | <svg width="256" height="256" viewBox="0 0 512 512"><filter id="fx-exposure"><feColorMatrix in="SourceGraphic" type="matrix" values="NaN 0 0 0 0 0 NaN 0 0 0 0 0 NaN 0 0 0 0 0 1 0" /></filter><image x="0" y="0" width="512" height="512" filter="url(#fx-exposure)" xlink:href="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna.png" /></svg> |
+| <img width="256" height="256" alt="exposure" src="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna.png" /> | <img width="256" height="256" alt="exposure" src="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna-exposure-4.png" /> | <svg width="256" height="256" viewBox="0 0 512 512"><filter id="fx-exposure"><feColorMatrix in="SourceGraphic" type="matrix" values="NaN 0 0 0 0 0 NaN 0 0 0 0 0 NaN 0 0 0 0 0 1 0" /></filter><image x="0" y="0" width="512" height="512" filter="url(#fx-exposure)" xlink:href="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna.png" /></svg> |
 
 
 ## contrast
@@ -750,7 +750,7 @@ color-matrix --filter "contrast" --input ./image.png --output ./image-contrast-0
 
 | Original | Color Matrix | SVG |
 |:--------:|:------------:|:---:|
-| <img width="256" height="256" alt="contrast" src="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna.png" /> | <img width="256" height="256" alt="contrast" src="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna-contrast.png" /> | <svg width="256" height="256" viewBox="0 0 512 512"><filter id="fx-contrast"><feColorMatrix in="SourceGraphic" type="matrix" values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0" /></filter><image x="0" y="0" width="512" height="512" filter="url(#fx-contrast)" xlink:href="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna.png" /></svg> |
+| <img width="256" height="256" alt="contrast" src="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna.png" /> | <img width="256" height="256" alt="contrast" src="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna-contrast-0.png" /> | <svg width="256" height="256" viewBox="0 0 512 512"><filter id="fx-contrast"><feColorMatrix in="SourceGraphic" type="matrix" values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0" /></filter><image x="0" y="0" width="512" height="512" filter="url(#fx-contrast)" xlink:href="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna.png" /></svg> |
 
 **with value: 0.5**
 
@@ -776,7 +776,7 @@ color-matrix --filter "contrast" --input ./image.png --output ./image-contrast-0
 
 | Original | Color Matrix | SVG |
 |:--------:|:------------:|:---:|
-| <img width="256" height="256" alt="contrast" src="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna.png" /> | <img width="256" height="256" alt="contrast" src="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna-contrast.png" /> | <svg width="256" height="256" viewBox="0 0 512 512"><filter id="fx-contrast"><feColorMatrix in="SourceGraphic" type="matrix" values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0" /></filter><image x="0" y="0" width="512" height="512" filter="url(#fx-contrast)" xlink:href="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna.png" /></svg> |
+| <img width="256" height="256" alt="contrast" src="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna.png" /> | <img width="256" height="256" alt="contrast" src="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna-contrast-0.5.png" /> | <svg width="256" height="256" viewBox="0 0 512 512"><filter id="fx-contrast"><feColorMatrix in="SourceGraphic" type="matrix" values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0" /></filter><image x="0" y="0" width="512" height="512" filter="url(#fx-contrast)" xlink:href="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna.png" /></svg> |
 
 **with value: 1**
 
@@ -802,7 +802,7 @@ color-matrix --filter "contrast" --input ./image.png --output ./image-contrast-1
 
 | Original | Color Matrix | SVG |
 |:--------:|:------------:|:---:|
-| <img width="256" height="256" alt="contrast" src="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna.png" /> | <img width="256" height="256" alt="contrast" src="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna-contrast.png" /> | <svg width="256" height="256" viewBox="0 0 512 512"><filter id="fx-contrast"><feColorMatrix in="SourceGraphic" type="matrix" values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0" /></filter><image x="0" y="0" width="512" height="512" filter="url(#fx-contrast)" xlink:href="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna.png" /></svg> |
+| <img width="256" height="256" alt="contrast" src="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna.png" /> | <img width="256" height="256" alt="contrast" src="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna-contrast-1.png" /> | <svg width="256" height="256" viewBox="0 0 512 512"><filter id="fx-contrast"><feColorMatrix in="SourceGraphic" type="matrix" values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0" /></filter><image x="0" y="0" width="512" height="512" filter="url(#fx-contrast)" xlink:href="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna.png" /></svg> |
 
 
 ## temperature
@@ -831,7 +831,7 @@ color-matrix --filter "temperature" --input ./image.png --output ./image-tempera
 
 | Original | Color Matrix | SVG |
 |:--------:|:------------:|:---:|
-| <img width="256" height="256" alt="temperature" src="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna.png" /> | <img width="256" height="256" alt="temperature" src="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna-temperature.png" /> | <svg width="256" height="256" viewBox="0 0 512 512"><filter id="fx-temperature"><feColorMatrix in="SourceGraphic" type="matrix" values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0" /></filter><image x="0" y="0" width="512" height="512" filter="url(#fx-temperature)" xlink:href="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna.png" /></svg> |
+| <img width="256" height="256" alt="temperature" src="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna.png" /> | <img width="256" height="256" alt="temperature" src="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna-temperature-0.png" /> | <svg width="256" height="256" viewBox="0 0 512 512"><filter id="fx-temperature"><feColorMatrix in="SourceGraphic" type="matrix" values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0" /></filter><image x="0" y="0" width="512" height="512" filter="url(#fx-temperature)" xlink:href="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna.png" /></svg> |
 
 **with value: 0.5**
 
@@ -857,7 +857,7 @@ color-matrix --filter "temperature" --input ./image.png --output ./image-tempera
 
 | Original | Color Matrix | SVG |
 |:--------:|:------------:|:---:|
-| <img width="256" height="256" alt="temperature" src="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna.png" /> | <img width="256" height="256" alt="temperature" src="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna-temperature.png" /> | <svg width="256" height="256" viewBox="0 0 512 512"><filter id="fx-temperature"><feColorMatrix in="SourceGraphic" type="matrix" values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0" /></filter><image x="0" y="0" width="512" height="512" filter="url(#fx-temperature)" xlink:href="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna.png" /></svg> |
+| <img width="256" height="256" alt="temperature" src="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna.png" /> | <img width="256" height="256" alt="temperature" src="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna-temperature-0.5.png" /> | <svg width="256" height="256" viewBox="0 0 512 512"><filter id="fx-temperature"><feColorMatrix in="SourceGraphic" type="matrix" values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0" /></filter><image x="0" y="0" width="512" height="512" filter="url(#fx-temperature)" xlink:href="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna.png" /></svg> |
 
 **with value: 1**
 
@@ -883,7 +883,7 @@ color-matrix --filter "temperature" --input ./image.png --output ./image-tempera
 
 | Original | Color Matrix | SVG |
 |:--------:|:------------:|:---:|
-| <img width="256" height="256" alt="temperature" src="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna.png" /> | <img width="256" height="256" alt="temperature" src="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna-temperature.png" /> | <svg width="256" height="256" viewBox="0 0 512 512"><filter id="fx-temperature"><feColorMatrix in="SourceGraphic" type="matrix" values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0" /></filter><image x="0" y="0" width="512" height="512" filter="url(#fx-temperature)" xlink:href="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna.png" /></svg> |
+| <img width="256" height="256" alt="temperature" src="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna.png" /> | <img width="256" height="256" alt="temperature" src="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna-temperature-1.png" /> | <svg width="256" height="256" viewBox="0 0 512 512"><filter id="fx-temperature"><feColorMatrix in="SourceGraphic" type="matrix" values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0" /></filter><image x="0" y="0" width="512" height="512" filter="url(#fx-temperature)" xlink:href="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna.png" /></svg> |
 
 
 ## tint
@@ -912,7 +912,7 @@ color-matrix --filter "tint" --input ./image.png --output ./image-tint-0.png --v
 
 | Original | Color Matrix | SVG |
 |:--------:|:------------:|:---:|
-| <img width="256" height="256" alt="tint" src="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna.png" /> | <img width="256" height="256" alt="tint" src="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna-tint.png" /> | <svg width="256" height="256" viewBox="0 0 512 512"><filter id="fx-tint"><feColorMatrix in="SourceGraphic" type="matrix" values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0" /></filter><image x="0" y="0" width="512" height="512" filter="url(#fx-tint)" xlink:href="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna.png" /></svg> |
+| <img width="256" height="256" alt="tint" src="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna.png" /> | <img width="256" height="256" alt="tint" src="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna-tint-0.png" /> | <svg width="256" height="256" viewBox="0 0 512 512"><filter id="fx-tint"><feColorMatrix in="SourceGraphic" type="matrix" values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0" /></filter><image x="0" y="0" width="512" height="512" filter="url(#fx-tint)" xlink:href="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna.png" /></svg> |
 
 **with value: 0.5**
 
@@ -938,7 +938,7 @@ color-matrix --filter "tint" --input ./image.png --output ./image-tint-0.5.png -
 
 | Original | Color Matrix | SVG |
 |:--------:|:------------:|:---:|
-| <img width="256" height="256" alt="tint" src="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna.png" /> | <img width="256" height="256" alt="tint" src="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna-tint.png" /> | <svg width="256" height="256" viewBox="0 0 512 512"><filter id="fx-tint"><feColorMatrix in="SourceGraphic" type="matrix" values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0" /></filter><image x="0" y="0" width="512" height="512" filter="url(#fx-tint)" xlink:href="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna.png" /></svg> |
+| <img width="256" height="256" alt="tint" src="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna.png" /> | <img width="256" height="256" alt="tint" src="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna-tint-0.5.png" /> | <svg width="256" height="256" viewBox="0 0 512 512"><filter id="fx-tint"><feColorMatrix in="SourceGraphic" type="matrix" values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0" /></filter><image x="0" y="0" width="512" height="512" filter="url(#fx-tint)" xlink:href="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna.png" /></svg> |
 
 **with value: 1**
 
@@ -964,7 +964,7 @@ color-matrix --filter "tint" --input ./image.png --output ./image-tint-1.png --v
 
 | Original | Color Matrix | SVG |
 |:--------:|:------------:|:---:|
-| <img width="256" height="256" alt="tint" src="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna.png" /> | <img width="256" height="256" alt="tint" src="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna-tint.png" /> | <svg width="256" height="256" viewBox="0 0 512 512"><filter id="fx-tint"><feColorMatrix in="SourceGraphic" type="matrix" values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0" /></filter><image x="0" y="0" width="512" height="512" filter="url(#fx-tint)" xlink:href="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna.png" /></svg> |
+| <img width="256" height="256" alt="tint" src="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna.png" /> | <img width="256" height="256" alt="tint" src="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna-tint-1.png" /> | <svg width="256" height="256" viewBox="0 0 512 512"><filter id="fx-tint"><feColorMatrix in="SourceGraphic" type="matrix" values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0" /></filter><image x="0" y="0" width="512" height="512" filter="url(#fx-tint)" xlink:href="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna.png" /></svg> |
 
 
 ## threshold
@@ -993,7 +993,7 @@ color-matrix --filter "threshold" --input ./image.png --output ./image-threshold
 
 | Original | Color Matrix | SVG |
 |:--------:|:------------:|:---:|
-| <img width="256" height="256" alt="threshold" src="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna.png" /> | <img width="256" height="256" alt="threshold" src="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna-threshold.png" /> | <svg width="256" height="256" viewBox="0 0 512 512"><filter id="fx-threshold"><feColorMatrix in="SourceGraphic" type="matrix" values="79.0016 156.0064 20.992 0 0 79.0016 156.0064 20.992 0 0 79.0016 156.0064 20.992 0 0 0 0 0 1 0" /></filter><image x="0" y="0" width="512" height="512" filter="url(#fx-threshold)" xlink:href="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna.png" /></svg> |
+| <img width="256" height="256" alt="threshold" src="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna.png" /> | <img width="256" height="256" alt="threshold" src="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna-threshold-0.png" /> | <svg width="256" height="256" viewBox="0 0 512 512"><filter id="fx-threshold"><feColorMatrix in="SourceGraphic" type="matrix" values="79.0016 156.0064 20.992 0 0 79.0016 156.0064 20.992 0 0 79.0016 156.0064 20.992 0 0 0 0 0 1 0" /></filter><image x="0" y="0" width="512" height="512" filter="url(#fx-threshold)" xlink:href="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna.png" /></svg> |
 
 **with value: 1**
 
@@ -1019,7 +1019,7 @@ color-matrix --filter "threshold" --input ./image.png --output ./image-threshold
 
 | Original | Color Matrix | SVG |
 |:--------:|:------------:|:---:|
-| <img width="256" height="256" alt="threshold" src="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna.png" /> | <img width="256" height="256" alt="threshold" src="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna-threshold.png" /> | <svg width="256" height="256" viewBox="0 0 512 512"><filter id="fx-threshold"><feColorMatrix in="SourceGraphic" type="matrix" values="79.0016 156.0064 20.992 0 0 79.0016 156.0064 20.992 0 0 79.0016 156.0064 20.992 0 0 0 0 0 1 0" /></filter><image x="0" y="0" width="512" height="512" filter="url(#fx-threshold)" xlink:href="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna.png" /></svg> |
+| <img width="256" height="256" alt="threshold" src="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna.png" /> | <img width="256" height="256" alt="threshold" src="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna-threshold-1.png" /> | <svg width="256" height="256" viewBox="0 0 512 512"><filter id="fx-threshold"><feColorMatrix in="SourceGraphic" type="matrix" values="79.0016 156.0064 20.992 0 0 79.0016 156.0064 20.992 0 0 79.0016 156.0064 20.992 0 0 0 0 0 1 0" /></filter><image x="0" y="0" width="512" height="512" filter="url(#fx-threshold)" xlink:href="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna.png" /></svg> |
 
 **with value: 2**
 
@@ -1045,7 +1045,7 @@ color-matrix --filter "threshold" --input ./image.png --output ./image-threshold
 
 | Original | Color Matrix | SVG |
 |:--------:|:------------:|:---:|
-| <img width="256" height="256" alt="threshold" src="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna.png" /> | <img width="256" height="256" alt="threshold" src="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna-threshold.png" /> | <svg width="256" height="256" viewBox="0 0 512 512"><filter id="fx-threshold"><feColorMatrix in="SourceGraphic" type="matrix" values="79.0016 156.0064 20.992 0 0 79.0016 156.0064 20.992 0 0 79.0016 156.0064 20.992 0 0 0 0 0 1 0" /></filter><image x="0" y="0" width="512" height="512" filter="url(#fx-threshold)" xlink:href="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna.png" /></svg> |
+| <img width="256" height="256" alt="threshold" src="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna.png" /> | <img width="256" height="256" alt="threshold" src="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna-threshold-2.png" /> | <svg width="256" height="256" viewBox="0 0 512 512"><filter id="fx-threshold"><feColorMatrix in="SourceGraphic" type="matrix" values="79.0016 156.0064 20.992 0 0 79.0016 156.0064 20.992 0 0 79.0016 156.0064 20.992 0 0 0 0 0 1 0" /></filter><image x="0" y="0" width="512" height="512" filter="url(#fx-threshold)" xlink:href="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna.png" /></svg> |
 
 
 ## matrix
@@ -1074,7 +1074,7 @@ color-matrix --filter "matrix" --input ./image.png --output ./image-matrix-1,0,0
 
 | Original | Color Matrix | SVG |
 |:--------:|:------------:|:---:|
-| <img width="256" height="256" alt="matrix" src="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna.png" /> | <img width="256" height="256" alt="matrix" src="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna-matrix.png" /> | <svg width="256" height="256" viewBox="0 0 512 512"><filter id="fx-matrix"><feColorMatrix in="SourceGraphic" type="matrix" values="" /></filter><image x="0" y="0" width="512" height="512" filter="url(#fx-matrix)" xlink:href="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna.png" /></svg> |
+| <img width="256" height="256" alt="matrix" src="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna.png" /> | <img width="256" height="256" alt="matrix" src="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna-matrix-1,0,0,0,0,0,0.2,0,0,0,0,0,0.2,0,0,0,0,0,1,0.png" /> | <svg width="256" height="256" viewBox="0 0 512 512"><filter id="fx-matrix"><feColorMatrix in="SourceGraphic" type="matrix" values="" /></filter><image x="0" y="0" width="512" height="512" filter="url(#fx-matrix)" xlink:href="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna.png" /></svg> |
 
 
 ## saturate
@@ -1103,7 +1103,7 @@ color-matrix --filter "saturate" --input ./image.png --output ./image-saturate-0
 
 | Original | Color Matrix | SVG |
 |:--------:|:------------:|:---:|
-| <img width="256" height="256" alt="saturate" src="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna.png" /> | <img width="256" height="256" alt="saturate" src="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna-saturate.png" /> | <svg width="256" height="256" viewBox="0 0 512 512"><filter id="fx-saturate"><feColorMatrix in="SourceGraphic" type="matrix" values="0.213 0.715 0.072 0 0 0.213 0.715 0.072 0 0 0.213 0.715 0.072 0 0 0 0 0 1 0" /></filter><image x="0" y="0" width="512" height="512" filter="url(#fx-saturate)" xlink:href="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna.png" /></svg> |
+| <img width="256" height="256" alt="saturate" src="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna.png" /> | <img width="256" height="256" alt="saturate" src="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna-saturate-0.png" /> | <svg width="256" height="256" viewBox="0 0 512 512"><filter id="fx-saturate"><feColorMatrix in="SourceGraphic" type="matrix" values="0.213 0.715 0.072 0 0 0.213 0.715 0.072 0 0 0.213 0.715 0.072 0 0 0 0 0 1 0" /></filter><image x="0" y="0" width="512" height="512" filter="url(#fx-saturate)" xlink:href="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna.png" /></svg> |
 
 **with value: 0.3**
 
@@ -1129,7 +1129,7 @@ color-matrix --filter "saturate" --input ./image.png --output ./image-saturate-0
 
 | Original | Color Matrix | SVG |
 |:--------:|:------------:|:---:|
-| <img width="256" height="256" alt="saturate" src="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna.png" /> | <img width="256" height="256" alt="saturate" src="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna-saturate.png" /> | <svg width="256" height="256" viewBox="0 0 512 512"><filter id="fx-saturate"><feColorMatrix in="SourceGraphic" type="matrix" values="0.213 0.715 0.072 0 0 0.213 0.715 0.072 0 0 0.213 0.715 0.072 0 0 0 0 0 1 0" /></filter><image x="0" y="0" width="512" height="512" filter="url(#fx-saturate)" xlink:href="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna.png" /></svg> |
+| <img width="256" height="256" alt="saturate" src="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna.png" /> | <img width="256" height="256" alt="saturate" src="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna-saturate-0.3.png" /> | <svg width="256" height="256" viewBox="0 0 512 512"><filter id="fx-saturate"><feColorMatrix in="SourceGraphic" type="matrix" values="0.213 0.715 0.072 0 0 0.213 0.715 0.072 0 0 0.213 0.715 0.072 0 0 0 0 0 1 0" /></filter><image x="0" y="0" width="512" height="512" filter="url(#fx-saturate)" xlink:href="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna.png" /></svg> |
 
 **with value: 0.5**
 
@@ -1155,7 +1155,7 @@ color-matrix --filter "saturate" --input ./image.png --output ./image-saturate-0
 
 | Original | Color Matrix | SVG |
 |:--------:|:------------:|:---:|
-| <img width="256" height="256" alt="saturate" src="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna.png" /> | <img width="256" height="256" alt="saturate" src="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna-saturate.png" /> | <svg width="256" height="256" viewBox="0 0 512 512"><filter id="fx-saturate"><feColorMatrix in="SourceGraphic" type="matrix" values="0.213 0.715 0.072 0 0 0.213 0.715 0.072 0 0 0.213 0.715 0.072 0 0 0 0 0 1 0" /></filter><image x="0" y="0" width="512" height="512" filter="url(#fx-saturate)" xlink:href="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna.png" /></svg> |
+| <img width="256" height="256" alt="saturate" src="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna.png" /> | <img width="256" height="256" alt="saturate" src="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna-saturate-0.5.png" /> | <svg width="256" height="256" viewBox="0 0 512 512"><filter id="fx-saturate"><feColorMatrix in="SourceGraphic" type="matrix" values="0.213 0.715 0.072 0 0 0.213 0.715 0.072 0 0 0.213 0.715 0.072 0 0 0 0 0 1 0" /></filter><image x="0" y="0" width="512" height="512" filter="url(#fx-saturate)" xlink:href="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna.png" /></svg> |
 
 **with value: 0.7**
 
@@ -1181,7 +1181,7 @@ color-matrix --filter "saturate" --input ./image.png --output ./image-saturate-0
 
 | Original | Color Matrix | SVG |
 |:--------:|:------------:|:---:|
-| <img width="256" height="256" alt="saturate" src="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna.png" /> | <img width="256" height="256" alt="saturate" src="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna-saturate.png" /> | <svg width="256" height="256" viewBox="0 0 512 512"><filter id="fx-saturate"><feColorMatrix in="SourceGraphic" type="matrix" values="0.213 0.715 0.072 0 0 0.213 0.715 0.072 0 0 0.213 0.715 0.072 0 0 0 0 0 1 0" /></filter><image x="0" y="0" width="512" height="512" filter="url(#fx-saturate)" xlink:href="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna.png" /></svg> |
+| <img width="256" height="256" alt="saturate" src="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna.png" /> | <img width="256" height="256" alt="saturate" src="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna-saturate-0.7.png" /> | <svg width="256" height="256" viewBox="0 0 512 512"><filter id="fx-saturate"><feColorMatrix in="SourceGraphic" type="matrix" values="0.213 0.715 0.072 0 0 0.213 0.715 0.072 0 0 0.213 0.715 0.072 0 0 0 0 0 1 0" /></filter><image x="0" y="0" width="512" height="512" filter="url(#fx-saturate)" xlink:href="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna.png" /></svg> |
 
 **with value: 1**
 
@@ -1207,7 +1207,7 @@ color-matrix --filter "saturate" --input ./image.png --output ./image-saturate-1
 
 | Original | Color Matrix | SVG |
 |:--------:|:------------:|:---:|
-| <img width="256" height="256" alt="saturate" src="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna.png" /> | <img width="256" height="256" alt="saturate" src="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna-saturate.png" /> | <svg width="256" height="256" viewBox="0 0 512 512"><filter id="fx-saturate"><feColorMatrix in="SourceGraphic" type="matrix" values="0.213 0.715 0.072 0 0 0.213 0.715 0.072 0 0 0.213 0.715 0.072 0 0 0 0 0 1 0" /></filter><image x="0" y="0" width="512" height="512" filter="url(#fx-saturate)" xlink:href="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna.png" /></svg> |
+| <img width="256" height="256" alt="saturate" src="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna.png" /> | <img width="256" height="256" alt="saturate" src="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna-saturate-1.png" /> | <svg width="256" height="256" viewBox="0 0 512 512"><filter id="fx-saturate"><feColorMatrix in="SourceGraphic" type="matrix" values="0.213 0.715 0.072 0 0 0.213 0.715 0.072 0 0 0.213 0.715 0.072 0 0 0 0 0 1 0" /></filter><image x="0" y="0" width="512" height="512" filter="url(#fx-saturate)" xlink:href="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna.png" /></svg> |
 
 
 ## hueRotate
@@ -1236,7 +1236,7 @@ color-matrix --filter "hueRotate" --input ./image.png --output ./image-hueRotate
 
 | Original | Color Matrix | SVG |
 |:--------:|:------------:|:---:|
-| <img width="256" height="256" alt="hueRotate" src="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna.png" /> | <img width="256" height="256" alt="hueRotate" src="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna-hueRotate.png" /> | <svg width="256" height="256" viewBox="0 0 512 512"><filter id="fx-hueRotate"><feColorMatrix in="SourceGraphic" type="matrix" values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0" /></filter><image x="0" y="0" width="512" height="512" filter="url(#fx-hueRotate)" xlink:href="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna.png" /></svg> |
+| <img width="256" height="256" alt="hueRotate" src="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna.png" /> | <img width="256" height="256" alt="hueRotate" src="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna-hueRotate-0.png" /> | <svg width="256" height="256" viewBox="0 0 512 512"><filter id="fx-hueRotate"><feColorMatrix in="SourceGraphic" type="matrix" values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0" /></filter><image x="0" y="0" width="512" height="512" filter="url(#fx-hueRotate)" xlink:href="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna.png" /></svg> |
 
 **with value: 45**
 
@@ -1262,7 +1262,7 @@ color-matrix --filter "hueRotate" --input ./image.png --output ./image-hueRotate
 
 | Original | Color Matrix | SVG |
 |:--------:|:------------:|:---:|
-| <img width="256" height="256" alt="hueRotate" src="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna.png" /> | <img width="256" height="256" alt="hueRotate" src="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna-hueRotate.png" /> | <svg width="256" height="256" viewBox="0 0 512 512"><filter id="fx-hueRotate"><feColorMatrix in="SourceGraphic" type="matrix" values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0" /></filter><image x="0" y="0" width="512" height="512" filter="url(#fx-hueRotate)" xlink:href="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna.png" /></svg> |
+| <img width="256" height="256" alt="hueRotate" src="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna.png" /> | <img width="256" height="256" alt="hueRotate" src="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna-hueRotate-45.png" /> | <svg width="256" height="256" viewBox="0 0 512 512"><filter id="fx-hueRotate"><feColorMatrix in="SourceGraphic" type="matrix" values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0" /></filter><image x="0" y="0" width="512" height="512" filter="url(#fx-hueRotate)" xlink:href="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna.png" /></svg> |
 
 **with value: 90**
 
@@ -1288,7 +1288,7 @@ color-matrix --filter "hueRotate" --input ./image.png --output ./image-hueRotate
 
 | Original | Color Matrix | SVG |
 |:--------:|:------------:|:---:|
-| <img width="256" height="256" alt="hueRotate" src="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna.png" /> | <img width="256" height="256" alt="hueRotate" src="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna-hueRotate.png" /> | <svg width="256" height="256" viewBox="0 0 512 512"><filter id="fx-hueRotate"><feColorMatrix in="SourceGraphic" type="matrix" values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0" /></filter><image x="0" y="0" width="512" height="512" filter="url(#fx-hueRotate)" xlink:href="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna.png" /></svg> |
+| <img width="256" height="256" alt="hueRotate" src="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna.png" /> | <img width="256" height="256" alt="hueRotate" src="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna-hueRotate-90.png" /> | <svg width="256" height="256" viewBox="0 0 512 512"><filter id="fx-hueRotate"><feColorMatrix in="SourceGraphic" type="matrix" values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0" /></filter><image x="0" y="0" width="512" height="512" filter="url(#fx-hueRotate)" xlink:href="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna.png" /></svg> |
 
 **with value: 135**
 
@@ -1314,7 +1314,7 @@ color-matrix --filter "hueRotate" --input ./image.png --output ./image-hueRotate
 
 | Original | Color Matrix | SVG |
 |:--------:|:------------:|:---:|
-| <img width="256" height="256" alt="hueRotate" src="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna.png" /> | <img width="256" height="256" alt="hueRotate" src="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna-hueRotate.png" /> | <svg width="256" height="256" viewBox="0 0 512 512"><filter id="fx-hueRotate"><feColorMatrix in="SourceGraphic" type="matrix" values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0" /></filter><image x="0" y="0" width="512" height="512" filter="url(#fx-hueRotate)" xlink:href="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna.png" /></svg> |
+| <img width="256" height="256" alt="hueRotate" src="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna.png" /> | <img width="256" height="256" alt="hueRotate" src="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna-hueRotate-135.png" /> | <svg width="256" height="256" viewBox="0 0 512 512"><filter id="fx-hueRotate"><feColorMatrix in="SourceGraphic" type="matrix" values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0" /></filter><image x="0" y="0" width="512" height="512" filter="url(#fx-hueRotate)" xlink:href="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna.png" /></svg> |
 
 **with value: 180**
 
@@ -1340,7 +1340,7 @@ color-matrix --filter "hueRotate" --input ./image.png --output ./image-hueRotate
 
 | Original | Color Matrix | SVG |
 |:--------:|:------------:|:---:|
-| <img width="256" height="256" alt="hueRotate" src="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna.png" /> | <img width="256" height="256" alt="hueRotate" src="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna-hueRotate.png" /> | <svg width="256" height="256" viewBox="0 0 512 512"><filter id="fx-hueRotate"><feColorMatrix in="SourceGraphic" type="matrix" values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0" /></filter><image x="0" y="0" width="512" height="512" filter="url(#fx-hueRotate)" xlink:href="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna.png" /></svg> |
+| <img width="256" height="256" alt="hueRotate" src="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna.png" /> | <img width="256" height="256" alt="hueRotate" src="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna-hueRotate-180.png" /> | <svg width="256" height="256" viewBox="0 0 512 512"><filter id="fx-hueRotate"><feColorMatrix in="SourceGraphic" type="matrix" values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0" /></filter><image x="0" y="0" width="512" height="512" filter="url(#fx-hueRotate)" xlink:href="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna.png" /></svg> |
 
 **with value: 225**
 
@@ -1366,7 +1366,7 @@ color-matrix --filter "hueRotate" --input ./image.png --output ./image-hueRotate
 
 | Original | Color Matrix | SVG |
 |:--------:|:------------:|:---:|
-| <img width="256" height="256" alt="hueRotate" src="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna.png" /> | <img width="256" height="256" alt="hueRotate" src="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna-hueRotate.png" /> | <svg width="256" height="256" viewBox="0 0 512 512"><filter id="fx-hueRotate"><feColorMatrix in="SourceGraphic" type="matrix" values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0" /></filter><image x="0" y="0" width="512" height="512" filter="url(#fx-hueRotate)" xlink:href="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna.png" /></svg> |
+| <img width="256" height="256" alt="hueRotate" src="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna.png" /> | <img width="256" height="256" alt="hueRotate" src="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna-hueRotate-225.png" /> | <svg width="256" height="256" viewBox="0 0 512 512"><filter id="fx-hueRotate"><feColorMatrix in="SourceGraphic" type="matrix" values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0" /></filter><image x="0" y="0" width="512" height="512" filter="url(#fx-hueRotate)" xlink:href="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna.png" /></svg> |
 
 **with value: 270**
 
@@ -1392,7 +1392,7 @@ color-matrix --filter "hueRotate" --input ./image.png --output ./image-hueRotate
 
 | Original | Color Matrix | SVG |
 |:--------:|:------------:|:---:|
-| <img width="256" height="256" alt="hueRotate" src="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna.png" /> | <img width="256" height="256" alt="hueRotate" src="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna-hueRotate.png" /> | <svg width="256" height="256" viewBox="0 0 512 512"><filter id="fx-hueRotate"><feColorMatrix in="SourceGraphic" type="matrix" values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0" /></filter><image x="0" y="0" width="512" height="512" filter="url(#fx-hueRotate)" xlink:href="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna.png" /></svg> |
+| <img width="256" height="256" alt="hueRotate" src="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna.png" /> | <img width="256" height="256" alt="hueRotate" src="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna-hueRotate-270.png" /> | <svg width="256" height="256" viewBox="0 0 512 512"><filter id="fx-hueRotate"><feColorMatrix in="SourceGraphic" type="matrix" values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0" /></filter><image x="0" y="0" width="512" height="512" filter="url(#fx-hueRotate)" xlink:href="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna.png" /></svg> |
 
 **with value: 315**
 
@@ -1418,7 +1418,7 @@ color-matrix --filter "hueRotate" --input ./image.png --output ./image-hueRotate
 
 | Original | Color Matrix | SVG |
 |:--------:|:------------:|:---:|
-| <img width="256" height="256" alt="hueRotate" src="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna.png" /> | <img width="256" height="256" alt="hueRotate" src="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna-hueRotate.png" /> | <svg width="256" height="256" viewBox="0 0 512 512"><filter id="fx-hueRotate"><feColorMatrix in="SourceGraphic" type="matrix" values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0" /></filter><image x="0" y="0" width="512" height="512" filter="url(#fx-hueRotate)" xlink:href="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna.png" /></svg> |
+| <img width="256" height="256" alt="hueRotate" src="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna.png" /> | <img width="256" height="256" alt="hueRotate" src="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna-hueRotate-315.png" /> | <svg width="256" height="256" viewBox="0 0 512 512"><filter id="fx-hueRotate"><feColorMatrix in="SourceGraphic" type="matrix" values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0" /></filter><image x="0" y="0" width="512" height="512" filter="url(#fx-hueRotate)" xlink:href="https://github.com/skratchdot/color-matrix/raw/master/docs/images/lenna.png" /></svg> |
 
 
 ## luminanceToAlpha

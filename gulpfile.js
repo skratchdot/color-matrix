@@ -101,7 +101,8 @@ gulp.task('examples', function () {
 			content.push('|:--------:|:------------:|:---:|');
 			content.push(
 				'| ' + getImage(filterName, 'lenna') +
-				' | ' + getImage(filterName, 'lenna-' + filterName) +
+				' | ' + getImage(filterName, 'lenna-' + filterName +
+					(value !== undefined ? '-' + value : '')) +
 				' | <svg width="256" height="256" viewBox="0 0 512 512">' +
 				'<filter id="fx-' + filterName + '">' +
 				'<feColorMatrix in="SourceGraphic" type="matrix" values="' +
