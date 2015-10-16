@@ -151,6 +151,11 @@ img {
   border: 1px solid #ccc;
 }
 
+table img {
+	padding: 0;
+	margin: 0;
+}
+
 p img {
   display: inline;
   margin: 0;
