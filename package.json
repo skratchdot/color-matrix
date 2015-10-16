@@ -1,7 +1,7 @@
 {
   "name": "color-matrix",
   "description": "Apply filters to colors to simulate things like color blindness and night vision.",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "homepage": "https://github.com/skratchdot/color-matrix",
   "author": {
     "name": "skratchdot",
@@ -24,13 +24,17 @@
   },
   "dependencies": {
     "caman": "^4.1.2",
+    "commander": "^2.9.0",
     "onecolor": "^2.4.0"
   },
   "devDependencies": {
+    "ejs": "^2.3.4",
     "gulp": "^3.8.1",
     "gulp-jshint": "^1.6.3",
     "gulp-nodeunit": "0.0.5",
-    "jsdoc-to-markdown": "^1.2.0"
+    "highlight.js": "^8.8.0",
+    "jsdoc-to-markdown": "^1.2.0",
+    "marked": "^0.3.5"
   },
   "keywords": [
     "color",

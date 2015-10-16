@@ -1,0 +1,4 @@
+[submodule "gh-pages"]
+	path = gh-pages
+	url = git@github.com:skratchdot/color-matrix.git
+	branch = gh-pages

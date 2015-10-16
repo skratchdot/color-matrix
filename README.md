@@ -19,6 +19,13 @@ It comes in 2 formats: [a node.js library](#getting-started) and a
 [command line tool](#command-line-tool).
 
 
+## Examples
+
+Usage and output examples can be found here:
+
+- http://projects.skratchdot.com/color-matrix/examples.html
+
+
 ## Node.js Library
 
 ### Getting Started
@@ -40,10 +47,10 @@ filters (which is why I published it, instead of throwing it away).
 
 ### API Documentation
 
-Read the [API Docs](https://github.com/skratchdot/color-matrix/blob/master/docs/api.md)
+Read the [API Docs](http://projects.skratchdot.com/color-matrix/api.html)
 by using this link:
 
-- https://github.com/skratchdot/color-matrix/blob/master/docs/api.md
+- http://projects.skratchdot.com/color-matrix/api.html
 
 
 ## Command Line Tool
