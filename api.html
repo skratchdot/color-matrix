@@ -1,0 +1,167 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>color-matrix by skratchdot</title>
+    <link rel="stylesheet" href="stylesheets/styles.css" />
+    <link rel="stylesheet" href="stylesheets/monokai_sublime.css" />
+    <script src="javascripts/scale.fix.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1 class="header">Color Matrix</h1>
+        <p class="header">
+        	Apply filters to colors to simulate things like color blindness
+        	and night vision.
+        </p>
+        <ul>
+          <!--<li class="download"><a class="buttons" href="https://github.com/skratchdot/color-matrix/zipball/master">Download ZIP</a></li>-->
+          <!--<li class="download"><a class="buttons" href="https://github.com/skratchdot/color-matrix/tarball/master">Download TAR</a></li>-->
+          <li><a class="buttons readme" href="index.html">Readme</a></li>
+          <li><a class="buttons examples" href="examples.html">Examples</a></li>
+          <li><a class="buttons api" href="api.html">API Docs</a></li>
+          <li><a class="buttons github" href="https://github.com/skratchdot/color-matrix">View On GitHub</a></li>
+        </ul>
+        <p class="header">
+        	This project is maintained by
+        	<a class="header name" href="https://github.com/skratchdot">skratchdot</a>
+        </p>
+      </header>
+      <section>
+      <p><a name="module_ColorMatrix"></a></p>
+<h2 id="colormatrix">ColorMatrix</h2>
+<p>Apply filters to colors to simulate things like color blindness and night vision.
+Tries to mimic the behavior of the svg feColorMatrix filter.</p>
+<p>For more information about svg feColorMatrix:</p>
+<ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Element/feColorMatrix">https://developer.mozilla.org/en-US/docs/Web/SVG/Element/feColorMatrix</a></li>
+<li><a href="http://www.w3.org/TR/SVG/filters.html#feColorMatrixElement">http://www.w3.org/TR/SVG/filters.html#feColorMatrixElement</a></li>
+</ul>
+<p>This library uses modified logic from the following 3 resources:</p>
+<ul>
+<li><a href="https://color-js.googlecode.com/svn/trunk/src/Color.matrix.js">https://color-js.googlecode.com/svn/trunk/src/Color.matrix.js</a></li>
+<li><a href="http://web.archive.org/web/20081014161121/http://www.colorjack.com/labs/colormatrix/">http://web.archive.org/web/20081014161121/http://www.colorjack.com/labs/colormatrix/</a></li>
+<li><a href="http://stackoverflow.com/questions/87146/rgb-filters-for-different-forms-of-color-blindness">http://stackoverflow.com/questions/87146/rgb-filters-for-different-forms-of-color-blindness</a></li>
+</ul>
+<p><strong>Author:</strong> skratchdot<br><strong>License</strong>: MIT<br><strong>Copyright</strong>: Copyright (c) 2014 skratchdot.com<br><strong>Example</strong>  </p>
+<pre><code class="hljs lang-js"><span class="hljs-keyword">var</span> ColorMatrix = <span class="hljs-built_in">require</span>(<span class="hljs-string">'color-matrix'</span>).ColorMatrix;
+<span class="hljs-keyword">var</span> matrix = <span class="hljs-keyword">new</span> ColorMatrix();
+matrix.transform([<span class="hljs-number">222</span>, <span class="hljs-number">0</span>, <span class="hljs-number">173</span>, <span class="hljs-number">255</span>], <span class="hljs-string">'deuteranopia'</span>); <span class="hljs-comment">// returns [139, 155, 121, 1]</span></code></pre><ul>
+<li><a href="#module_ColorMatrix">ColorMatrix</a><ul>
+<li><a href="#module_ColorMatrix..addFilter">~addFilter</a></li>
+<li><a href="#module_ColorMatrix..getFilter">~getFilter</a> ⇒ <code>function</code></li>
+<li><a href="#module_ColorMatrix..getFilters">~getFilters</a> ⇒ <code>object</code></li>
+<li><a href="#module_ColorMatrix..transform">~transform</a></li>
+</ul>
+</li>
+</ul>
+<p><a name="module_ColorMatrix..addFilter"></a></p>
+<h3 id="colormatrix-addfilter">ColorMatrix~addFilter</h3>
+<p>Stores a matrix in the list of available filters</p>
+<p><strong>Kind</strong>: inner property of <code><a href="#module_ColorMatrix">ColorMatrix</a></code>  </p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>name</td>
+<td><code>string</code></td>
+<td>the name of the filter</td>
+</tr>
+<tr>
+<td>filter</td>
+<td><code>function</code></td>
+<td>a function that returns a 20 item array representing a matrix with 4 rows and 5 columns</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong>  </p>
+<pre><code class="hljs lang-js">colorMatrix.addFilter(<span class="hljs-string">'myIndentityMatrix'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> {</span>
+  <span class="hljs-keyword">return</span> [
+    <span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>,
+    <span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>,
+    <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>,
+    <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">0</span>
+  ];
+}); // now you can <span class="hljs-keyword">cal</span><span class="hljs-variable">l:</span> colorMatrix.transform(<span class="hljs-string">'myIndentityMatrix'</span>);</code></pre><p><a name="module_ColorMatrix..getFilter"></a></p>
+<h3 id="colormatrix-getfilter-code-function-code-">ColorMatrix~getFilter ⇒ <code>function</code></h3>
+<p>Gets the filter with the given name. Returns an identity matrix
+when not found.</p>
+<p><strong>Kind</strong>: inner property of <code><a href="#module_ColorMatrix">ColorMatrix</a></code><br><strong>Returns</strong>: <code>function</code> - A function that returns a 5x4 matrix  </p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>name</td>
+<td><code>string</code></td>
+<td>the name of the filter</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong>  </p>
+<pre><code class="hljs lang-js"><span class="hljs-keyword">var</span> fn = colorMatrix.getFilter('deuteranopia');
+<span class="hljs-keyword">var</span> <span class="hljs-literal">result</span> = fn([<span class="hljs-number">255</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">255</span>]); // <span class="hljs-literal">result</span> contains an rgba <span class="hljs-type">array</span></code></pre><p><a name="module_ColorMatrix..getFilters"></a></p>
+<h3 id="colormatrix-getfilters-code-object-code-">ColorMatrix~getFilters ⇒ <code>object</code></h3>
+<p><strong>Kind</strong>: inner property of <code><a href="#module_ColorMatrix">ColorMatrix</a></code><br><strong>Returns</strong>: <code>object</code> - A hash of all the filter functions.<br><strong>Example</strong>  </p>
+<pre><code class="hljs lang-js"><span class="hljs-keyword">var</span> filterFunctions = colorMatrix.getFilters();
+<span class="hljs-keyword">var</span> <span class="hljs-literal">result</span> = filterFunctions.cold([<span class="hljs-number">255</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">255</span>]);</code></pre><p><a name="module_ColorMatrix..transform"></a></p>
+<h3 id="colormatrix-transform">ColorMatrix~transform</h3>
+<p><strong>Kind</strong>: inner property of <code><a href="#module_ColorMatrix">ColorMatrix</a></code>  </p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>rgba</td>
+<td><code>array</code></td>
+<td>An RGBA array</td>
+</tr>
+<tr>
+<td>filter</td>
+<td><code>string</code></td>
+<td>The name of the filter function</td>
+</tr>
+<tr>
+<td>value</td>
+<td><code>number</code> &#124; <code>array</code></td>
+<td>The value to pass to the filter function</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong>  </p>
+<pre><code class="hljs lang-js"><span class="hljs-keyword">var</span> result1 = colorMatrix.transform([<span class="hljs-number">255</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">255</span>], <span class="hljs-string">'invert'</span>);
+<span class="hljs-keyword">var</span> result2 = colorMatrix.transform([<span class="hljs-number">255</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">255</span>], <span class="hljs-string">'hueRotate'</span>, <span class="hljs-number">180</span>);</code></pre>      </section>
+      <footer>
+        <p>
+          <small>
+          	Hosted on <a href="https://pages.github.com">GitHub Pages</a>
+        	using a modified version of the <a href="https://github.com/broccolini/dinky">Dinky theme</a>
+          </small>
+        </p>
+      </footer>
+    </div>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+  </body>
+</html>

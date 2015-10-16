@@ -304,10 +304,23 @@ a.buttons {
 	text-shadow: rgba(0, 0, 0, 0.4) 0 -1px 0;
 	padding: 2px 2px 2px 22px;
 	height: 30px;
+	display: block;
 }
 
 a.github {
-	background: url(../images/octocat-small.png) no-repeat 1px;
+	background: url(../images/octocat-small.png) no-repeat;
+}
+
+a.readme {
+	background-image: none;
+}
+
+a.examples {
+	background-image: none;
+}
+
+a.api {
+	background-image: none;
 }
 
 a.buttons:hover {

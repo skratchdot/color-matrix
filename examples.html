@@ -1,0 +1,1462 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>color-matrix by skratchdot</title>
+    <link rel="stylesheet" href="stylesheets/styles.css" />
+    <link rel="stylesheet" href="stylesheets/monokai_sublime.css" />
+    <script src="javascripts/scale.fix.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1 class="header">Color Matrix</h1>
+        <p class="header">
+        	Apply filters to colors to simulate things like color blindness
+        	and night vision.
+        </p>
+        <ul>
+          <!--<li class="download"><a class="buttons" href="https://github.com/skratchdot/color-matrix/zipball/master">Download ZIP</a></li>-->
+          <!--<li class="download"><a class="buttons" href="https://github.com/skratchdot/color-matrix/tarball/master">Download TAR</a></li>-->
+          <li><a class="buttons readme" href="index.html">Readme</a></li>
+          <li><a class="buttons examples" href="examples.html">Examples</a></li>
+          <li><a class="buttons api" href="api.html">API Docs</a></li>
+          <li><a class="buttons github" href="https://github.com/skratchdot/color-matrix">View On GitHub</a></li>
+        </ul>
+        <p class="header">
+        	This project is maintained by
+        	<a class="header name" href="https://github.com/skratchdot">skratchdot</a>
+        </p>
+      </header>
+      <section>
+      <h1 id="color-matrix-examples">Color Matrix Examples</h1>
+<p><a href="#normal">normal</a>
+<a href="#protanomaly">protanomaly</a>
+<a href="#deuteranomaly">deuteranomaly</a>
+<a href="#tritanomaly">tritanomaly</a>
+<a href="#protanopia">protanopia</a>
+<a href="#deuteranopia">deuteranopia</a>
+<a href="#tritanopia">tritanopia</a>
+<a href="#achromatopsia">achromatopsia</a>
+<a href="#achromatomaly">achromatomaly</a>
+<a href="#invert">invert</a>
+<a href="#grayscale">grayscale</a>
+<a href="#sepia">sepia</a>
+<a href="#nightvision">nightvision</a>
+<a href="#warm">warm</a>
+<a href="#cool">cool</a>
+<a href="#brightness">brightness</a>
+<a href="#exposure">exposure</a>
+<a href="#contrast">contrast</a>
+<a href="#temperature">temperature</a>
+<a href="#tint">tint</a>
+<a href="#threshold">threshold</a>
+<a href="#matrix">matrix</a>
+<a href="#saturate">saturate</a>
+<a href="#hueRotate">hueRotate</a>
+<a href="#luminanceToAlpha">luminanceToAlpha</a></p>
+<h2 id="normal">normal</h2>
+<h3 id="node-usage-">Node Usage:</h3>
+<pre><code class="hljs lang-javascript">var ColorMatrix = require(<span class="hljs-string">"color-matrix"</span>);
+var matrix = <span class="hljs-keyword">new</span> ColorMatrix();
+matrix.transform([<span class="hljs-number">255</span>, <span class="hljs-number">0</span>, <span class="hljs-number">128</span>, <span class="hljs-number">255</span>], <span class="hljs-string">"normal"</span>);
+<span class="hljs-comment">// or</span>
+matrix.normal([<span class="hljs-number">255</span>, <span class="hljs-number">0</span>, <span class="hljs-number">128</span>, <span class="hljs-number">255</span>]);</code></pre><h3 id="cli-usage-">CLI Usage:</h3>
+<pre><code class="hljs lang-bash"><span class="hljs-keyword">color</span>-<span class="hljs-keyword">matrix</span> --<span class="hljs-keyword">filter</span> <span class="hljs-string">"normal"</span> <span class="hljs-string">"#FF0080"</span> 
+# or process an <span class="hljs-keyword">image</span>:
+<span class="hljs-keyword">color</span>-<span class="hljs-keyword">matrix</span> --<span class="hljs-keyword">filter</span> <span class="hljs-string">"normal"</span> --input ./<span class="hljs-keyword">image</span>.png --output ./<span class="hljs-keyword">image</span>-normal.png</code></pre><h3 id="example-results">Example Results</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Original</th>
+<th style="text-align:center">Color Matrix</th>
+<th style="text-align:center">SVG</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><img width="128" height="128" alt="normal" src="images/lenna/lenna.png" /></td>
+<td style="text-align:center"><img width="128" height="128" alt="normal" src="images/lenna/lenna-normal.png" /></td>
+<td style="text-align:center"><svg width="128" height="128" viewBox="0 0 512 512"><filter id="fx-normal-undefined"><feColorMatrix in="SourceGraphic" type="matrix" values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0" /></filter><image x="0" y="0" width="512" height="512" filter="url(#fx-normal-undefined)" xlink:href="images/lenna/lenna.png" /></svg></td>
+</tr>
+</tbody>
+</table>
+<h2 id="protanomaly">protanomaly</h2>
+<h3 id="node-usage-">Node Usage:</h3>
+<pre><code class="hljs lang-javascript">var ColorMatrix = require(<span class="hljs-string">"color-matrix"</span>);
+var matrix = <span class="hljs-keyword">new</span> ColorMatrix();
+matrix.transform([<span class="hljs-number">255</span>, <span class="hljs-number">0</span>, <span class="hljs-number">128</span>, <span class="hljs-number">255</span>], <span class="hljs-string">"protanomaly"</span>);
+<span class="hljs-comment">// or</span>
+matrix.protanomaly([<span class="hljs-number">255</span>, <span class="hljs-number">0</span>, <span class="hljs-number">128</span>, <span class="hljs-number">255</span>]);</code></pre><h3 id="cli-usage-">CLI Usage:</h3>
+<pre><code class="hljs lang-bash"><span class="hljs-keyword">color</span>-<span class="hljs-keyword">matrix</span> --<span class="hljs-keyword">filter</span> <span class="hljs-string">"protanomaly"</span> <span class="hljs-string">"#FF0080"</span> 
+# or process an <span class="hljs-keyword">image</span>:
+<span class="hljs-keyword">color</span>-<span class="hljs-keyword">matrix</span> --<span class="hljs-keyword">filter</span> <span class="hljs-string">"protanomaly"</span> --input ./<span class="hljs-keyword">image</span>.png --output ./<span class="hljs-keyword">image</span>-protanomaly.png</code></pre><h3 id="example-results">Example Results</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Original</th>
+<th style="text-align:center">Color Matrix</th>
+<th style="text-align:center">SVG</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><img width="128" height="128" alt="protanomaly" src="images/lenna/lenna.png" /></td>
+<td style="text-align:center"><img width="128" height="128" alt="protanomaly" src="images/lenna/lenna-protanomaly.png" /></td>
+<td style="text-align:center"><svg width="128" height="128" viewBox="0 0 512 512"><filter id="fx-protanomaly-undefined"><feColorMatrix in="SourceGraphic" type="matrix" values="0.817 0.183 0 0 0 0.333 0.667 0 0 0 0 0.125 0.875 0 0 0 0 0 1 0" /></filter><image x="0" y="0" width="512" height="512" filter="url(#fx-protanomaly-undefined)" xlink:href="images/lenna/lenna.png" /></svg></td>
+</tr>
+</tbody>
+</table>
+<h2 id="deuteranomaly">deuteranomaly</h2>
+<h3 id="node-usage-">Node Usage:</h3>
+<pre><code class="hljs lang-javascript">var ColorMatrix = require(<span class="hljs-string">"color-matrix"</span>);
+var matrix = <span class="hljs-keyword">new</span> ColorMatrix();
+matrix.transform([<span class="hljs-number">255</span>, <span class="hljs-number">0</span>, <span class="hljs-number">128</span>, <span class="hljs-number">255</span>], <span class="hljs-string">"deuteranomaly"</span>);
+<span class="hljs-comment">// or</span>
+matrix.deuteranomaly([<span class="hljs-number">255</span>, <span class="hljs-number">0</span>, <span class="hljs-number">128</span>, <span class="hljs-number">255</span>]);</code></pre><h3 id="cli-usage-">CLI Usage:</h3>
+<pre><code class="hljs lang-bash"><span class="hljs-keyword">color</span>-<span class="hljs-keyword">matrix</span> --<span class="hljs-keyword">filter</span> <span class="hljs-string">"deuteranomaly"</span> <span class="hljs-string">"#FF0080"</span> 
+# or process an <span class="hljs-keyword">image</span>:
+<span class="hljs-keyword">color</span>-<span class="hljs-keyword">matrix</span> --<span class="hljs-keyword">filter</span> <span class="hljs-string">"deuteranomaly"</span> --input ./<span class="hljs-keyword">image</span>.png --output ./<span class="hljs-keyword">image</span>-deuteranomaly.png</code></pre><h3 id="example-results">Example Results</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Original</th>
+<th style="text-align:center">Color Matrix</th>
+<th style="text-align:center">SVG</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><img width="128" height="128" alt="deuteranomaly" src="images/lenna/lenna.png" /></td>
+<td style="text-align:center"><img width="128" height="128" alt="deuteranomaly" src="images/lenna/lenna-deuteranomaly.png" /></td>
+<td style="text-align:center"><svg width="128" height="128" viewBox="0 0 512 512"><filter id="fx-deuteranomaly-undefined"><feColorMatrix in="SourceGraphic" type="matrix" values="0.8 0.2 0 0 0 0.258 0.742 0 0 0 0 0.142 0.858 0 0 0 0 0 1 0" /></filter><image x="0" y="0" width="512" height="512" filter="url(#fx-deuteranomaly-undefined)" xlink:href="images/lenna/lenna.png" /></svg></td>
+</tr>
+</tbody>
+</table>
+<h2 id="tritanomaly">tritanomaly</h2>
+<h3 id="node-usage-">Node Usage:</h3>
+<pre><code class="hljs lang-javascript">var ColorMatrix = require(<span class="hljs-string">"color-matrix"</span>);
+var matrix = <span class="hljs-keyword">new</span> ColorMatrix();
+matrix.transform([<span class="hljs-number">255</span>, <span class="hljs-number">0</span>, <span class="hljs-number">128</span>, <span class="hljs-number">255</span>], <span class="hljs-string">"tritanomaly"</span>);
+<span class="hljs-comment">// or</span>
+matrix.tritanomaly([<span class="hljs-number">255</span>, <span class="hljs-number">0</span>, <span class="hljs-number">128</span>, <span class="hljs-number">255</span>]);</code></pre><h3 id="cli-usage-">CLI Usage:</h3>
+<pre><code class="hljs lang-bash"><span class="hljs-keyword">color</span>-<span class="hljs-keyword">matrix</span> --<span class="hljs-keyword">filter</span> <span class="hljs-string">"tritanomaly"</span> <span class="hljs-string">"#FF0080"</span> 
+# or process an <span class="hljs-keyword">image</span>:
+<span class="hljs-keyword">color</span>-<span class="hljs-keyword">matrix</span> --<span class="hljs-keyword">filter</span> <span class="hljs-string">"tritanomaly"</span> --input ./<span class="hljs-keyword">image</span>.png --output ./<span class="hljs-keyword">image</span>-tritanomaly.png</code></pre><h3 id="example-results">Example Results</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Original</th>
+<th style="text-align:center">Color Matrix</th>
+<th style="text-align:center">SVG</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><img width="128" height="128" alt="tritanomaly" src="images/lenna/lenna.png" /></td>
+<td style="text-align:center"><img width="128" height="128" alt="tritanomaly" src="images/lenna/lenna-tritanomaly.png" /></td>
+<td style="text-align:center"><svg width="128" height="128" viewBox="0 0 512 512"><filter id="fx-tritanomaly-undefined"><feColorMatrix in="SourceGraphic" type="matrix" values="0.967 0.033 0 0 0 0 0.733 0.267 0 0 0 0.183 0.817 0 0 0 0 0 1 0" /></filter><image x="0" y="0" width="512" height="512" filter="url(#fx-tritanomaly-undefined)" xlink:href="images/lenna/lenna.png" /></svg></td>
+</tr>
+</tbody>
+</table>
+<h2 id="protanopia">protanopia</h2>
+<h3 id="node-usage-">Node Usage:</h3>
+<pre><code class="hljs lang-javascript">var ColorMatrix = require(<span class="hljs-string">"color-matrix"</span>);
+var matrix = <span class="hljs-keyword">new</span> ColorMatrix();
+matrix.transform([<span class="hljs-number">255</span>, <span class="hljs-number">0</span>, <span class="hljs-number">128</span>, <span class="hljs-number">255</span>], <span class="hljs-string">"protanopia"</span>);
+<span class="hljs-comment">// or</span>
+matrix.protanopia([<span class="hljs-number">255</span>, <span class="hljs-number">0</span>, <span class="hljs-number">128</span>, <span class="hljs-number">255</span>]);</code></pre><h3 id="cli-usage-">CLI Usage:</h3>
+<pre><code class="hljs lang-bash"><span class="hljs-keyword">color</span>-<span class="hljs-keyword">matrix</span> --<span class="hljs-keyword">filter</span> <span class="hljs-string">"protanopia"</span> <span class="hljs-string">"#FF0080"</span> 
+# or process an <span class="hljs-keyword">image</span>:
+<span class="hljs-keyword">color</span>-<span class="hljs-keyword">matrix</span> --<span class="hljs-keyword">filter</span> <span class="hljs-string">"protanopia"</span> --input ./<span class="hljs-keyword">image</span>.png --output ./<span class="hljs-keyword">image</span>-protanopia.png</code></pre><h3 id="example-results">Example Results</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Original</th>
+<th style="text-align:center">Color Matrix</th>
+<th style="text-align:center">SVG</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><img width="128" height="128" alt="protanopia" src="images/lenna/lenna.png" /></td>
+<td style="text-align:center"><img width="128" height="128" alt="protanopia" src="images/lenna/lenna-protanopia.png" /></td>
+<td style="text-align:center"><svg width="128" height="128" viewBox="0 0 512 512"><filter id="fx-protanopia-undefined"><feColorMatrix in="SourceGraphic" type="matrix" values="0.567 0.433 0 0 0 0.558 0.442 0 0 0 0 0.242 0.758 0 0 0 0 0 1 0" /></filter><image x="0" y="0" width="512" height="512" filter="url(#fx-protanopia-undefined)" xlink:href="images/lenna/lenna.png" /></svg></td>
+</tr>
+</tbody>
+</table>
+<h2 id="deuteranopia">deuteranopia</h2>
+<h3 id="node-usage-">Node Usage:</h3>
+<pre><code class="hljs lang-javascript">var ColorMatrix = require(<span class="hljs-string">"color-matrix"</span>);
+var matrix = <span class="hljs-keyword">new</span> ColorMatrix();
+matrix.transform([<span class="hljs-number">255</span>, <span class="hljs-number">0</span>, <span class="hljs-number">128</span>, <span class="hljs-number">255</span>], <span class="hljs-string">"deuteranopia"</span>);
+<span class="hljs-comment">// or</span>
+matrix.deuteranopia([<span class="hljs-number">255</span>, <span class="hljs-number">0</span>, <span class="hljs-number">128</span>, <span class="hljs-number">255</span>]);</code></pre><h3 id="cli-usage-">CLI Usage:</h3>
+<pre><code class="hljs lang-bash"><span class="hljs-keyword">color</span>-<span class="hljs-keyword">matrix</span> --<span class="hljs-keyword">filter</span> <span class="hljs-string">"deuteranopia"</span> <span class="hljs-string">"#FF0080"</span> 
+# or process an <span class="hljs-keyword">image</span>:
+<span class="hljs-keyword">color</span>-<span class="hljs-keyword">matrix</span> --<span class="hljs-keyword">filter</span> <span class="hljs-string">"deuteranopia"</span> --input ./<span class="hljs-keyword">image</span>.png --output ./<span class="hljs-keyword">image</span>-deuteranopia.png</code></pre><h3 id="example-results">Example Results</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Original</th>
+<th style="text-align:center">Color Matrix</th>
+<th style="text-align:center">SVG</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><img width="128" height="128" alt="deuteranopia" src="images/lenna/lenna.png" /></td>
+<td style="text-align:center"><img width="128" height="128" alt="deuteranopia" src="images/lenna/lenna-deuteranopia.png" /></td>
+<td style="text-align:center"><svg width="128" height="128" viewBox="0 0 512 512"><filter id="fx-deuteranopia-undefined"><feColorMatrix in="SourceGraphic" type="matrix" values="0.625 0.375 0 0 0 0.7 0.3 0 0 0 0 0.3 0.7 0 0 0 0 0 1 0" /></filter><image x="0" y="0" width="512" height="512" filter="url(#fx-deuteranopia-undefined)" xlink:href="images/lenna/lenna.png" /></svg></td>
+</tr>
+</tbody>
+</table>
+<h2 id="tritanopia">tritanopia</h2>
+<h3 id="node-usage-">Node Usage:</h3>
+<pre><code class="hljs lang-javascript">var ColorMatrix = require(<span class="hljs-string">"color-matrix"</span>);
+var matrix = <span class="hljs-keyword">new</span> ColorMatrix();
+matrix.transform([<span class="hljs-number">255</span>, <span class="hljs-number">0</span>, <span class="hljs-number">128</span>, <span class="hljs-number">255</span>], <span class="hljs-string">"tritanopia"</span>);
+<span class="hljs-comment">// or</span>
+matrix.tritanopia([<span class="hljs-number">255</span>, <span class="hljs-number">0</span>, <span class="hljs-number">128</span>, <span class="hljs-number">255</span>]);</code></pre><h3 id="cli-usage-">CLI Usage:</h3>
+<pre><code class="hljs lang-bash"><span class="hljs-keyword">color</span>-<span class="hljs-keyword">matrix</span> --<span class="hljs-keyword">filter</span> <span class="hljs-string">"tritanopia"</span> <span class="hljs-string">"#FF0080"</span> 
+# or process an <span class="hljs-keyword">image</span>:
+<span class="hljs-keyword">color</span>-<span class="hljs-keyword">matrix</span> --<span class="hljs-keyword">filter</span> <span class="hljs-string">"tritanopia"</span> --input ./<span class="hljs-keyword">image</span>.png --output ./<span class="hljs-keyword">image</span>-tritanopia.png</code></pre><h3 id="example-results">Example Results</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Original</th>
+<th style="text-align:center">Color Matrix</th>
+<th style="text-align:center">SVG</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><img width="128" height="128" alt="tritanopia" src="images/lenna/lenna.png" /></td>
+<td style="text-align:center"><img width="128" height="128" alt="tritanopia" src="images/lenna/lenna-tritanopia.png" /></td>
+<td style="text-align:center"><svg width="128" height="128" viewBox="0 0 512 512"><filter id="fx-tritanopia-undefined"><feColorMatrix in="SourceGraphic" type="matrix" values="0.95 0.05 0 0 0 0 0.433 0.567 0 0 0 0.475 0.525 0 0 0 0 0 1 0" /></filter><image x="0" y="0" width="512" height="512" filter="url(#fx-tritanopia-undefined)" xlink:href="images/lenna/lenna.png" /></svg></td>
+</tr>
+</tbody>
+</table>
+<h2 id="achromatopsia">achromatopsia</h2>
+<h3 id="node-usage-">Node Usage:</h3>
+<pre><code class="hljs lang-javascript">var ColorMatrix = require(<span class="hljs-string">"color-matrix"</span>);
+var matrix = <span class="hljs-keyword">new</span> ColorMatrix();
+matrix.transform([<span class="hljs-number">255</span>, <span class="hljs-number">0</span>, <span class="hljs-number">128</span>, <span class="hljs-number">255</span>], <span class="hljs-string">"achromatopsia"</span>);
+<span class="hljs-comment">// or</span>
+matrix.achromatopsia([<span class="hljs-number">255</span>, <span class="hljs-number">0</span>, <span class="hljs-number">128</span>, <span class="hljs-number">255</span>]);</code></pre><h3 id="cli-usage-">CLI Usage:</h3>
+<pre><code class="hljs lang-bash"><span class="hljs-keyword">color</span>-<span class="hljs-keyword">matrix</span> --<span class="hljs-keyword">filter</span> <span class="hljs-string">"achromatopsia"</span> <span class="hljs-string">"#FF0080"</span> 
+# or process an <span class="hljs-keyword">image</span>:
+<span class="hljs-keyword">color</span>-<span class="hljs-keyword">matrix</span> --<span class="hljs-keyword">filter</span> <span class="hljs-string">"achromatopsia"</span> --input ./<span class="hljs-keyword">image</span>.png --output ./<span class="hljs-keyword">image</span>-achromatopsia.png</code></pre><h3 id="example-results">Example Results</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Original</th>
+<th style="text-align:center">Color Matrix</th>
+<th style="text-align:center">SVG</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><img width="128" height="128" alt="achromatopsia" src="images/lenna/lenna.png" /></td>
+<td style="text-align:center"><img width="128" height="128" alt="achromatopsia" src="images/lenna/lenna-achromatopsia.png" /></td>
+<td style="text-align:center"><svg width="128" height="128" viewBox="0 0 512 512"><filter id="fx-achromatopsia-undefined"><feColorMatrix in="SourceGraphic" type="matrix" values="0.299 0.587 0.114 0 0 0.299 0.587 0.114 0 0 0.299 0.587 0.114 0 0 0 0 0 1 0" /></filter><image x="0" y="0" width="512" height="512" filter="url(#fx-achromatopsia-undefined)" xlink:href="images/lenna/lenna.png" /></svg></td>
+</tr>
+</tbody>
+</table>
+<h2 id="achromatomaly">achromatomaly</h2>
+<h3 id="node-usage-">Node Usage:</h3>
+<pre><code class="hljs lang-javascript">var ColorMatrix = require(<span class="hljs-string">"color-matrix"</span>);
+var matrix = <span class="hljs-keyword">new</span> ColorMatrix();
+matrix.transform([<span class="hljs-number">255</span>, <span class="hljs-number">0</span>, <span class="hljs-number">128</span>, <span class="hljs-number">255</span>], <span class="hljs-string">"achromatomaly"</span>);
+<span class="hljs-comment">// or</span>
+matrix.achromatomaly([<span class="hljs-number">255</span>, <span class="hljs-number">0</span>, <span class="hljs-number">128</span>, <span class="hljs-number">255</span>]);</code></pre><h3 id="cli-usage-">CLI Usage:</h3>
+<pre><code class="hljs lang-bash"><span class="hljs-keyword">color</span>-<span class="hljs-keyword">matrix</span> --<span class="hljs-keyword">filter</span> <span class="hljs-string">"achromatomaly"</span> <span class="hljs-string">"#FF0080"</span> 
+# or process an <span class="hljs-keyword">image</span>:
+<span class="hljs-keyword">color</span>-<span class="hljs-keyword">matrix</span> --<span class="hljs-keyword">filter</span> <span class="hljs-string">"achromatomaly"</span> --input ./<span class="hljs-keyword">image</span>.png --output ./<span class="hljs-keyword">image</span>-achromatomaly.png</code></pre><h3 id="example-results">Example Results</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Original</th>
+<th style="text-align:center">Color Matrix</th>
+<th style="text-align:center">SVG</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><img width="128" height="128" alt="achromatomaly" src="images/lenna/lenna.png" /></td>
+<td style="text-align:center"><img width="128" height="128" alt="achromatomaly" src="images/lenna/lenna-achromatomaly.png" /></td>
+<td style="text-align:center"><svg width="128" height="128" viewBox="0 0 512 512"><filter id="fx-achromatomaly-undefined"><feColorMatrix in="SourceGraphic" type="matrix" values="0.618 0.32 0.062 0 0 0.163 0.775 0.062 0 0 0.163 0.32 0.516 0 0 0 0 0 1 0" /></filter><image x="0" y="0" width="512" height="512" filter="url(#fx-achromatomaly-undefined)" xlink:href="images/lenna/lenna.png" /></svg></td>
+</tr>
+</tbody>
+</table>
+<h2 id="invert">invert</h2>
+<h3 id="node-usage-">Node Usage:</h3>
+<pre><code class="hljs lang-javascript">var ColorMatrix = require(<span class="hljs-string">"color-matrix"</span>);
+var matrix = <span class="hljs-keyword">new</span> ColorMatrix();
+matrix.transform([<span class="hljs-number">255</span>, <span class="hljs-number">0</span>, <span class="hljs-number">128</span>, <span class="hljs-number">255</span>], <span class="hljs-string">"invert"</span>);
+<span class="hljs-comment">// or</span>
+matrix.invert([<span class="hljs-number">255</span>, <span class="hljs-number">0</span>, <span class="hljs-number">128</span>, <span class="hljs-number">255</span>]);</code></pre><h3 id="cli-usage-">CLI Usage:</h3>
+<pre><code class="hljs lang-bash"><span class="hljs-keyword">color</span>-<span class="hljs-keyword">matrix</span> --<span class="hljs-keyword">filter</span> <span class="hljs-string">"invert"</span> <span class="hljs-string">"#FF0080"</span> 
+# or process an <span class="hljs-keyword">image</span>:
+<span class="hljs-keyword">color</span>-<span class="hljs-keyword">matrix</span> --<span class="hljs-keyword">filter</span> <span class="hljs-string">"invert"</span> --input ./<span class="hljs-keyword">image</span>.png --output ./<span class="hljs-keyword">image</span>-invert.png</code></pre><h3 id="example-results">Example Results</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Original</th>
+<th style="text-align:center">Color Matrix</th>
+<th style="text-align:center">SVG</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><img width="128" height="128" alt="invert" src="images/lenna/lenna.png" /></td>
+<td style="text-align:center"><img width="128" height="128" alt="invert" src="images/lenna/lenna-invert.png" /></td>
+<td style="text-align:center"><svg width="128" height="128" viewBox="0 0 512 512"><filter id="fx-invert-undefined"><feColorMatrix in="SourceGraphic" type="matrix" values="-1 0 0 0 255 0 -1 0 0 255 0 0 -1 0 255 0 0 0 1 0" /></filter><image x="0" y="0" width="512" height="512" filter="url(#fx-invert-undefined)" xlink:href="images/lenna/lenna.png" /></svg></td>
+</tr>
+</tbody>
+</table>
+<h2 id="grayscale">grayscale</h2>
+<h3 id="node-usage-">Node Usage:</h3>
+<pre><code class="hljs lang-javascript">var ColorMatrix = require(<span class="hljs-string">"color-matrix"</span>);
+var matrix = <span class="hljs-keyword">new</span> ColorMatrix();
+matrix.transform([<span class="hljs-number">255</span>, <span class="hljs-number">0</span>, <span class="hljs-number">128</span>, <span class="hljs-number">255</span>], <span class="hljs-string">"grayscale"</span>);
+<span class="hljs-comment">// or</span>
+matrix.grayscale([<span class="hljs-number">255</span>, <span class="hljs-number">0</span>, <span class="hljs-number">128</span>, <span class="hljs-number">255</span>]);</code></pre><h3 id="cli-usage-">CLI Usage:</h3>
+<pre><code class="hljs lang-bash"><span class="hljs-keyword">color</span>-<span class="hljs-keyword">matrix</span> --<span class="hljs-keyword">filter</span> <span class="hljs-string">"grayscale"</span> <span class="hljs-string">"#FF0080"</span> 
+# or process an <span class="hljs-keyword">image</span>:
+<span class="hljs-keyword">color</span>-<span class="hljs-keyword">matrix</span> --<span class="hljs-keyword">filter</span> <span class="hljs-string">"grayscale"</span> --input ./<span class="hljs-keyword">image</span>.png --output ./<span class="hljs-keyword">image</span>-grayscale.png</code></pre><h3 id="example-results">Example Results</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Original</th>
+<th style="text-align:center">Color Matrix</th>
+<th style="text-align:center">SVG</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><img width="128" height="128" alt="grayscale" src="images/lenna/lenna.png" /></td>
+<td style="text-align:center"><img width="128" height="128" alt="grayscale" src="images/lenna/lenna-grayscale.png" /></td>
+<td style="text-align:center"><svg width="128" height="128" viewBox="0 0 512 512"><filter id="fx-grayscale-undefined"><feColorMatrix in="SourceGraphic" type="matrix" values="0.299 0.587 0.114 0 0 0.299 0.587 0.114 0 0 0.299 0.587 0.114 0 0 0 0 0 1 0" /></filter><image x="0" y="0" width="512" height="512" filter="url(#fx-grayscale-undefined)" xlink:href="images/lenna/lenna.png" /></svg></td>
+</tr>
+</tbody>
+</table>
+<h2 id="sepia">sepia</h2>
+<h3 id="node-usage-">Node Usage:</h3>
+<pre><code class="hljs lang-javascript">var ColorMatrix = require(<span class="hljs-string">"color-matrix"</span>);
+var matrix = <span class="hljs-keyword">new</span> ColorMatrix();
+matrix.transform([<span class="hljs-number">255</span>, <span class="hljs-number">0</span>, <span class="hljs-number">128</span>, <span class="hljs-number">255</span>], <span class="hljs-string">"sepia"</span>);
+<span class="hljs-comment">// or</span>
+matrix.sepia([<span class="hljs-number">255</span>, <span class="hljs-number">0</span>, <span class="hljs-number">128</span>, <span class="hljs-number">255</span>]);</code></pre><h3 id="cli-usage-">CLI Usage:</h3>
+<pre><code class="hljs lang-bash"><span class="hljs-keyword">color</span>-<span class="hljs-keyword">matrix</span> --<span class="hljs-keyword">filter</span> <span class="hljs-string">"sepia"</span> <span class="hljs-string">"#FF0080"</span> 
+# or process an <span class="hljs-keyword">image</span>:
+<span class="hljs-keyword">color</span>-<span class="hljs-keyword">matrix</span> --<span class="hljs-keyword">filter</span> <span class="hljs-string">"sepia"</span> --input ./<span class="hljs-keyword">image</span>.png --output ./<span class="hljs-keyword">image</span>-sepia.png</code></pre><h3 id="example-results">Example Results</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Original</th>
+<th style="text-align:center">Color Matrix</th>
+<th style="text-align:center">SVG</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><img width="128" height="128" alt="sepia" src="images/lenna/lenna.png" /></td>
+<td style="text-align:center"><img width="128" height="128" alt="sepia" src="images/lenna/lenna-sepia.png" /></td>
+<td style="text-align:center"><svg width="128" height="128" viewBox="0 0 512 512"><filter id="fx-sepia-undefined"><feColorMatrix in="SourceGraphic" type="matrix" values="0.393 0.769 0.189 0 0 0.349 0.686 0.168 0 0 0.272 0.534 0.131 0 0 0 0 0 1 0" /></filter><image x="0" y="0" width="512" height="512" filter="url(#fx-sepia-undefined)" xlink:href="images/lenna/lenna.png" /></svg></td>
+</tr>
+</tbody>
+</table>
+<h2 id="nightvision">nightvision</h2>
+<h3 id="node-usage-">Node Usage:</h3>
+<pre><code class="hljs lang-javascript">var ColorMatrix = require(<span class="hljs-string">"color-matrix"</span>);
+var matrix = <span class="hljs-keyword">new</span> ColorMatrix();
+matrix.transform([<span class="hljs-number">255</span>, <span class="hljs-number">0</span>, <span class="hljs-number">128</span>, <span class="hljs-number">255</span>], <span class="hljs-string">"nightvision"</span>);
+<span class="hljs-comment">// or</span>
+matrix.nightvision([<span class="hljs-number">255</span>, <span class="hljs-number">0</span>, <span class="hljs-number">128</span>, <span class="hljs-number">255</span>]);</code></pre><h3 id="cli-usage-">CLI Usage:</h3>
+<pre><code class="hljs lang-bash"><span class="hljs-keyword">color</span>-<span class="hljs-keyword">matrix</span> --<span class="hljs-keyword">filter</span> <span class="hljs-string">"nightvision"</span> <span class="hljs-string">"#FF0080"</span> 
+# or process an <span class="hljs-keyword">image</span>:
+<span class="hljs-keyword">color</span>-<span class="hljs-keyword">matrix</span> --<span class="hljs-keyword">filter</span> <span class="hljs-string">"nightvision"</span> --input ./<span class="hljs-keyword">image</span>.png --output ./<span class="hljs-keyword">image</span>-nightvision.png</code></pre><h3 id="example-results">Example Results</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Original</th>
+<th style="text-align:center">Color Matrix</th>
+<th style="text-align:center">SVG</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><img width="128" height="128" alt="nightvision" src="images/lenna/lenna.png" /></td>
+<td style="text-align:center"><img width="128" height="128" alt="nightvision" src="images/lenna/lenna-nightvision.png" /></td>
+<td style="text-align:center"><svg width="128" height="128" viewBox="0 0 512 512"><filter id="fx-nightvision-undefined"><feColorMatrix in="SourceGraphic" type="matrix" values="0.1 0.4 0 0 0 0.3 1 0.3 0 0 0 0.4 0.1 0 0 0 0 0 1 0" /></filter><image x="0" y="0" width="512" height="512" filter="url(#fx-nightvision-undefined)" xlink:href="images/lenna/lenna.png" /></svg></td>
+</tr>
+</tbody>
+</table>
+<h2 id="warm">warm</h2>
+<h3 id="node-usage-">Node Usage:</h3>
+<pre><code class="hljs lang-javascript">var ColorMatrix = require(<span class="hljs-string">"color-matrix"</span>);
+var matrix = <span class="hljs-keyword">new</span> ColorMatrix();
+matrix.transform([<span class="hljs-number">255</span>, <span class="hljs-number">0</span>, <span class="hljs-number">128</span>, <span class="hljs-number">255</span>], <span class="hljs-string">"warm"</span>);
+<span class="hljs-comment">// or</span>
+matrix.warm([<span class="hljs-number">255</span>, <span class="hljs-number">0</span>, <span class="hljs-number">128</span>, <span class="hljs-number">255</span>]);</code></pre><h3 id="cli-usage-">CLI Usage:</h3>
+<pre><code class="hljs lang-bash"><span class="hljs-keyword">color</span>-<span class="hljs-keyword">matrix</span> --<span class="hljs-keyword">filter</span> <span class="hljs-string">"warm"</span> <span class="hljs-string">"#FF0080"</span> 
+# or process an <span class="hljs-keyword">image</span>:
+<span class="hljs-keyword">color</span>-<span class="hljs-keyword">matrix</span> --<span class="hljs-keyword">filter</span> <span class="hljs-string">"warm"</span> --input ./<span class="hljs-keyword">image</span>.png --output ./<span class="hljs-keyword">image</span>-warm.png</code></pre><h3 id="example-results">Example Results</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Original</th>
+<th style="text-align:center">Color Matrix</th>
+<th style="text-align:center">SVG</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><img width="128" height="128" alt="warm" src="images/lenna/lenna.png" /></td>
+<td style="text-align:center"><img width="128" height="128" alt="warm" src="images/lenna/lenna-warm.png" /></td>
+<td style="text-align:center"><svg width="128" height="128" viewBox="0 0 512 512"><filter id="fx-warm-undefined"><feColorMatrix in="SourceGraphic" type="matrix" values="1.06 0 0 0 0 0 1.01 0 0 0 0 0 0.93 0 0 0 0 0 1 0" /></filter><image x="0" y="0" width="512" height="512" filter="url(#fx-warm-undefined)" xlink:href="images/lenna/lenna.png" /></svg></td>
+</tr>
+</tbody>
+</table>
+<h2 id="cool">cool</h2>
+<h3 id="node-usage-">Node Usage:</h3>
+<pre><code class="hljs lang-javascript">var ColorMatrix = require(<span class="hljs-string">"color-matrix"</span>);
+var matrix = <span class="hljs-keyword">new</span> ColorMatrix();
+matrix.transform([<span class="hljs-number">255</span>, <span class="hljs-number">0</span>, <span class="hljs-number">128</span>, <span class="hljs-number">255</span>], <span class="hljs-string">"cool"</span>);
+<span class="hljs-comment">// or</span>
+matrix.cool([<span class="hljs-number">255</span>, <span class="hljs-number">0</span>, <span class="hljs-number">128</span>, <span class="hljs-number">255</span>]);</code></pre><h3 id="cli-usage-">CLI Usage:</h3>
+<pre><code class="hljs lang-bash"><span class="hljs-keyword">color</span>-<span class="hljs-keyword">matrix</span> --<span class="hljs-keyword">filter</span> <span class="hljs-string">"cool"</span> <span class="hljs-string">"#FF0080"</span> 
+# or process an <span class="hljs-keyword">image</span>:
+<span class="hljs-keyword">color</span>-<span class="hljs-keyword">matrix</span> --<span class="hljs-keyword">filter</span> <span class="hljs-string">"cool"</span> --input ./<span class="hljs-keyword">image</span>.png --output ./<span class="hljs-keyword">image</span>-cool.png</code></pre><h3 id="example-results">Example Results</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Original</th>
+<th style="text-align:center">Color Matrix</th>
+<th style="text-align:center">SVG</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><img width="128" height="128" alt="cool" src="images/lenna/lenna.png" /></td>
+<td style="text-align:center"><img width="128" height="128" alt="cool" src="images/lenna/lenna-cool.png" /></td>
+<td style="text-align:center"><svg width="128" height="128" viewBox="0 0 512 512"><filter id="fx-cool-undefined"><feColorMatrix in="SourceGraphic" type="matrix" values="0.99 0 0 0 0 0 0.93 0 0 0 0 0 1.08 0 0 0 0 0 1 0" /></filter><image x="0" y="0" width="512" height="512" filter="url(#fx-cool-undefined)" xlink:href="images/lenna/lenna.png" /></svg></td>
+</tr>
+</tbody>
+</table>
+<h2 id="brightness">brightness</h2>
+<p><strong>with value: -100</strong></p>
+<h3 id="node-usage-">Node Usage:</h3>
+<pre><code class="hljs lang-javascript">var ColorMatrix = require(<span class="hljs-string">"color-matrix"</span>);
+var matrix = <span class="hljs-keyword">new</span> ColorMatrix();
+matrix.transform([<span class="hljs-number">255</span>, <span class="hljs-number">0</span>, <span class="hljs-number">128</span>, <span class="hljs-number">255</span>], <span class="hljs-string">"brightness"</span>, -<span class="hljs-number">100</span>);
+<span class="hljs-comment">// or</span>
+matrix.brightness([<span class="hljs-number">255</span>, <span class="hljs-number">0</span>, <span class="hljs-number">128</span>, <span class="hljs-number">255</span>], -<span class="hljs-number">100</span>);</code></pre><h3 id="cli-usage-">CLI Usage:</h3>
+<pre><code class="hljs lang-bash"><span class="hljs-keyword">color</span>-<span class="hljs-keyword">matrix</span> --<span class="hljs-keyword">filter</span> <span class="hljs-string">"brightness"</span> <span class="hljs-string">"#FF0080"</span> --value -<span class="hljs-number">100</span>
+# or process an <span class="hljs-keyword">image</span>:
+<span class="hljs-keyword">color</span>-<span class="hljs-keyword">matrix</span> --<span class="hljs-keyword">filter</span> <span class="hljs-string">"brightness"</span> --input ./<span class="hljs-keyword">image</span>.png --output ./<span class="hljs-keyword">image</span>-brightness--<span class="hljs-number">100.</span>png --value -<span class="hljs-number">100</span></code></pre><h3 id="example-results">Example Results</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Original</th>
+<th style="text-align:center">Color Matrix</th>
+<th style="text-align:center">SVG</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><img width="128" height="128" alt="brightness" src="images/lenna/lenna.png" /></td>
+<td style="text-align:center"><img width="128" height="128" alt="brightness" src="images/lenna/lenna-brightness--100.png" /></td>
+<td style="text-align:center"><svg width="128" height="128" viewBox="0 0 512 512"><filter id="fx-brightness--100"><feColorMatrix in="SourceGraphic" type="matrix" values="1 0 0 0 -255 0 1 0 0 -255 0 0 1 0 -255 0 0 0 1 0" /></filter><image x="0" y="0" width="512" height="512" filter="url(#fx-brightness--100)" xlink:href="images/lenna/lenna.png" /></svg></td>
+</tr>
+</tbody>
+</table>
+<p><strong>with value: -50</strong></p>
+<h3 id="node-usage-">Node Usage:</h3>
+<pre><code class="hljs lang-javascript">var ColorMatrix = require(<span class="hljs-string">"color-matrix"</span>);
+var matrix = <span class="hljs-keyword">new</span> ColorMatrix();
+matrix.transform([<span class="hljs-number">255</span>, <span class="hljs-number">0</span>, <span class="hljs-number">128</span>, <span class="hljs-number">255</span>], <span class="hljs-string">"brightness"</span>, -<span class="hljs-number">50</span>);
+<span class="hljs-comment">// or</span>
+matrix.brightness([<span class="hljs-number">255</span>, <span class="hljs-number">0</span>, <span class="hljs-number">128</span>, <span class="hljs-number">255</span>], -<span class="hljs-number">50</span>);</code></pre><h3 id="cli-usage-">CLI Usage:</h3>
+<pre><code class="hljs lang-bash"><span class="hljs-keyword">color</span>-<span class="hljs-keyword">matrix</span> --<span class="hljs-keyword">filter</span> <span class="hljs-string">"brightness"</span> <span class="hljs-string">"#FF0080"</span> --value -<span class="hljs-number">50</span>
+# or process an <span class="hljs-keyword">image</span>:
+<span class="hljs-keyword">color</span>-<span class="hljs-keyword">matrix</span> --<span class="hljs-keyword">filter</span> <span class="hljs-string">"brightness"</span> --input ./<span class="hljs-keyword">image</span>.png --output ./<span class="hljs-keyword">image</span>-brightness--<span class="hljs-number">50.</span>png --value -<span class="hljs-number">50</span></code></pre><h3 id="example-results">Example Results</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Original</th>
+<th style="text-align:center">Color Matrix</th>
+<th style="text-align:center">SVG</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><img width="128" height="128" alt="brightness" src="images/lenna/lenna.png" /></td>
+<td style="text-align:center"><img width="128" height="128" alt="brightness" src="images/lenna/lenna-brightness--50.png" /></td>
+<td style="text-align:center"><svg width="128" height="128" viewBox="0 0 512 512"><filter id="fx-brightness--50"><feColorMatrix in="SourceGraphic" type="matrix" values="1 0 0 0 -127.5 0 1 0 0 -127.5 0 0 1 0 -127.5 0 0 0 1 0" /></filter><image x="0" y="0" width="512" height="512" filter="url(#fx-brightness--50)" xlink:href="images/lenna/lenna.png" /></svg></td>
+</tr>
+</tbody>
+</table>
+<p><strong>with value: -25</strong></p>
+<h3 id="node-usage-">Node Usage:</h3>
+<pre><code class="hljs lang-javascript">var ColorMatrix = require(<span class="hljs-string">"color-matrix"</span>);
+var matrix = <span class="hljs-keyword">new</span> ColorMatrix();
+matrix.transform([<span class="hljs-number">255</span>, <span class="hljs-number">0</span>, <span class="hljs-number">128</span>, <span class="hljs-number">255</span>], <span class="hljs-string">"brightness"</span>, -<span class="hljs-number">25</span>);
+<span class="hljs-comment">// or</span>
+matrix.brightness([<span class="hljs-number">255</span>, <span class="hljs-number">0</span>, <span class="hljs-number">128</span>, <span class="hljs-number">255</span>], -<span class="hljs-number">25</span>);</code></pre><h3 id="cli-usage-">CLI Usage:</h3>
+<pre><code class="hljs lang-bash"><span class="hljs-keyword">color</span>-<span class="hljs-keyword">matrix</span> --<span class="hljs-keyword">filter</span> <span class="hljs-string">"brightness"</span> <span class="hljs-string">"#FF0080"</span> --value -<span class="hljs-number">25</span>
+# or process an <span class="hljs-keyword">image</span>:
+<span class="hljs-keyword">color</span>-<span class="hljs-keyword">matrix</span> --<span class="hljs-keyword">filter</span> <span class="hljs-string">"brightness"</span> --input ./<span class="hljs-keyword">image</span>.png --output ./<span class="hljs-keyword">image</span>-brightness--<span class="hljs-number">25.</span>png --value -<span class="hljs-number">25</span></code></pre><h3 id="example-results">Example Results</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Original</th>
+<th style="text-align:center">Color Matrix</th>
+<th style="text-align:center">SVG</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><img width="128" height="128" alt="brightness" src="images/lenna/lenna.png" /></td>
+<td style="text-align:center"><img width="128" height="128" alt="brightness" src="images/lenna/lenna-brightness--25.png" /></td>
+<td style="text-align:center"><svg width="128" height="128" viewBox="0 0 512 512"><filter id="fx-brightness--25"><feColorMatrix in="SourceGraphic" type="matrix" values="1 0 0 0 -63.75 0 1 0 0 -63.75 0 0 1 0 -63.75 0 0 0 1 0" /></filter><image x="0" y="0" width="512" height="512" filter="url(#fx-brightness--25)" xlink:href="images/lenna/lenna.png" /></svg></td>
+</tr>
+</tbody>
+</table>
+<p><strong>with value: 0</strong></p>
+<h3 id="node-usage-">Node Usage:</h3>
+<pre><code class="hljs lang-javascript">var ColorMatrix = require(<span class="hljs-string">"color-matrix"</span>);
+var matrix = <span class="hljs-keyword">new</span> ColorMatrix();
+matrix.transform([<span class="hljs-number">255</span>, <span class="hljs-number">0</span>, <span class="hljs-number">128</span>, <span class="hljs-number">255</span>], <span class="hljs-string">"brightness"</span>, <span class="hljs-number">0</span>);
+<span class="hljs-comment">// or</span>
+matrix.brightness([<span class="hljs-number">255</span>, <span class="hljs-number">0</span>, <span class="hljs-number">128</span>, <span class="hljs-number">255</span>], <span class="hljs-number">0</span>);</code></pre><h3 id="cli-usage-">CLI Usage:</h3>
+<pre><code class="hljs lang-bash"><span class="hljs-keyword">color</span>-<span class="hljs-keyword">matrix</span> --<span class="hljs-keyword">filter</span> <span class="hljs-string">"brightness"</span> <span class="hljs-string">"#FF0080"</span> --value <span class="hljs-number">0</span>
+# or process an <span class="hljs-keyword">image</span>:
+<span class="hljs-keyword">color</span>-<span class="hljs-keyword">matrix</span> --<span class="hljs-keyword">filter</span> <span class="hljs-string">"brightness"</span> --input ./<span class="hljs-keyword">image</span>.png --output ./<span class="hljs-keyword">image</span>-brightness-<span class="hljs-number">0.</span>png --value <span class="hljs-number">0</span></code></pre><h3 id="example-results">Example Results</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Original</th>
+<th style="text-align:center">Color Matrix</th>
+<th style="text-align:center">SVG</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><img width="128" height="128" alt="brightness" src="images/lenna/lenna.png" /></td>
+<td style="text-align:center"><img width="128" height="128" alt="brightness" src="images/lenna/lenna-brightness-0.png" /></td>
+<td style="text-align:center"><svg width="128" height="128" viewBox="0 0 512 512"><filter id="fx-brightness-0"><feColorMatrix in="SourceGraphic" type="matrix" values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0" /></filter><image x="0" y="0" width="512" height="512" filter="url(#fx-brightness-0)" xlink:href="images/lenna/lenna.png" /></svg></td>
+</tr>
+</tbody>
+</table>
+<p><strong>with value: 25</strong></p>
+<h3 id="node-usage-">Node Usage:</h3>
+<pre><code class="hljs lang-javascript">var ColorMatrix = require(<span class="hljs-string">"color-matrix"</span>);
+var matrix = <span class="hljs-keyword">new</span> ColorMatrix();
+matrix.transform([<span class="hljs-number">255</span>, <span class="hljs-number">0</span>, <span class="hljs-number">128</span>, <span class="hljs-number">255</span>], <span class="hljs-string">"brightness"</span>, <span class="hljs-number">25</span>);
+<span class="hljs-comment">// or</span>
+matrix.brightness([<span class="hljs-number">255</span>, <span class="hljs-number">0</span>, <span class="hljs-number">128</span>, <span class="hljs-number">255</span>], <span class="hljs-number">25</span>);</code></pre><h3 id="cli-usage-">CLI Usage:</h3>
+<pre><code class="hljs lang-bash"><span class="hljs-keyword">color</span>-<span class="hljs-keyword">matrix</span> --<span class="hljs-keyword">filter</span> <span class="hljs-string">"brightness"</span> <span class="hljs-string">"#FF0080"</span> --value <span class="hljs-number">25</span>
+# or process an <span class="hljs-keyword">image</span>:
+<span class="hljs-keyword">color</span>-<span class="hljs-keyword">matrix</span> --<span class="hljs-keyword">filter</span> <span class="hljs-string">"brightness"</span> --input ./<span class="hljs-keyword">image</span>.png --output ./<span class="hljs-keyword">image</span>-brightness-<span class="hljs-number">25.</span>png --value <span class="hljs-number">25</span></code></pre><h3 id="example-results">Example Results</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Original</th>
+<th style="text-align:center">Color Matrix</th>
+<th style="text-align:center">SVG</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><img width="128" height="128" alt="brightness" src="images/lenna/lenna.png" /></td>
+<td style="text-align:center"><img width="128" height="128" alt="brightness" src="images/lenna/lenna-brightness-25.png" /></td>
+<td style="text-align:center"><svg width="128" height="128" viewBox="0 0 512 512"><filter id="fx-brightness-25"><feColorMatrix in="SourceGraphic" type="matrix" values="1 0 0 0 63.75 0 1 0 0 63.75 0 0 1 0 63.75 0 0 0 1 0" /></filter><image x="0" y="0" width="512" height="512" filter="url(#fx-brightness-25)" xlink:href="images/lenna/lenna.png" /></svg></td>
+</tr>
+</tbody>
+</table>
+<p><strong>with value: 50</strong></p>
+<h3 id="node-usage-">Node Usage:</h3>
+<pre><code class="hljs lang-javascript">var ColorMatrix = require(<span class="hljs-string">"color-matrix"</span>);
+var matrix = <span class="hljs-keyword">new</span> ColorMatrix();
+matrix.transform([<span class="hljs-number">255</span>, <span class="hljs-number">0</span>, <span class="hljs-number">128</span>, <span class="hljs-number">255</span>], <span class="hljs-string">"brightness"</span>, <span class="hljs-number">50</span>);
+<span class="hljs-comment">// or</span>
+matrix.brightness([<span class="hljs-number">255</span>, <span class="hljs-number">0</span>, <span class="hljs-number">128</span>, <span class="hljs-number">255</span>], <span class="hljs-number">50</span>);</code></pre><h3 id="cli-usage-">CLI Usage:</h3>
+<pre><code class="hljs lang-bash"><span class="hljs-keyword">color</span>-<span class="hljs-keyword">matrix</span> --<span class="hljs-keyword">filter</span> <span class="hljs-string">"brightness"</span> <span class="hljs-string">"#FF0080"</span> --value <span class="hljs-number">50</span>
+# or process an <span class="hljs-keyword">image</span>:
+<span class="hljs-keyword">color</span>-<span class="hljs-keyword">matrix</span> --<span class="hljs-keyword">filter</span> <span class="hljs-string">"brightness"</span> --input ./<span class="hljs-keyword">image</span>.png --output ./<span class="hljs-keyword">image</span>-brightness-<span class="hljs-number">50.</span>png --value <span class="hljs-number">50</span></code></pre><h3 id="example-results">Example Results</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Original</th>
+<th style="text-align:center">Color Matrix</th>
+<th style="text-align:center">SVG</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><img width="128" height="128" alt="brightness" src="images/lenna/lenna.png" /></td>
+<td style="text-align:center"><img width="128" height="128" alt="brightness" src="images/lenna/lenna-brightness-50.png" /></td>
+<td style="text-align:center"><svg width="128" height="128" viewBox="0 0 512 512"><filter id="fx-brightness-50"><feColorMatrix in="SourceGraphic" type="matrix" values="1 0 0 0 127.5 0 1 0 0 127.5 0 0 1 0 127.5 0 0 0 1 0" /></filter><image x="0" y="0" width="512" height="512" filter="url(#fx-brightness-50)" xlink:href="images/lenna/lenna.png" /></svg></td>
+</tr>
+</tbody>
+</table>
+<p><strong>with value: 100</strong></p>
+<h3 id="node-usage-">Node Usage:</h3>
+<pre><code class="hljs lang-javascript">var ColorMatrix = require(<span class="hljs-string">"color-matrix"</span>);
+var matrix = <span class="hljs-keyword">new</span> ColorMatrix();
+matrix.transform([<span class="hljs-number">255</span>, <span class="hljs-number">0</span>, <span class="hljs-number">128</span>, <span class="hljs-number">255</span>], <span class="hljs-string">"brightness"</span>, <span class="hljs-number">100</span>);
+<span class="hljs-comment">// or</span>
+matrix.brightness([<span class="hljs-number">255</span>, <span class="hljs-number">0</span>, <span class="hljs-number">128</span>, <span class="hljs-number">255</span>], <span class="hljs-number">100</span>);</code></pre><h3 id="cli-usage-">CLI Usage:</h3>
+<pre><code class="hljs lang-bash"><span class="hljs-keyword">color</span>-<span class="hljs-keyword">matrix</span> --<span class="hljs-keyword">filter</span> <span class="hljs-string">"brightness"</span> <span class="hljs-string">"#FF0080"</span> --value <span class="hljs-number">100</span>
+# or process an <span class="hljs-keyword">image</span>:
+<span class="hljs-keyword">color</span>-<span class="hljs-keyword">matrix</span> --<span class="hljs-keyword">filter</span> <span class="hljs-string">"brightness"</span> --input ./<span class="hljs-keyword">image</span>.png --output ./<span class="hljs-keyword">image</span>-brightness-<span class="hljs-number">100.</span>png --value <span class="hljs-number">100</span></code></pre><h3 id="example-results">Example Results</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Original</th>
+<th style="text-align:center">Color Matrix</th>
+<th style="text-align:center">SVG</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><img width="128" height="128" alt="brightness" src="images/lenna/lenna.png" /></td>
+<td style="text-align:center"><img width="128" height="128" alt="brightness" src="images/lenna/lenna-brightness-100.png" /></td>
+<td style="text-align:center"><svg width="128" height="128" viewBox="0 0 512 512"><filter id="fx-brightness-100"><feColorMatrix in="SourceGraphic" type="matrix" values="1 0 0 0 255 0 1 0 0 255 0 0 1 0 255 0 0 0 1 0" /></filter><image x="0" y="0" width="512" height="512" filter="url(#fx-brightness-100)" xlink:href="images/lenna/lenna.png" /></svg></td>
+</tr>
+</tbody>
+</table>
+<h2 id="exposure">exposure</h2>
+<p><strong>with value: -0.5</strong></p>
+<h3 id="node-usage-">Node Usage:</h3>
+<pre><code class="hljs lang-javascript">var ColorMatrix = require(<span class="hljs-string">"color-matrix"</span>);
+var matrix = <span class="hljs-keyword">new</span> ColorMatrix();
+matrix.transform([<span class="hljs-number">255</span>, <span class="hljs-number">0</span>, <span class="hljs-number">128</span>, <span class="hljs-number">255</span>], <span class="hljs-string">"exposure"</span>, -<span class="hljs-number">0.5</span>);
+<span class="hljs-comment">// or</span>
+matrix.exposure([<span class="hljs-number">255</span>, <span class="hljs-number">0</span>, <span class="hljs-number">128</span>, <span class="hljs-number">255</span>], -<span class="hljs-number">0.5</span>);</code></pre><h3 id="cli-usage-">CLI Usage:</h3>
+<pre><code class="hljs lang-bash"><span class="hljs-keyword">color</span>-<span class="hljs-keyword">matrix</span> --<span class="hljs-keyword">filter</span> <span class="hljs-string">"exposure"</span> <span class="hljs-string">"#FF0080"</span> --value -<span class="hljs-number">0.5</span>
+# or process an <span class="hljs-keyword">image</span>:
+<span class="hljs-keyword">color</span>-<span class="hljs-keyword">matrix</span> --<span class="hljs-keyword">filter</span> <span class="hljs-string">"exposure"</span> --input ./<span class="hljs-keyword">image</span>.png --output ./<span class="hljs-keyword">image</span>-exposure--<span class="hljs-number">0.5</span>.png --value -<span class="hljs-number">0.5</span></code></pre><h3 id="example-results">Example Results</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Original</th>
+<th style="text-align:center">Color Matrix</th>
+<th style="text-align:center">SVG</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><img width="128" height="128" alt="exposure" src="images/lenna/lenna.png" /></td>
+<td style="text-align:center"><img width="128" height="128" alt="exposure" src="images/lenna/lenna-exposure--0.5.png" /></td>
+<td style="text-align:center"><svg width="128" height="128" viewBox="0 0 512 512"><filter id="fx-exposure--0.5"><feColorMatrix in="SourceGraphic" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0" /></filter><image x="0" y="0" width="512" height="512" filter="url(#fx-exposure--0.5)" xlink:href="images/lenna/lenna.png" /></svg></td>
+</tr>
+</tbody>
+</table>
+<p><strong>with value: 1</strong></p>
+<h3 id="node-usage-">Node Usage:</h3>
+<pre><code class="hljs lang-javascript">var ColorMatrix = require(<span class="hljs-string">"color-matrix"</span>);
+var matrix = <span class="hljs-keyword">new</span> ColorMatrix();
+matrix.transform([<span class="hljs-number">255</span>, <span class="hljs-number">0</span>, <span class="hljs-number">128</span>, <span class="hljs-number">255</span>], <span class="hljs-string">"exposure"</span>, <span class="hljs-number">1</span>);
+<span class="hljs-comment">// or</span>
+matrix.exposure([<span class="hljs-number">255</span>, <span class="hljs-number">0</span>, <span class="hljs-number">128</span>, <span class="hljs-number">255</span>], <span class="hljs-number">1</span>);</code></pre><h3 id="cli-usage-">CLI Usage:</h3>
+<pre><code class="hljs lang-bash"><span class="hljs-keyword">color</span>-<span class="hljs-keyword">matrix</span> --<span class="hljs-keyword">filter</span> <span class="hljs-string">"exposure"</span> <span class="hljs-string">"#FF0080"</span> --value <span class="hljs-number">1</span>
+# or process an <span class="hljs-keyword">image</span>:
+<span class="hljs-keyword">color</span>-<span class="hljs-keyword">matrix</span> --<span class="hljs-keyword">filter</span> <span class="hljs-string">"exposure"</span> --input ./<span class="hljs-keyword">image</span>.png --output ./<span class="hljs-keyword">image</span>-exposure-<span class="hljs-number">1.</span>png --value <span class="hljs-number">1</span></code></pre><h3 id="example-results">Example Results</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Original</th>
+<th style="text-align:center">Color Matrix</th>
+<th style="text-align:center">SVG</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><img width="128" height="128" alt="exposure" src="images/lenna/lenna.png" /></td>
+<td style="text-align:center"><img width="128" height="128" alt="exposure" src="images/lenna/lenna-exposure-1.png" /></td>
+<td style="text-align:center"><svg width="128" height="128" viewBox="0 0 512 512"><filter id="fx-exposure-1"><feColorMatrix in="SourceGraphic" type="matrix" values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0" /></filter><image x="0" y="0" width="512" height="512" filter="url(#fx-exposure-1)" xlink:href="images/lenna/lenna.png" /></svg></td>
+</tr>
+</tbody>
+</table>
+<p><strong>with value: 2</strong></p>
+<h3 id="node-usage-">Node Usage:</h3>
+<pre><code class="hljs lang-javascript">var ColorMatrix = require(<span class="hljs-string">"color-matrix"</span>);
+var matrix = <span class="hljs-keyword">new</span> ColorMatrix();
+matrix.transform([<span class="hljs-number">255</span>, <span class="hljs-number">0</span>, <span class="hljs-number">128</span>, <span class="hljs-number">255</span>], <span class="hljs-string">"exposure"</span>, <span class="hljs-number">2</span>);
+<span class="hljs-comment">// or</span>
+matrix.exposure([<span class="hljs-number">255</span>, <span class="hljs-number">0</span>, <span class="hljs-number">128</span>, <span class="hljs-number">255</span>], <span class="hljs-number">2</span>);</code></pre><h3 id="cli-usage-">CLI Usage:</h3>
+<pre><code class="hljs lang-bash"><span class="hljs-keyword">color</span>-<span class="hljs-keyword">matrix</span> --<span class="hljs-keyword">filter</span> <span class="hljs-string">"exposure"</span> <span class="hljs-string">"#FF0080"</span> --value <span class="hljs-number">2</span>
+# or process an <span class="hljs-keyword">image</span>:
+<span class="hljs-keyword">color</span>-<span class="hljs-keyword">matrix</span> --<span class="hljs-keyword">filter</span> <span class="hljs-string">"exposure"</span> --input ./<span class="hljs-keyword">image</span>.png --output ./<span class="hljs-keyword">image</span>-exposure-<span class="hljs-number">2.</span>png --value <span class="hljs-number">2</span></code></pre><h3 id="example-results">Example Results</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Original</th>
+<th style="text-align:center">Color Matrix</th>
+<th style="text-align:center">SVG</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><img width="128" height="128" alt="exposure" src="images/lenna/lenna.png" /></td>
+<td style="text-align:center"><img width="128" height="128" alt="exposure" src="images/lenna/lenna-exposure-2.png" /></td>
+<td style="text-align:center"><svg width="128" height="128" viewBox="0 0 512 512"><filter id="fx-exposure-2"><feColorMatrix in="SourceGraphic" type="matrix" values="2 0 0 0 0 0 2 0 0 0 0 0 2 0 0 0 0 0 1 0" /></filter><image x="0" y="0" width="512" height="512" filter="url(#fx-exposure-2)" xlink:href="images/lenna/lenna.png" /></svg></td>
+</tr>
+</tbody>
+</table>
+<p><strong>with value: 4</strong></p>
+<h3 id="node-usage-">Node Usage:</h3>
+<pre><code class="hljs lang-javascript">var ColorMatrix = require(<span class="hljs-string">"color-matrix"</span>);
+var matrix = <span class="hljs-keyword">new</span> ColorMatrix();
+matrix.transform([<span class="hljs-number">255</span>, <span class="hljs-number">0</span>, <span class="hljs-number">128</span>, <span class="hljs-number">255</span>], <span class="hljs-string">"exposure"</span>, <span class="hljs-number">4</span>);
+<span class="hljs-comment">// or</span>
+matrix.exposure([<span class="hljs-number">255</span>, <span class="hljs-number">0</span>, <span class="hljs-number">128</span>, <span class="hljs-number">255</span>], <span class="hljs-number">4</span>);</code></pre><h3 id="cli-usage-">CLI Usage:</h3>
+<pre><code class="hljs lang-bash"><span class="hljs-keyword">color</span>-<span class="hljs-keyword">matrix</span> --<span class="hljs-keyword">filter</span> <span class="hljs-string">"exposure"</span> <span class="hljs-string">"#FF0080"</span> --value <span class="hljs-number">4</span>
+# or process an <span class="hljs-keyword">image</span>:
+<span class="hljs-keyword">color</span>-<span class="hljs-keyword">matrix</span> --<span class="hljs-keyword">filter</span> <span class="hljs-string">"exposure"</span> --input ./<span class="hljs-keyword">image</span>.png --output ./<span class="hljs-keyword">image</span>-exposure-<span class="hljs-number">4.</span>png --value <span class="hljs-number">4</span></code></pre><h3 id="example-results">Example Results</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Original</th>
+<th style="text-align:center">Color Matrix</th>
+<th style="text-align:center">SVG</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><img width="128" height="128" alt="exposure" src="images/lenna/lenna.png" /></td>
+<td style="text-align:center"><img width="128" height="128" alt="exposure" src="images/lenna/lenna-exposure-4.png" /></td>
+<td style="text-align:center"><svg width="128" height="128" viewBox="0 0 512 512"><filter id="fx-exposure-4"><feColorMatrix in="SourceGraphic" type="matrix" values="4 0 0 0 0 0 4 0 0 0 0 0 4 0 0 0 0 0 1 0" /></filter><image x="0" y="0" width="512" height="512" filter="url(#fx-exposure-4)" xlink:href="images/lenna/lenna.png" /></svg></td>
+</tr>
+</tbody>
+</table>
+<h2 id="contrast">contrast</h2>
+<p><strong>with value: 0</strong></p>
+<h3 id="node-usage-">Node Usage:</h3>
+<pre><code class="hljs lang-javascript">var ColorMatrix = require(<span class="hljs-string">"color-matrix"</span>);
+var matrix = <span class="hljs-keyword">new</span> ColorMatrix();
+matrix.transform([<span class="hljs-number">255</span>, <span class="hljs-number">0</span>, <span class="hljs-number">128</span>, <span class="hljs-number">255</span>], <span class="hljs-string">"contrast"</span>, <span class="hljs-number">0</span>);
+<span class="hljs-comment">// or</span>
+matrix.contrast([<span class="hljs-number">255</span>, <span class="hljs-number">0</span>, <span class="hljs-number">128</span>, <span class="hljs-number">255</span>], <span class="hljs-number">0</span>);</code></pre><h3 id="cli-usage-">CLI Usage:</h3>
+<pre><code class="hljs lang-bash"><span class="hljs-keyword">color</span>-<span class="hljs-keyword">matrix</span> --<span class="hljs-keyword">filter</span> <span class="hljs-string">"contrast"</span> <span class="hljs-string">"#FF0080"</span> --value <span class="hljs-number">0</span>
+# or process an <span class="hljs-keyword">image</span>:
+<span class="hljs-keyword">color</span>-<span class="hljs-keyword">matrix</span> --<span class="hljs-keyword">filter</span> <span class="hljs-string">"contrast"</span> --input ./<span class="hljs-keyword">image</span>.png --output ./<span class="hljs-keyword">image</span>-contrast-<span class="hljs-number">0.</span>png --value <span class="hljs-number">0</span></code></pre><h3 id="example-results">Example Results</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Original</th>
+<th style="text-align:center">Color Matrix</th>
+<th style="text-align:center">SVG</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><img width="128" height="128" alt="contrast" src="images/lenna/lenna.png" /></td>
+<td style="text-align:center"><img width="128" height="128" alt="contrast" src="images/lenna/lenna-contrast-0.png" /></td>
+<td style="text-align:center"><svg width="128" height="128" viewBox="0 0 512 512"><filter id="fx-contrast-0"><feColorMatrix in="SourceGraphic" type="matrix" values="0 0 0 0 0.5 0 0 0 0 0.5 0 0 0 0 0.5 0 0 0 1 0" /></filter><image x="0" y="0" width="512" height="512" filter="url(#fx-contrast-0)" xlink:href="images/lenna/lenna.png" /></svg></td>
+</tr>
+</tbody>
+</table>
+<p><strong>with value: 0.5</strong></p>
+<h3 id="node-usage-">Node Usage:</h3>
+<pre><code class="hljs lang-javascript">var ColorMatrix = require(<span class="hljs-string">"color-matrix"</span>);
+var matrix = <span class="hljs-keyword">new</span> ColorMatrix();
+matrix.transform([<span class="hljs-number">255</span>, <span class="hljs-number">0</span>, <span class="hljs-number">128</span>, <span class="hljs-number">255</span>], <span class="hljs-string">"contrast"</span>, <span class="hljs-number">0.5</span>);
+<span class="hljs-comment">// or</span>
+matrix.contrast([<span class="hljs-number">255</span>, <span class="hljs-number">0</span>, <span class="hljs-number">128</span>, <span class="hljs-number">255</span>], <span class="hljs-number">0.5</span>);</code></pre><h3 id="cli-usage-">CLI Usage:</h3>
+<pre><code class="hljs lang-bash"><span class="hljs-keyword">color</span>-<span class="hljs-keyword">matrix</span> --<span class="hljs-keyword">filter</span> <span class="hljs-string">"contrast"</span> <span class="hljs-string">"#FF0080"</span> --value <span class="hljs-number">0.5</span>
+# or process an <span class="hljs-keyword">image</span>:
+<span class="hljs-keyword">color</span>-<span class="hljs-keyword">matrix</span> --<span class="hljs-keyword">filter</span> <span class="hljs-string">"contrast"</span> --input ./<span class="hljs-keyword">image</span>.png --output ./<span class="hljs-keyword">image</span>-contrast-<span class="hljs-number">0.5</span>.png --value <span class="hljs-number">0.5</span></code></pre><h3 id="example-results">Example Results</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Original</th>
+<th style="text-align:center">Color Matrix</th>
+<th style="text-align:center">SVG</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><img width="128" height="128" alt="contrast" src="images/lenna/lenna.png" /></td>
+<td style="text-align:center"><img width="128" height="128" alt="contrast" src="images/lenna/lenna-contrast-0.5.png" /></td>
+<td style="text-align:center"><svg width="128" height="128" viewBox="0 0 512 512"><filter id="fx-contrast-0.5"><feColorMatrix in="SourceGraphic" type="matrix" values="0.5 0 0 0 0.25 0 0.5 0 0 0.25 0 0 0.5 0 0.25 0 0 0 1 0" /></filter><image x="0" y="0" width="512" height="512" filter="url(#fx-contrast-0.5)" xlink:href="images/lenna/lenna.png" /></svg></td>
+</tr>
+</tbody>
+</table>
+<p><strong>with value: 1</strong></p>
+<h3 id="node-usage-">Node Usage:</h3>
+<pre><code class="hljs lang-javascript">var ColorMatrix = require(<span class="hljs-string">"color-matrix"</span>);
+var matrix = <span class="hljs-keyword">new</span> ColorMatrix();
+matrix.transform([<span class="hljs-number">255</span>, <span class="hljs-number">0</span>, <span class="hljs-number">128</span>, <span class="hljs-number">255</span>], <span class="hljs-string">"contrast"</span>, <span class="hljs-number">1</span>);
+<span class="hljs-comment">// or</span>
+matrix.contrast([<span class="hljs-number">255</span>, <span class="hljs-number">0</span>, <span class="hljs-number">128</span>, <span class="hljs-number">255</span>], <span class="hljs-number">1</span>);</code></pre><h3 id="cli-usage-">CLI Usage:</h3>
+<pre><code class="hljs lang-bash"><span class="hljs-keyword">color</span>-<span class="hljs-keyword">matrix</span> --<span class="hljs-keyword">filter</span> <span class="hljs-string">"contrast"</span> <span class="hljs-string">"#FF0080"</span> --value <span class="hljs-number">1</span>
+# or process an <span class="hljs-keyword">image</span>:
+<span class="hljs-keyword">color</span>-<span class="hljs-keyword">matrix</span> --<span class="hljs-keyword">filter</span> <span class="hljs-string">"contrast"</span> --input ./<span class="hljs-keyword">image</span>.png --output ./<span class="hljs-keyword">image</span>-contrast-<span class="hljs-number">1.</span>png --value <span class="hljs-number">1</span></code></pre><h3 id="example-results">Example Results</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Original</th>
+<th style="text-align:center">Color Matrix</th>
+<th style="text-align:center">SVG</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><img width="128" height="128" alt="contrast" src="images/lenna/lenna.png" /></td>
+<td style="text-align:center"><img width="128" height="128" alt="contrast" src="images/lenna/lenna-contrast-1.png" /></td>
+<td style="text-align:center"><svg width="128" height="128" viewBox="0 0 512 512"><filter id="fx-contrast-1"><feColorMatrix in="SourceGraphic" type="matrix" values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0" /></filter><image x="0" y="0" width="512" height="512" filter="url(#fx-contrast-1)" xlink:href="images/lenna/lenna.png" /></svg></td>
+</tr>
+</tbody>
+</table>
+<h2 id="temperature">temperature</h2>
+<p><strong>with value: 0</strong></p>
+<h3 id="node-usage-">Node Usage:</h3>
+<pre><code class="hljs lang-javascript">var ColorMatrix = require(<span class="hljs-string">"color-matrix"</span>);
+var matrix = <span class="hljs-keyword">new</span> ColorMatrix();
+matrix.transform([<span class="hljs-number">255</span>, <span class="hljs-number">0</span>, <span class="hljs-number">128</span>, <span class="hljs-number">255</span>], <span class="hljs-string">"temperature"</span>, <span class="hljs-number">0</span>);
+<span class="hljs-comment">// or</span>
+matrix.temperature([<span class="hljs-number">255</span>, <span class="hljs-number">0</span>, <span class="hljs-number">128</span>, <span class="hljs-number">255</span>], <span class="hljs-number">0</span>);</code></pre><h3 id="cli-usage-">CLI Usage:</h3>
+<pre><code class="hljs lang-bash"><span class="hljs-keyword">color</span>-<span class="hljs-keyword">matrix</span> --<span class="hljs-keyword">filter</span> <span class="hljs-string">"temperature"</span> <span class="hljs-string">"#FF0080"</span> --value <span class="hljs-number">0</span>
+# or process an <span class="hljs-keyword">image</span>:
+<span class="hljs-keyword">color</span>-<span class="hljs-keyword">matrix</span> --<span class="hljs-keyword">filter</span> <span class="hljs-string">"temperature"</span> --input ./<span class="hljs-keyword">image</span>.png --output ./<span class="hljs-keyword">image</span>-temperature-<span class="hljs-number">0.</span>png --value <span class="hljs-number">0</span></code></pre><h3 id="example-results">Example Results</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Original</th>
+<th style="text-align:center">Color Matrix</th>
+<th style="text-align:center">SVG</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><img width="128" height="128" alt="temperature" src="images/lenna/lenna.png" /></td>
+<td style="text-align:center"><img width="128" height="128" alt="temperature" src="images/lenna/lenna-temperature-0.png" /></td>
+<td style="text-align:center"><svg width="128" height="128" viewBox="0 0 512 512"><filter id="fx-temperature-0"><feColorMatrix in="SourceGraphic" type="matrix" values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0" /></filter><image x="0" y="0" width="512" height="512" filter="url(#fx-temperature-0)" xlink:href="images/lenna/lenna.png" /></svg></td>
+</tr>
+</tbody>
+</table>
+<p><strong>with value: 0.5</strong></p>
+<h3 id="node-usage-">Node Usage:</h3>
+<pre><code class="hljs lang-javascript">var ColorMatrix = require(<span class="hljs-string">"color-matrix"</span>);
+var matrix = <span class="hljs-keyword">new</span> ColorMatrix();
+matrix.transform([<span class="hljs-number">255</span>, <span class="hljs-number">0</span>, <span class="hljs-number">128</span>, <span class="hljs-number">255</span>], <span class="hljs-string">"temperature"</span>, <span class="hljs-number">0.5</span>);
+<span class="hljs-comment">// or</span>
+matrix.temperature([<span class="hljs-number">255</span>, <span class="hljs-number">0</span>, <span class="hljs-number">128</span>, <span class="hljs-number">255</span>], <span class="hljs-number">0.5</span>);</code></pre><h3 id="cli-usage-">CLI Usage:</h3>
+<pre><code class="hljs lang-bash"><span class="hljs-keyword">color</span>-<span class="hljs-keyword">matrix</span> --<span class="hljs-keyword">filter</span> <span class="hljs-string">"temperature"</span> <span class="hljs-string">"#FF0080"</span> --value <span class="hljs-number">0.5</span>
+# or process an <span class="hljs-keyword">image</span>:
+<span class="hljs-keyword">color</span>-<span class="hljs-keyword">matrix</span> --<span class="hljs-keyword">filter</span> <span class="hljs-string">"temperature"</span> --input ./<span class="hljs-keyword">image</span>.png --output ./<span class="hljs-keyword">image</span>-temperature-<span class="hljs-number">0.5</span>.png --value <span class="hljs-number">0.5</span></code></pre><h3 id="example-results">Example Results</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Original</th>
+<th style="text-align:center">Color Matrix</th>
+<th style="text-align:center">SVG</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><img width="128" height="128" alt="temperature" src="images/lenna/lenna.png" /></td>
+<td style="text-align:center"><img width="128" height="128" alt="temperature" src="images/lenna/lenna-temperature-0.5.png" /></td>
+<td style="text-align:center"><svg width="128" height="128" viewBox="0 0 512 512"><filter id="fx-temperature-0.5"><feColorMatrix in="SourceGraphic" type="matrix" values="1.5 0 0 0 0 0 1 0 0 0 0 0 0.5 0 0 0 0 0 1 0" /></filter><image x="0" y="0" width="512" height="512" filter="url(#fx-temperature-0.5)" xlink:href="images/lenna/lenna.png" /></svg></td>
+</tr>
+</tbody>
+</table>
+<p><strong>with value: 1</strong></p>
+<h3 id="node-usage-">Node Usage:</h3>
+<pre><code class="hljs lang-javascript">var ColorMatrix = require(<span class="hljs-string">"color-matrix"</span>);
+var matrix = <span class="hljs-keyword">new</span> ColorMatrix();
+matrix.transform([<span class="hljs-number">255</span>, <span class="hljs-number">0</span>, <span class="hljs-number">128</span>, <span class="hljs-number">255</span>], <span class="hljs-string">"temperature"</span>, <span class="hljs-number">1</span>);
+<span class="hljs-comment">// or</span>
+matrix.temperature([<span class="hljs-number">255</span>, <span class="hljs-number">0</span>, <span class="hljs-number">128</span>, <span class="hljs-number">255</span>], <span class="hljs-number">1</span>);</code></pre><h3 id="cli-usage-">CLI Usage:</h3>
+<pre><code class="hljs lang-bash"><span class="hljs-keyword">color</span>-<span class="hljs-keyword">matrix</span> --<span class="hljs-keyword">filter</span> <span class="hljs-string">"temperature"</span> <span class="hljs-string">"#FF0080"</span> --value <span class="hljs-number">1</span>
+# or process an <span class="hljs-keyword">image</span>:
+<span class="hljs-keyword">color</span>-<span class="hljs-keyword">matrix</span> --<span class="hljs-keyword">filter</span> <span class="hljs-string">"temperature"</span> --input ./<span class="hljs-keyword">image</span>.png --output ./<span class="hljs-keyword">image</span>-temperature-<span class="hljs-number">1.</span>png --value <span class="hljs-number">1</span></code></pre><h3 id="example-results">Example Results</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Original</th>
+<th style="text-align:center">Color Matrix</th>
+<th style="text-align:center">SVG</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><img width="128" height="128" alt="temperature" src="images/lenna/lenna.png" /></td>
+<td style="text-align:center"><img width="128" height="128" alt="temperature" src="images/lenna/lenna-temperature-1.png" /></td>
+<td style="text-align:center"><svg width="128" height="128" viewBox="0 0 512 512"><filter id="fx-temperature-1"><feColorMatrix in="SourceGraphic" type="matrix" values="2 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 1 0" /></filter><image x="0" y="0" width="512" height="512" filter="url(#fx-temperature-1)" xlink:href="images/lenna/lenna.png" /></svg></td>
+</tr>
+</tbody>
+</table>
+<h2 id="tint">tint</h2>
+<p><strong>with value: 0</strong></p>
+<h3 id="node-usage-">Node Usage:</h3>
+<pre><code class="hljs lang-javascript">var ColorMatrix = require(<span class="hljs-string">"color-matrix"</span>);
+var matrix = <span class="hljs-keyword">new</span> ColorMatrix();
+matrix.transform([<span class="hljs-number">255</span>, <span class="hljs-number">0</span>, <span class="hljs-number">128</span>, <span class="hljs-number">255</span>], <span class="hljs-string">"tint"</span>, <span class="hljs-number">0</span>);
+<span class="hljs-comment">// or</span>
+matrix.tint([<span class="hljs-number">255</span>, <span class="hljs-number">0</span>, <span class="hljs-number">128</span>, <span class="hljs-number">255</span>], <span class="hljs-number">0</span>);</code></pre><h3 id="cli-usage-">CLI Usage:</h3>
+<pre><code class="hljs lang-bash"><span class="hljs-keyword">color</span>-<span class="hljs-keyword">matrix</span> --<span class="hljs-keyword">filter</span> <span class="hljs-string">"tint"</span> <span class="hljs-string">"#FF0080"</span> --value <span class="hljs-number">0</span>
+# or process an <span class="hljs-keyword">image</span>:
+<span class="hljs-keyword">color</span>-<span class="hljs-keyword">matrix</span> --<span class="hljs-keyword">filter</span> <span class="hljs-string">"tint"</span> --input ./<span class="hljs-keyword">image</span>.png --output ./<span class="hljs-keyword">image</span>-tint-<span class="hljs-number">0.</span>png --value <span class="hljs-number">0</span></code></pre><h3 id="example-results">Example Results</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Original</th>
+<th style="text-align:center">Color Matrix</th>
+<th style="text-align:center">SVG</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><img width="128" height="128" alt="tint" src="images/lenna/lenna.png" /></td>
+<td style="text-align:center"><img width="128" height="128" alt="tint" src="images/lenna/lenna-tint-0.png" /></td>
+<td style="text-align:center"><svg width="128" height="128" viewBox="0 0 512 512"><filter id="fx-tint-0"><feColorMatrix in="SourceGraphic" type="matrix" values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0" /></filter><image x="0" y="0" width="512" height="512" filter="url(#fx-tint-0)" xlink:href="images/lenna/lenna.png" /></svg></td>
+</tr>
+</tbody>
+</table>
+<p><strong>with value: 0.5</strong></p>
+<h3 id="node-usage-">Node Usage:</h3>
+<pre><code class="hljs lang-javascript">var ColorMatrix = require(<span class="hljs-string">"color-matrix"</span>);
+var matrix = <span class="hljs-keyword">new</span> ColorMatrix();
+matrix.transform([<span class="hljs-number">255</span>, <span class="hljs-number">0</span>, <span class="hljs-number">128</span>, <span class="hljs-number">255</span>], <span class="hljs-string">"tint"</span>, <span class="hljs-number">0.5</span>);
+<span class="hljs-comment">// or</span>
+matrix.tint([<span class="hljs-number">255</span>, <span class="hljs-number">0</span>, <span class="hljs-number">128</span>, <span class="hljs-number">255</span>], <span class="hljs-number">0.5</span>);</code></pre><h3 id="cli-usage-">CLI Usage:</h3>
+<pre><code class="hljs lang-bash"><span class="hljs-keyword">color</span>-<span class="hljs-keyword">matrix</span> --<span class="hljs-keyword">filter</span> <span class="hljs-string">"tint"</span> <span class="hljs-string">"#FF0080"</span> --value <span class="hljs-number">0.5</span>
+# or process an <span class="hljs-keyword">image</span>:
+<span class="hljs-keyword">color</span>-<span class="hljs-keyword">matrix</span> --<span class="hljs-keyword">filter</span> <span class="hljs-string">"tint"</span> --input ./<span class="hljs-keyword">image</span>.png --output ./<span class="hljs-keyword">image</span>-tint-<span class="hljs-number">0.5</span>.png --value <span class="hljs-number">0.5</span></code></pre><h3 id="example-results">Example Results</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Original</th>
+<th style="text-align:center">Color Matrix</th>
+<th style="text-align:center">SVG</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><img width="128" height="128" alt="tint" src="images/lenna/lenna.png" /></td>
+<td style="text-align:center"><img width="128" height="128" alt="tint" src="images/lenna/lenna-tint-0.5.png" /></td>
+<td style="text-align:center"><svg width="128" height="128" viewBox="0 0 512 512"><filter id="fx-tint-0.5"><feColorMatrix in="SourceGraphic" type="matrix" values="1.5 0 0 0 0 0 1 0 0 0 0 0 1.5 0 0 0 0 0 1 0" /></filter><image x="0" y="0" width="512" height="512" filter="url(#fx-tint-0.5)" xlink:href="images/lenna/lenna.png" /></svg></td>
+</tr>
+</tbody>
+</table>
+<p><strong>with value: 1</strong></p>
+<h3 id="node-usage-">Node Usage:</h3>
+<pre><code class="hljs lang-javascript">var ColorMatrix = require(<span class="hljs-string">"color-matrix"</span>);
+var matrix = <span class="hljs-keyword">new</span> ColorMatrix();
+matrix.transform([<span class="hljs-number">255</span>, <span class="hljs-number">0</span>, <span class="hljs-number">128</span>, <span class="hljs-number">255</span>], <span class="hljs-string">"tint"</span>, <span class="hljs-number">1</span>);
+<span class="hljs-comment">// or</span>
+matrix.tint([<span class="hljs-number">255</span>, <span class="hljs-number">0</span>, <span class="hljs-number">128</span>, <span class="hljs-number">255</span>], <span class="hljs-number">1</span>);</code></pre><h3 id="cli-usage-">CLI Usage:</h3>
+<pre><code class="hljs lang-bash"><span class="hljs-keyword">color</span>-<span class="hljs-keyword">matrix</span> --<span class="hljs-keyword">filter</span> <span class="hljs-string">"tint"</span> <span class="hljs-string">"#FF0080"</span> --value <span class="hljs-number">1</span>
+# or process an <span class="hljs-keyword">image</span>:
+<span class="hljs-keyword">color</span>-<span class="hljs-keyword">matrix</span> --<span class="hljs-keyword">filter</span> <span class="hljs-string">"tint"</span> --input ./<span class="hljs-keyword">image</span>.png --output ./<span class="hljs-keyword">image</span>-tint-<span class="hljs-number">1.</span>png --value <span class="hljs-number">1</span></code></pre><h3 id="example-results">Example Results</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Original</th>
+<th style="text-align:center">Color Matrix</th>
+<th style="text-align:center">SVG</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><img width="128" height="128" alt="tint" src="images/lenna/lenna.png" /></td>
+<td style="text-align:center"><img width="128" height="128" alt="tint" src="images/lenna/lenna-tint-1.png" /></td>
+<td style="text-align:center"><svg width="128" height="128" viewBox="0 0 512 512"><filter id="fx-tint-1"><feColorMatrix in="SourceGraphic" type="matrix" values="2 0 0 0 0 0 1 0 0 0 0 0 2 0 0 0 0 0 1 0" /></filter><image x="0" y="0" width="512" height="512" filter="url(#fx-tint-1)" xlink:href="images/lenna/lenna.png" /></svg></td>
+</tr>
+</tbody>
+</table>
+<h2 id="threshold">threshold</h2>
+<p><strong>with value: 0</strong></p>
+<h3 id="node-usage-">Node Usage:</h3>
+<pre><code class="hljs lang-javascript">var ColorMatrix = require(<span class="hljs-string">"color-matrix"</span>);
+var matrix = <span class="hljs-keyword">new</span> ColorMatrix();
+matrix.transform([<span class="hljs-number">255</span>, <span class="hljs-number">0</span>, <span class="hljs-number">128</span>, <span class="hljs-number">255</span>], <span class="hljs-string">"threshold"</span>, <span class="hljs-number">0</span>);
+<span class="hljs-comment">// or</span>
+matrix.threshold([<span class="hljs-number">255</span>, <span class="hljs-number">0</span>, <span class="hljs-number">128</span>, <span class="hljs-number">255</span>], <span class="hljs-number">0</span>);</code></pre><h3 id="cli-usage-">CLI Usage:</h3>
+<pre><code class="hljs lang-bash"><span class="hljs-keyword">color</span>-<span class="hljs-keyword">matrix</span> --<span class="hljs-keyword">filter</span> <span class="hljs-string">"threshold"</span> <span class="hljs-string">"#FF0080"</span> --value <span class="hljs-number">0</span>
+# or process an <span class="hljs-keyword">image</span>:
+<span class="hljs-keyword">color</span>-<span class="hljs-keyword">matrix</span> --<span class="hljs-keyword">filter</span> <span class="hljs-string">"threshold"</span> --input ./<span class="hljs-keyword">image</span>.png --output ./<span class="hljs-keyword">image</span>-threshold-<span class="hljs-number">0.</span>png --value <span class="hljs-number">0</span></code></pre><h3 id="example-results">Example Results</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Original</th>
+<th style="text-align:center">Color Matrix</th>
+<th style="text-align:center">SVG</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><img width="128" height="128" alt="threshold" src="images/lenna/lenna.png" /></td>
+<td style="text-align:center"><img width="128" height="128" alt="threshold" src="images/lenna/lenna-threshold-0.png" /></td>
+<td style="text-align:center"><svg width="128" height="128" viewBox="0 0 512 512"><filter id="fx-threshold-0"><feColorMatrix in="SourceGraphic" type="matrix" values="79.0016 156.0064 20.992 0 0 79.0016 156.0064 20.992 0 0 79.0016 156.0064 20.992 0 0 0 0 0 1 0" /></filter><image x="0" y="0" width="512" height="512" filter="url(#fx-threshold-0)" xlink:href="images/lenna/lenna.png" /></svg></td>
+</tr>
+</tbody>
+</table>
+<p><strong>with value: 1</strong></p>
+<h3 id="node-usage-">Node Usage:</h3>
+<pre><code class="hljs lang-javascript">var ColorMatrix = require(<span class="hljs-string">"color-matrix"</span>);
+var matrix = <span class="hljs-keyword">new</span> ColorMatrix();
+matrix.transform([<span class="hljs-number">255</span>, <span class="hljs-number">0</span>, <span class="hljs-number">128</span>, <span class="hljs-number">255</span>], <span class="hljs-string">"threshold"</span>, <span class="hljs-number">1</span>);
+<span class="hljs-comment">// or</span>
+matrix.threshold([<span class="hljs-number">255</span>, <span class="hljs-number">0</span>, <span class="hljs-number">128</span>, <span class="hljs-number">255</span>], <span class="hljs-number">1</span>);</code></pre><h3 id="cli-usage-">CLI Usage:</h3>
+<pre><code class="hljs lang-bash"><span class="hljs-keyword">color</span>-<span class="hljs-keyword">matrix</span> --<span class="hljs-keyword">filter</span> <span class="hljs-string">"threshold"</span> <span class="hljs-string">"#FF0080"</span> --value <span class="hljs-number">1</span>
+# or process an <span class="hljs-keyword">image</span>:
+<span class="hljs-keyword">color</span>-<span class="hljs-keyword">matrix</span> --<span class="hljs-keyword">filter</span> <span class="hljs-string">"threshold"</span> --input ./<span class="hljs-keyword">image</span>.png --output ./<span class="hljs-keyword">image</span>-threshold-<span class="hljs-number">1.</span>png --value <span class="hljs-number">1</span></code></pre><h3 id="example-results">Example Results</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Original</th>
+<th style="text-align:center">Color Matrix</th>
+<th style="text-align:center">SVG</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><img width="128" height="128" alt="threshold" src="images/lenna/lenna.png" /></td>
+<td style="text-align:center"><img width="128" height="128" alt="threshold" src="images/lenna/lenna-threshold-1.png" /></td>
+<td style="text-align:center"><svg width="128" height="128" viewBox="0 0 512 512"><filter id="fx-threshold-1"><feColorMatrix in="SourceGraphic" type="matrix" values="79.0016 156.0064 20.992 0 -255 79.0016 156.0064 20.992 0 -255 79.0016 156.0064 20.992 0 -255 0 0 0 1 0" /></filter><image x="0" y="0" width="512" height="512" filter="url(#fx-threshold-1)" xlink:href="images/lenna/lenna.png" /></svg></td>
+</tr>
+</tbody>
+</table>
+<p><strong>with value: 2</strong></p>
+<h3 id="node-usage-">Node Usage:</h3>
+<pre><code class="hljs lang-javascript">var ColorMatrix = require(<span class="hljs-string">"color-matrix"</span>);
+var matrix = <span class="hljs-keyword">new</span> ColorMatrix();
+matrix.transform([<span class="hljs-number">255</span>, <span class="hljs-number">0</span>, <span class="hljs-number">128</span>, <span class="hljs-number">255</span>], <span class="hljs-string">"threshold"</span>, <span class="hljs-number">2</span>);
+<span class="hljs-comment">// or</span>
+matrix.threshold([<span class="hljs-number">255</span>, <span class="hljs-number">0</span>, <span class="hljs-number">128</span>, <span class="hljs-number">255</span>], <span class="hljs-number">2</span>);</code></pre><h3 id="cli-usage-">CLI Usage:</h3>
+<pre><code class="hljs lang-bash"><span class="hljs-keyword">color</span>-<span class="hljs-keyword">matrix</span> --<span class="hljs-keyword">filter</span> <span class="hljs-string">"threshold"</span> <span class="hljs-string">"#FF0080"</span> --value <span class="hljs-number">2</span>
+# or process an <span class="hljs-keyword">image</span>:
+<span class="hljs-keyword">color</span>-<span class="hljs-keyword">matrix</span> --<span class="hljs-keyword">filter</span> <span class="hljs-string">"threshold"</span> --input ./<span class="hljs-keyword">image</span>.png --output ./<span class="hljs-keyword">image</span>-threshold-<span class="hljs-number">2.</span>png --value <span class="hljs-number">2</span></code></pre><h3 id="example-results">Example Results</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Original</th>
+<th style="text-align:center">Color Matrix</th>
+<th style="text-align:center">SVG</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><img width="128" height="128" alt="threshold" src="images/lenna/lenna.png" /></td>
+<td style="text-align:center"><img width="128" height="128" alt="threshold" src="images/lenna/lenna-threshold-2.png" /></td>
+<td style="text-align:center"><svg width="128" height="128" viewBox="0 0 512 512"><filter id="fx-threshold-2"><feColorMatrix in="SourceGraphic" type="matrix" values="79.0016 156.0064 20.992 0 -510 79.0016 156.0064 20.992 0 -510 79.0016 156.0064 20.992 0 -510 0 0 0 1 0" /></filter><image x="0" y="0" width="512" height="512" filter="url(#fx-threshold-2)" xlink:href="images/lenna/lenna.png" /></svg></td>
+</tr>
+</tbody>
+</table>
+<h2 id="matrix">matrix</h2>
+<p><strong>with value: 1,0,0,0,0,0,0.2,0,0,0,0,0,0.2,0,0,0,0,0,1,0</strong></p>
+<h3 id="node-usage-">Node Usage:</h3>
+<pre><code class="hljs lang-javascript">var ColorMatrix = require(<span class="hljs-string">"color-matrix"</span>);
+var matrix = <span class="hljs-keyword">new</span> ColorMatrix();
+matrix.transform([<span class="hljs-number">255</span>, <span class="hljs-number">0</span>, <span class="hljs-number">128</span>, <span class="hljs-number">255</span>], <span class="hljs-string">"matrix"</span>, <span class="hljs-number">1</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0.2</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0.2</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">1</span>,<span class="hljs-number">0</span>);
+<span class="hljs-comment">// or</span>
+matrix.matrix([<span class="hljs-number">255</span>, <span class="hljs-number">0</span>, <span class="hljs-number">128</span>, <span class="hljs-number">255</span>], <span class="hljs-number">1</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0.2</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0.2</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">1</span>,<span class="hljs-number">0</span>);</code></pre><h3 id="cli-usage-">CLI Usage:</h3>
+<pre><code class="hljs lang-bash">color-matrix --filter <span class="hljs-string">"matrix"</span> <span class="hljs-string">"#FF0080"</span> --value <span class="hljs-number">1</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0.2</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0.2</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">1</span>,<span class="hljs-number">0</span>
+<span class="hljs-preprocessor"># or process an image:</span>
+color-matrix --filter <span class="hljs-string">"matrix"</span> --input ./image.png --output ./image-matrix-<span class="hljs-number">1</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0.2</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0.2</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">1</span>,<span class="hljs-number">0.</span>png --value <span class="hljs-number">1</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0.2</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0.2</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">1</span>,<span class="hljs-number">0</span></code></pre><h3 id="example-results">Example Results</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Original</th>
+<th style="text-align:center">Color Matrix</th>
+<th style="text-align:center">SVG</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><img width="128" height="128" alt="matrix" src="images/lenna/lenna.png" /></td>
+<td style="text-align:center"><img width="128" height="128" alt="matrix" src="images/lenna/lenna-matrix-1,0,0,0,0,0,0.2,0,0,0,0,0,0.2,0,0,0,0,0,1,0.png" /></td>
+<td style="text-align:center"><svg width="128" height="128" viewBox="0 0 512 512"><filter id="fx-matrix-1,0,0,0,0,0,0.2,0,0,0,0,0,0.2,0,0,0,0,0,1,0"><feColorMatrix in="SourceGraphic" type="matrix" values="1 0 0 0 0 0 0.2 0 0 0 0 0 0.2 0 0 0 0 0 1 0" /></filter><image x="0" y="0" width="512" height="512" filter="url(#fx-matrix-1,0,0,0,0,0,0.2,0,0,0,0,0,0.2,0,0,0,0,0,1,0)" xlink:href="images/lenna/lenna.png" /></svg></td>
+</tr>
+</tbody>
+</table>
+<h2 id="saturate">saturate</h2>
+<p><strong>with value: 0</strong></p>
+<h3 id="node-usage-">Node Usage:</h3>
+<pre><code class="hljs lang-javascript">var ColorMatrix = require(<span class="hljs-string">"color-matrix"</span>);
+var matrix = <span class="hljs-keyword">new</span> ColorMatrix();
+matrix.transform([<span class="hljs-number">255</span>, <span class="hljs-number">0</span>, <span class="hljs-number">128</span>, <span class="hljs-number">255</span>], <span class="hljs-string">"saturate"</span>, <span class="hljs-number">0</span>);
+<span class="hljs-comment">// or</span>
+matrix.saturate([<span class="hljs-number">255</span>, <span class="hljs-number">0</span>, <span class="hljs-number">128</span>, <span class="hljs-number">255</span>], <span class="hljs-number">0</span>);</code></pre><h3 id="cli-usage-">CLI Usage:</h3>
+<pre><code class="hljs lang-bash"><span class="hljs-keyword">color</span>-<span class="hljs-keyword">matrix</span> --<span class="hljs-keyword">filter</span> <span class="hljs-string">"saturate"</span> <span class="hljs-string">"#FF0080"</span> --value <span class="hljs-number">0</span>
+# or process an <span class="hljs-keyword">image</span>:
+<span class="hljs-keyword">color</span>-<span class="hljs-keyword">matrix</span> --<span class="hljs-keyword">filter</span> <span class="hljs-string">"saturate"</span> --input ./<span class="hljs-keyword">image</span>.png --output ./<span class="hljs-keyword">image</span>-saturate-<span class="hljs-number">0.</span>png --value <span class="hljs-number">0</span></code></pre><h3 id="example-results">Example Results</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Original</th>
+<th style="text-align:center">Color Matrix</th>
+<th style="text-align:center">SVG</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><img width="128" height="128" alt="saturate" src="images/lenna/lenna.png" /></td>
+<td style="text-align:center"><img width="128" height="128" alt="saturate" src="images/lenna/lenna-saturate-0.png" /></td>
+<td style="text-align:center"><svg width="128" height="128" viewBox="0 0 512 512"><filter id="fx-saturate-0"><feColorMatrix in="SourceGraphic" type="matrix" values="0.213 0.715 0.072 0 0 0.213 0.715 0.072 0 0 0.213 0.715 0.072 0 0 0 0 0 1 0" /></filter><image x="0" y="0" width="512" height="512" filter="url(#fx-saturate-0)" xlink:href="images/lenna/lenna.png" /></svg></td>
+</tr>
+</tbody>
+</table>
+<p><strong>with value: 0.3</strong></p>
+<h3 id="node-usage-">Node Usage:</h3>
+<pre><code class="hljs lang-javascript">var ColorMatrix = require(<span class="hljs-string">"color-matrix"</span>);
+var matrix = <span class="hljs-keyword">new</span> ColorMatrix();
+matrix.transform([<span class="hljs-number">255</span>, <span class="hljs-number">0</span>, <span class="hljs-number">128</span>, <span class="hljs-number">255</span>], <span class="hljs-string">"saturate"</span>, <span class="hljs-number">0.3</span>);
+<span class="hljs-comment">// or</span>
+matrix.saturate([<span class="hljs-number">255</span>, <span class="hljs-number">0</span>, <span class="hljs-number">128</span>, <span class="hljs-number">255</span>], <span class="hljs-number">0.3</span>);</code></pre><h3 id="cli-usage-">CLI Usage:</h3>
+<pre><code class="hljs lang-bash"><span class="hljs-keyword">color</span>-<span class="hljs-keyword">matrix</span> --<span class="hljs-keyword">filter</span> <span class="hljs-string">"saturate"</span> <span class="hljs-string">"#FF0080"</span> --value <span class="hljs-number">0.3</span>
+# or process an <span class="hljs-keyword">image</span>:
+<span class="hljs-keyword">color</span>-<span class="hljs-keyword">matrix</span> --<span class="hljs-keyword">filter</span> <span class="hljs-string">"saturate"</span> --input ./<span class="hljs-keyword">image</span>.png --output ./<span class="hljs-keyword">image</span>-saturate-<span class="hljs-number">0.3</span>.png --value <span class="hljs-number">0.3</span></code></pre><h3 id="example-results">Example Results</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Original</th>
+<th style="text-align:center">Color Matrix</th>
+<th style="text-align:center">SVG</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><img width="128" height="128" alt="saturate" src="images/lenna/lenna.png" /></td>
+<td style="text-align:center"><img width="128" height="128" alt="saturate" src="images/lenna/lenna-saturate-0.3.png" /></td>
+<td style="text-align:center"><svg width="128" height="128" viewBox="0 0 512 512"><filter id="fx-saturate-0.3"><feColorMatrix in="SourceGraphic" type="matrix" values="0.4491 0.5005 0.0504 0 0 0.1491 0.8005 0.0504 0 0 0.1491 0.5005 0.3504 0 0 0 0 0 1 0" /></filter><image x="0" y="0" width="512" height="512" filter="url(#fx-saturate-0.3)" xlink:href="images/lenna/lenna.png" /></svg></td>
+</tr>
+</tbody>
+</table>
+<p><strong>with value: 0.5</strong></p>
+<h3 id="node-usage-">Node Usage:</h3>
+<pre><code class="hljs lang-javascript">var ColorMatrix = require(<span class="hljs-string">"color-matrix"</span>);
+var matrix = <span class="hljs-keyword">new</span> ColorMatrix();
+matrix.transform([<span class="hljs-number">255</span>, <span class="hljs-number">0</span>, <span class="hljs-number">128</span>, <span class="hljs-number">255</span>], <span class="hljs-string">"saturate"</span>, <span class="hljs-number">0.5</span>);
+<span class="hljs-comment">// or</span>
+matrix.saturate([<span class="hljs-number">255</span>, <span class="hljs-number">0</span>, <span class="hljs-number">128</span>, <span class="hljs-number">255</span>], <span class="hljs-number">0.5</span>);</code></pre><h3 id="cli-usage-">CLI Usage:</h3>
+<pre><code class="hljs lang-bash"><span class="hljs-keyword">color</span>-<span class="hljs-keyword">matrix</span> --<span class="hljs-keyword">filter</span> <span class="hljs-string">"saturate"</span> <span class="hljs-string">"#FF0080"</span> --value <span class="hljs-number">0.5</span>
+# or process an <span class="hljs-keyword">image</span>:
+<span class="hljs-keyword">color</span>-<span class="hljs-keyword">matrix</span> --<span class="hljs-keyword">filter</span> <span class="hljs-string">"saturate"</span> --input ./<span class="hljs-keyword">image</span>.png --output ./<span class="hljs-keyword">image</span>-saturate-<span class="hljs-number">0.5</span>.png --value <span class="hljs-number">0.5</span></code></pre><h3 id="example-results">Example Results</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Original</th>
+<th style="text-align:center">Color Matrix</th>
+<th style="text-align:center">SVG</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><img width="128" height="128" alt="saturate" src="images/lenna/lenna.png" /></td>
+<td style="text-align:center"><img width="128" height="128" alt="saturate" src="images/lenna/lenna-saturate-0.5.png" /></td>
+<td style="text-align:center"><svg width="128" height="128" viewBox="0 0 512 512"><filter id="fx-saturate-0.5"><feColorMatrix in="SourceGraphic" type="matrix" values="0.6065 0.3575 0.036 0 0 0.1065 0.8574999999999999 0.036 0 0 0.1065 0.3575 0.536 0 0 0 0 0 1 0" /></filter><image x="0" y="0" width="512" height="512" filter="url(#fx-saturate-0.5)" xlink:href="images/lenna/lenna.png" /></svg></td>
+</tr>
+</tbody>
+</table>
+<p><strong>with value: 0.7</strong></p>
+<h3 id="node-usage-">Node Usage:</h3>
+<pre><code class="hljs lang-javascript">var ColorMatrix = require(<span class="hljs-string">"color-matrix"</span>);
+var matrix = <span class="hljs-keyword">new</span> ColorMatrix();
+matrix.transform([<span class="hljs-number">255</span>, <span class="hljs-number">0</span>, <span class="hljs-number">128</span>, <span class="hljs-number">255</span>], <span class="hljs-string">"saturate"</span>, <span class="hljs-number">0.7</span>);
+<span class="hljs-comment">// or</span>
+matrix.saturate([<span class="hljs-number">255</span>, <span class="hljs-number">0</span>, <span class="hljs-number">128</span>, <span class="hljs-number">255</span>], <span class="hljs-number">0.7</span>);</code></pre><h3 id="cli-usage-">CLI Usage:</h3>
+<pre><code class="hljs lang-bash"><span class="hljs-keyword">color</span>-<span class="hljs-keyword">matrix</span> --<span class="hljs-keyword">filter</span> <span class="hljs-string">"saturate"</span> <span class="hljs-string">"#FF0080"</span> --value <span class="hljs-number">0.7</span>
+# or process an <span class="hljs-keyword">image</span>:
+<span class="hljs-keyword">color</span>-<span class="hljs-keyword">matrix</span> --<span class="hljs-keyword">filter</span> <span class="hljs-string">"saturate"</span> --input ./<span class="hljs-keyword">image</span>.png --output ./<span class="hljs-keyword">image</span>-saturate-<span class="hljs-number">0.7</span>.png --value <span class="hljs-number">0.7</span></code></pre><h3 id="example-results">Example Results</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Original</th>
+<th style="text-align:center">Color Matrix</th>
+<th style="text-align:center">SVG</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><img width="128" height="128" alt="saturate" src="images/lenna/lenna.png" /></td>
+<td style="text-align:center"><img width="128" height="128" alt="saturate" src="images/lenna/lenna-saturate-0.7.png" /></td>
+<td style="text-align:center"><svg width="128" height="128" viewBox="0 0 512 512"><filter id="fx-saturate-0.7"><feColorMatrix in="SourceGraphic" type="matrix" values="0.7638999999999999 0.21450000000000002 0.0216 0 0 0.06390000000000001 0.9145 0.0216 0 0 0.06390000000000001 0.21450000000000002 0.7215999999999999 0 0 0 0 0 1 0" /></filter><image x="0" y="0" width="512" height="512" filter="url(#fx-saturate-0.7)" xlink:href="images/lenna/lenna.png" /></svg></td>
+</tr>
+</tbody>
+</table>
+<p><strong>with value: 1</strong></p>
+<h3 id="node-usage-">Node Usage:</h3>
+<pre><code class="hljs lang-javascript">var ColorMatrix = require(<span class="hljs-string">"color-matrix"</span>);
+var matrix = <span class="hljs-keyword">new</span> ColorMatrix();
+matrix.transform([<span class="hljs-number">255</span>, <span class="hljs-number">0</span>, <span class="hljs-number">128</span>, <span class="hljs-number">255</span>], <span class="hljs-string">"saturate"</span>, <span class="hljs-number">1</span>);
+<span class="hljs-comment">// or</span>
+matrix.saturate([<span class="hljs-number">255</span>, <span class="hljs-number">0</span>, <span class="hljs-number">128</span>, <span class="hljs-number">255</span>], <span class="hljs-number">1</span>);</code></pre><h3 id="cli-usage-">CLI Usage:</h3>
+<pre><code class="hljs lang-bash"><span class="hljs-keyword">color</span>-<span class="hljs-keyword">matrix</span> --<span class="hljs-keyword">filter</span> <span class="hljs-string">"saturate"</span> <span class="hljs-string">"#FF0080"</span> --value <span class="hljs-number">1</span>
+# or process an <span class="hljs-keyword">image</span>:
+<span class="hljs-keyword">color</span>-<span class="hljs-keyword">matrix</span> --<span class="hljs-keyword">filter</span> <span class="hljs-string">"saturate"</span> --input ./<span class="hljs-keyword">image</span>.png --output ./<span class="hljs-keyword">image</span>-saturate-<span class="hljs-number">1.</span>png --value <span class="hljs-number">1</span></code></pre><h3 id="example-results">Example Results</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Original</th>
+<th style="text-align:center">Color Matrix</th>
+<th style="text-align:center">SVG</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><img width="128" height="128" alt="saturate" src="images/lenna/lenna.png" /></td>
+<td style="text-align:center"><img width="128" height="128" alt="saturate" src="images/lenna/lenna-saturate-1.png" /></td>
+<td style="text-align:center"><svg width="128" height="128" viewBox="0 0 512 512"><filter id="fx-saturate-1"><feColorMatrix in="SourceGraphic" type="matrix" values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0" /></filter><image x="0" y="0" width="512" height="512" filter="url(#fx-saturate-1)" xlink:href="images/lenna/lenna.png" /></svg></td>
+</tr>
+</tbody>
+</table>
+<h2 id="huerotate">hueRotate</h2>
+<p><strong>with value: 0</strong></p>
+<h3 id="node-usage-">Node Usage:</h3>
+<pre><code class="hljs lang-javascript">var ColorMatrix = require(<span class="hljs-string">"color-matrix"</span>);
+var matrix = <span class="hljs-keyword">new</span> ColorMatrix();
+matrix.transform([<span class="hljs-number">255</span>, <span class="hljs-number">0</span>, <span class="hljs-number">128</span>, <span class="hljs-number">255</span>], <span class="hljs-string">"hueRotate"</span>, <span class="hljs-number">0</span>);
+<span class="hljs-comment">// or</span>
+matrix.hueRotate([<span class="hljs-number">255</span>, <span class="hljs-number">0</span>, <span class="hljs-number">128</span>, <span class="hljs-number">255</span>], <span class="hljs-number">0</span>);</code></pre><h3 id="cli-usage-">CLI Usage:</h3>
+<pre><code class="hljs lang-bash"><span class="hljs-keyword">color</span>-<span class="hljs-keyword">matrix</span> --<span class="hljs-keyword">filter</span> <span class="hljs-string">"hueRotate"</span> <span class="hljs-string">"#FF0080"</span> --value <span class="hljs-number">0</span>
+# or process an <span class="hljs-keyword">image</span>:
+<span class="hljs-keyword">color</span>-<span class="hljs-keyword">matrix</span> --<span class="hljs-keyword">filter</span> <span class="hljs-string">"hueRotate"</span> --input ./<span class="hljs-keyword">image</span>.png --output ./<span class="hljs-keyword">image</span>-hueRotate-<span class="hljs-number">0.</span>png --value <span class="hljs-number">0</span></code></pre><h3 id="example-results">Example Results</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Original</th>
+<th style="text-align:center">Color Matrix</th>
+<th style="text-align:center">SVG</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><img width="128" height="128" alt="hueRotate" src="images/lenna/lenna.png" /></td>
+<td style="text-align:center"><img width="128" height="128" alt="hueRotate" src="images/lenna/lenna-hueRotate-0.png" /></td>
+<td style="text-align:center"><svg width="128" height="128" viewBox="0 0 512 512"><filter id="fx-hueRotate-0"><feColorMatrix in="SourceGraphic" type="matrix" values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0" /></filter><image x="0" y="0" width="512" height="512" filter="url(#fx-hueRotate-0)" xlink:href="images/lenna/lenna.png" /></svg></td>
+</tr>
+</tbody>
+</table>
+<p><strong>with value: 45</strong></p>
+<h3 id="node-usage-">Node Usage:</h3>
+<pre><code class="hljs lang-javascript">var ColorMatrix = require(<span class="hljs-string">"color-matrix"</span>);
+var matrix = <span class="hljs-keyword">new</span> ColorMatrix();
+matrix.transform([<span class="hljs-number">255</span>, <span class="hljs-number">0</span>, <span class="hljs-number">128</span>, <span class="hljs-number">255</span>], <span class="hljs-string">"hueRotate"</span>, <span class="hljs-number">45</span>);
+<span class="hljs-comment">// or</span>
+matrix.hueRotate([<span class="hljs-number">255</span>, <span class="hljs-number">0</span>, <span class="hljs-number">128</span>, <span class="hljs-number">255</span>], <span class="hljs-number">45</span>);</code></pre><h3 id="cli-usage-">CLI Usage:</h3>
+<pre><code class="hljs lang-bash"><span class="hljs-keyword">color</span>-<span class="hljs-keyword">matrix</span> --<span class="hljs-keyword">filter</span> <span class="hljs-string">"hueRotate"</span> <span class="hljs-string">"#FF0080"</span> --value <span class="hljs-number">45</span>
+# or process an <span class="hljs-keyword">image</span>:
+<span class="hljs-keyword">color</span>-<span class="hljs-keyword">matrix</span> --<span class="hljs-keyword">filter</span> <span class="hljs-string">"hueRotate"</span> --input ./<span class="hljs-keyword">image</span>.png --output ./<span class="hljs-keyword">image</span>-hueRotate-<span class="hljs-number">45.</span>png --value <span class="hljs-number">45</span></code></pre><h3 id="example-results">Example Results</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Original</th>
+<th style="text-align:center">Color Matrix</th>
+<th style="text-align:center">SVG</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><img width="128" height="128" alt="hueRotate" src="images/lenna/lenna.png" /></td>
+<td style="text-align:center"><img width="128" height="128" alt="hueRotate" src="images/lenna/lenna-hueRotate-45.png" /></td>
+<td style="text-align:center"><svg width="128" height="128" viewBox="0 0 512 512"><filter id="fx-hueRotate-45"><feColorMatrix in="SourceGraphic" type="matrix" values="0.4451859544737861 -0.2690012420465714 0.8238152875727853 0 0 0.2227856203902025 0.9838432602478294 -0.20662888063803203 0 0 -0.5685546574265277 0.9477907980372179 0.6207638593893097 0 0 0 0 0 1 0" /></filter><image x="0" y="0" width="512" height="512" filter="url(#fx-hueRotate-45)" xlink:href="images/lenna/lenna.png" /></svg></td>
+</tr>
+</tbody>
+</table>
+<p><strong>with value: 90</strong></p>
+<h3 id="node-usage-">Node Usage:</h3>
+<pre><code class="hljs lang-javascript">var ColorMatrix = require(<span class="hljs-string">"color-matrix"</span>);
+var matrix = <span class="hljs-keyword">new</span> ColorMatrix();
+matrix.transform([<span class="hljs-number">255</span>, <span class="hljs-number">0</span>, <span class="hljs-number">128</span>, <span class="hljs-number">255</span>], <span class="hljs-string">"hueRotate"</span>, <span class="hljs-number">90</span>);
+<span class="hljs-comment">// or</span>
+matrix.hueRotate([<span class="hljs-number">255</span>, <span class="hljs-number">0</span>, <span class="hljs-number">128</span>, <span class="hljs-number">255</span>], <span class="hljs-number">90</span>);</code></pre><h3 id="cli-usage-">CLI Usage:</h3>
+<pre><code class="hljs lang-bash"><span class="hljs-keyword">color</span>-<span class="hljs-keyword">matrix</span> --<span class="hljs-keyword">filter</span> <span class="hljs-string">"hueRotate"</span> <span class="hljs-string">"#FF0080"</span> --value <span class="hljs-number">90</span>
+# or process an <span class="hljs-keyword">image</span>:
+<span class="hljs-keyword">color</span>-<span class="hljs-keyword">matrix</span> --<span class="hljs-keyword">filter</span> <span class="hljs-string">"hueRotate"</span> --input ./<span class="hljs-keyword">image</span>.png --output ./<span class="hljs-keyword">image</span>-hueRotate-<span class="hljs-number">90.</span>png --value <span class="hljs-number">90</span></code></pre><h3 id="example-results">Example Results</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Original</th>
+<th style="text-align:center">Color Matrix</th>
+<th style="text-align:center">SVG</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><img width="128" height="128" alt="hueRotate" src="images/lenna/lenna.png" /></td>
+<td style="text-align:center"><img width="128" height="128" alt="hueRotate" src="images/lenna/lenna-hueRotate-90.png" /></td>
+<td style="text-align:center"><svg width="128" height="128" viewBox="0 0 512 512"><filter id="fx-hueRotate-90"><feColorMatrix in="SourceGraphic" type="matrix" values="-0.33005522524057573 0.3961650210579578 0.9338902041826179 0 0 0.43628120313039304 0.7124585523072646 -0.14873975543765763 0 0 -0.39513569401812576 1.6745802500067555 -0.27944455598862983 0 0 0 0 0 1 0" /></filter><image x="0" y="0" width="512" height="512" filter="url(#fx-hueRotate-90)" xlink:href="images/lenna/lenna.png" /></svg></td>
+</tr>
+</tbody>
+</table>
+<p><strong>with value: 135</strong></p>
+<h3 id="node-usage-">Node Usage:</h3>
+<pre><code class="hljs lang-javascript">var ColorMatrix = require(<span class="hljs-string">"color-matrix"</span>);
+var matrix = <span class="hljs-keyword">new</span> ColorMatrix();
+matrix.transform([<span class="hljs-number">255</span>, <span class="hljs-number">0</span>, <span class="hljs-number">128</span>, <span class="hljs-number">255</span>], <span class="hljs-string">"hueRotate"</span>, <span class="hljs-number">135</span>);
+<span class="hljs-comment">// or</span>
+matrix.hueRotate([<span class="hljs-number">255</span>, <span class="hljs-number">0</span>, <span class="hljs-number">128</span>, <span class="hljs-number">255</span>], <span class="hljs-number">135</span>);</code></pre><h3 id="cli-usage-">CLI Usage:</h3>
+<pre><code class="hljs lang-bash"><span class="hljs-keyword">color</span>-<span class="hljs-keyword">matrix</span> --<span class="hljs-keyword">filter</span> <span class="hljs-string">"hueRotate"</span> <span class="hljs-string">"#FF0080"</span> --value <span class="hljs-number">135</span>
+# or process an <span class="hljs-keyword">image</span>:
+<span class="hljs-keyword">color</span>-<span class="hljs-keyword">matrix</span> --<span class="hljs-keyword">filter</span> <span class="hljs-string">"hueRotate"</span> --input ./<span class="hljs-keyword">image</span>.png --output ./<span class="hljs-keyword">image</span>-hueRotate-<span class="hljs-number">135.</span>png --value <span class="hljs-number">135</span></code></pre><h3 id="example-results">Example Results</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Original</th>
+<th style="text-align:center">Color Matrix</th>
+<th style="text-align:center">SVG</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><img width="128" height="128" alt="hueRotate" src="images/lenna/lenna.png" /></td>
+<td style="text-align:center"><img width="128" height="128" alt="hueRotate" src="images/lenna/lenna-hueRotate-135.png" /></td>
+<td style="text-align:center"><svg width="128" height="128" viewBox="0 0 512 512"><filter id="fx-hueRotate-135"><feColorMatrix in="SourceGraphic" type="matrix" values="-0.5897436563962649 1.3640191915615862 0.22572446483467865 0 0 0.43780343099794455 0.44348658303932253 0.1187099859627329 0 0 0.3556205529212232 1.4903864126903084 -0.8460069656115315 0 0 0 0 0 1 0" /></filter><image x="0" y="0" width="512" height="512" filter="url(#fx-hueRotate-135)" xlink:href="images/lenna/lenna.png" /></svg></td>
+</tr>
+</tbody>
+</table>
+<p><strong>with value: 180</strong></p>
+<h3 id="node-usage-">Node Usage:</h3>
+<pre><code class="hljs lang-javascript">var ColorMatrix = require(<span class="hljs-string">"color-matrix"</span>);
+var matrix = <span class="hljs-keyword">new</span> ColorMatrix();
+matrix.transform([<span class="hljs-number">255</span>, <span class="hljs-number">0</span>, <span class="hljs-number">128</span>, <span class="hljs-number">255</span>], <span class="hljs-string">"hueRotate"</span>, <span class="hljs-number">180</span>);
+<span class="hljs-comment">// or</span>
+matrix.hueRotate([<span class="hljs-number">255</span>, <span class="hljs-number">0</span>, <span class="hljs-number">128</span>, <span class="hljs-number">255</span>], <span class="hljs-number">180</span>);</code></pre><h3 id="cli-usage-">CLI Usage:</h3>
+<pre><code class="hljs lang-bash"><span class="hljs-keyword">color</span>-<span class="hljs-keyword">matrix</span> --<span class="hljs-keyword">filter</span> <span class="hljs-string">"hueRotate"</span> <span class="hljs-string">"#FF0080"</span> --value <span class="hljs-number">180</span>
+# or process an <span class="hljs-keyword">image</span>:
+<span class="hljs-keyword">color</span>-<span class="hljs-keyword">matrix</span> --<span class="hljs-keyword">filter</span> <span class="hljs-string">"hueRotate"</span> --input ./<span class="hljs-keyword">image</span>.png --output ./<span class="hljs-keyword">image</span>-hueRotate-<span class="hljs-number">180.</span>png --value <span class="hljs-number">180</span></code></pre><h3 id="example-results">Example Results</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Original</th>
+<th style="text-align:center">Color Matrix</th>
+<th style="text-align:center">SVG</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><img width="128" height="128" alt="hueRotate" src="images/lenna/lenna.png" /></td>
+<td style="text-align:center"><img width="128" height="128" alt="hueRotate" src="images/lenna/lenna-hueRotate-180.png" /></td>
+<td style="text-align:center"><svg width="128" height="128" viewBox="0 0 512 512"><filter id="fx-hueRotate-180"><feColorMatrix in="SourceGraphic" type="matrix" values="-0.08734256293722842 1.7157230839260573 -0.6283805209888289 0 0 0.22590716779938602 0.4322775113157741 0.3418153208848398 0 0 0.9709791190318484 0.5700748148266795 -0.5410539338585281 0 0 0 0 0 1 0" /></filter><image x="0" y="0" width="512" height="512" filter="url(#fx-hueRotate-180)" xlink:href="images/lenna/lenna.png" /></svg></td>
+</tr>
+</tbody>
+</table>
+<p><strong>with value: 225</strong></p>
+<h3 id="node-usage-">Node Usage:</h3>
+<pre><code class="hljs lang-javascript">var ColorMatrix = require(<span class="hljs-string">"color-matrix"</span>);
+var matrix = <span class="hljs-keyword">new</span> ColorMatrix();
+matrix.transform([<span class="hljs-number">255</span>, <span class="hljs-number">0</span>, <span class="hljs-number">128</span>, <span class="hljs-number">255</span>], <span class="hljs-string">"hueRotate"</span>, <span class="hljs-number">225</span>);
+<span class="hljs-comment">// or</span>
+matrix.hueRotate([<span class="hljs-number">255</span>, <span class="hljs-number">0</span>, <span class="hljs-number">128</span>, <span class="hljs-number">255</span>], <span class="hljs-number">225</span>);</code></pre><h3 id="cli-usage-">CLI Usage:</h3>
+<pre><code class="hljs lang-bash"><span class="hljs-keyword">color</span>-<span class="hljs-keyword">matrix</span> --<span class="hljs-keyword">filter</span> <span class="hljs-string">"hueRotate"</span> <span class="hljs-string">"#FF0080"</span> --value <span class="hljs-number">225</span>
+# or process an <span class="hljs-keyword">image</span>:
+<span class="hljs-keyword">color</span>-<span class="hljs-keyword">matrix</span> --<span class="hljs-keyword">filter</span> <span class="hljs-string">"hueRotate"</span> --input ./<span class="hljs-keyword">image</span>.png --output ./<span class="hljs-keyword">image</span>-hueRotate-<span class="hljs-number">225.</span>png --value <span class="hljs-number">225</span></code></pre><h3 id="example-results">Example Results</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Original</th>
+<th style="text-align:center">Color Matrix</th>
+<th style="text-align:center">SVG</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><img width="128" height="128" alt="hueRotate" src="images/lenna/lenna.png" /></td>
+<td style="text-align:center"><img width="128" height="128" alt="hueRotate" src="images/lenna/lenna-hueRotate-225.png" /></td>
+<td style="text-align:center"><svg width="128" height="128" viewBox="0 0 512 512"><filter id="fx-hueRotate-225"><feColorMatrix in="SourceGraphic" type="matrix" values="0.7001905514186668 1.1173844898461103 -0.8175750412647773 0 0 0.0017574071188106444 0.6894727368824862 0.308769855998703 0 0 0.8667456436630192 -0.21265118570036096 0.3459055420373417 0 0 0 0 0 1 0" /></filter><image x="0" y="0" width="512" height="512" filter="url(#fx-hueRotate-225)" xlink:href="images/lenna/lenna.png" /></svg></td>
+</tr>
+</tbody>
+</table>
+<p><strong>with value: 270</strong></p>
+<h3 id="node-usage-">Node Usage:</h3>
+<pre><code class="hljs lang-javascript">var ColorMatrix = require(<span class="hljs-string">"color-matrix"</span>);
+var matrix = <span class="hljs-keyword">new</span> ColorMatrix();
+matrix.transform([<span class="hljs-number">255</span>, <span class="hljs-number">0</span>, <span class="hljs-number">128</span>, <span class="hljs-number">255</span>], <span class="hljs-string">"hueRotate"</span>, <span class="hljs-number">270</span>);
+<span class="hljs-comment">// or</span>
+matrix.hueRotate([<span class="hljs-number">255</span>, <span class="hljs-number">0</span>, <span class="hljs-number">128</span>, <span class="hljs-number">255</span>], <span class="hljs-number">270</span>);</code></pre><h3 id="cli-usage-">CLI Usage:</h3>
+<pre><code class="hljs lang-bash"><span class="hljs-keyword">color</span>-<span class="hljs-keyword">matrix</span> --<span class="hljs-keyword">filter</span> <span class="hljs-string">"hueRotate"</span> <span class="hljs-string">"#FF0080"</span> --value <span class="hljs-number">270</span>
+# or process an <span class="hljs-keyword">image</span>:
+<span class="hljs-keyword">color</span>-<span class="hljs-keyword">matrix</span> --<span class="hljs-keyword">filter</span> <span class="hljs-string">"hueRotate"</span> --input ./<span class="hljs-keyword">image</span>.png --output ./<span class="hljs-keyword">image</span>-hueRotate-<span class="hljs-number">270.</span>png --value <span class="hljs-number">270</span></code></pre><h3 id="example-results">Example Results</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Original</th>
+<th style="text-align:center">Color Matrix</th>
+<th style="text-align:center">SVG</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><img width="128" height="128" alt="hueRotate" src="images/lenna/lenna.png" /></td>
+<td style="text-align:center"><img width="128" height="128" alt="hueRotate" src="images/lenna/lenna-hueRotate-270.png" /></td>
+<td style="text-align:center"><svg width="128" height="128" viewBox="0 0 512 512"><filter id="fx-hueRotate-270"><feColorMatrix in="SourceGraphic" type="matrix" values="1.0252063817461494 0.13703975702467514 -0.16224613877082456 0 0 -0.02184792583010678 0.9709024234242942 0.05094550240581247 0 0 0.14187480438811984 -0.11470594642915716 0.9728311420410374 0 0 0 0 0 1 0" /></filter><image x="0" y="0" width="512" height="512" filter="url(#fx-hueRotate-270)" xlink:href="images/lenna/lenna.png" /></svg></td>
+</tr>
+</tbody>
+</table>
+<p><strong>with value: 315</strong></p>
+<h3 id="node-usage-">Node Usage:</h3>
+<pre><code class="hljs lang-javascript">var ColorMatrix = require(<span class="hljs-string">"color-matrix"</span>);
+var matrix = <span class="hljs-keyword">new</span> ColorMatrix();
+matrix.transform([<span class="hljs-number">255</span>, <span class="hljs-number">0</span>, <span class="hljs-number">128</span>, <span class="hljs-number">255</span>], <span class="hljs-string">"hueRotate"</span>, <span class="hljs-number">315</span>);
+<span class="hljs-comment">// or</span>
+matrix.hueRotate([<span class="hljs-number">255</span>, <span class="hljs-number">0</span>, <span class="hljs-number">128</span>, <span class="hljs-number">255</span>], <span class="hljs-number">315</span>);</code></pre><h3 id="cli-usage-">CLI Usage:</h3>
+<pre><code class="hljs lang-bash"><span class="hljs-keyword">color</span>-<span class="hljs-keyword">matrix</span> --<span class="hljs-keyword">filter</span> <span class="hljs-string">"hueRotate"</span> <span class="hljs-string">"#FF0080"</span> --value <span class="hljs-number">315</span>
+# or process an <span class="hljs-keyword">image</span>:
+<span class="hljs-keyword">color</span>-<span class="hljs-keyword">matrix</span> --<span class="hljs-keyword">filter</span> <span class="hljs-string">"hueRotate"</span> --input ./<span class="hljs-keyword">image</span>.png --output ./<span class="hljs-keyword">image</span>-hueRotate-<span class="hljs-number">315.</span>png --value <span class="hljs-number">315</span></code></pre><h3 id="example-results">Example Results</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Original</th>
+<th style="text-align:center">Color Matrix</th>
+<th style="text-align:center">SVG</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><img width="128" height="128" alt="hueRotate" src="images/lenna/lenna.png" /></td>
+<td style="text-align:center"><img width="128" height="128" alt="hueRotate" src="images/lenna/lenna-hueRotate-315.png" /></td>
+<td style="text-align:center"><svg width="128" height="128" viewBox="0 0 512 512"><filter id="fx-hueRotate-315"><feColorMatrix in="SourceGraphic" type="matrix" values="0.5791491921600119 -0.2946149384408623 0.7154657462808504 0 0 0.17750103394760863 1.0093896031505678 -0.1868906370981764 0 0 -0.5154729020907852 0.7709256298762379 0.7445472722145473 0 0 0 0 0 1 0" /></filter><image x="0" y="0" width="512" height="512" filter="url(#fx-hueRotate-315)" xlink:href="images/lenna/lenna.png" /></svg></td>
+</tr>
+</tbody>
+</table>
+<h2 id="luminancetoalpha">luminanceToAlpha</h2>
+<h3 id="node-usage-">Node Usage:</h3>
+<pre><code class="hljs lang-javascript">var ColorMatrix = require(<span class="hljs-string">"color-matrix"</span>);
+var matrix = <span class="hljs-keyword">new</span> ColorMatrix();
+matrix.transform([<span class="hljs-number">255</span>, <span class="hljs-number">0</span>, <span class="hljs-number">128</span>, <span class="hljs-number">255</span>], <span class="hljs-string">"luminanceToAlpha"</span>);
+<span class="hljs-comment">// or</span>
+matrix.luminanceToAlpha([<span class="hljs-number">255</span>, <span class="hljs-number">0</span>, <span class="hljs-number">128</span>, <span class="hljs-number">255</span>]);</code></pre><h3 id="cli-usage-">CLI Usage:</h3>
+<pre><code class="hljs lang-bash"><span class="hljs-keyword">color</span>-<span class="hljs-keyword">matrix</span> --<span class="hljs-keyword">filter</span> <span class="hljs-string">"luminanceToAlpha"</span> <span class="hljs-string">"#FF0080"</span> 
+# or process an <span class="hljs-keyword">image</span>:
+<span class="hljs-keyword">color</span>-<span class="hljs-keyword">matrix</span> --<span class="hljs-keyword">filter</span> <span class="hljs-string">"luminanceToAlpha"</span> --input ./<span class="hljs-keyword">image</span>.png --output ./<span class="hljs-keyword">image</span>-luminanceToAlpha.png</code></pre><h3 id="example-results">Example Results</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Original</th>
+<th style="text-align:center">Color Matrix</th>
+<th style="text-align:center">SVG</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><img width="128" height="128" alt="luminanceToAlpha" src="images/lenna/lenna.png" /></td>
+<td style="text-align:center"><img width="128" height="128" alt="luminanceToAlpha" src="images/lenna/lenna-luminanceToAlpha.png" /></td>
+<td style="text-align:center"><svg width="128" height="128" viewBox="0 0 512 512"><filter id="fx-luminanceToAlpha-undefined"><feColorMatrix in="SourceGraphic" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.2125 0.7154 0.0721 0 0" /></filter><image x="0" y="0" width="512" height="512" filter="url(#fx-luminanceToAlpha-undefined)" xlink:href="images/lenna/lenna.png" /></svg></td>
+</tr>
+</tbody>
+</table>
+      </section>
+      <footer>
+        <p>
+          <small>
+          	Hosted on <a href="https://pages.github.com">GitHub Pages</a>
+        	using a modified version of the <a href="https://github.com/broccolini/dinky">Dinky theme</a>
+          </small>
+        </p>
+      </footer>
+    </div>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+  </body>
+</html>
