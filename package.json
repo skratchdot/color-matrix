@@ -28,7 +28,7 @@
     "onecolor": "^2.4.0"
   },
   "devDependencies": {
-    "ejs": "^2.3.4",
+    "ejs": "^2.5.2",
     "gulp": "^3.8.1",
     "gulp-jshint": "^1.6.3",
     "gulp-nodeunit": "0.0.5",
